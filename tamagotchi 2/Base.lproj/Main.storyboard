@@ -128,7 +128,7 @@
                                 <rect key="frame" x="88" y="258" width="199" height="199"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TG7-k2-4AL" userLabel="Settings">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TG7-k2-4AL" userLabel="Settings">
                                 <rect key="frame" x="19" y="183" width="340" height="274"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -171,22 +171,42 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SD6-Hh-LNT" userLabel="Feed">
                                 <rect key="frame" x="19" y="183" width="340" height="287"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What Would You Like To Feed %0?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZD-dT-hts">
+                                        <rect key="frame" x="8" y="30" width="324" height="58"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EL-un-bHA">
+                                        <rect key="frame" x="31" y="128" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Food"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zXo-nT-McW">
+                                        <rect key="frame" x="189" y="128" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                        <state key="normal" title="Snack"/>
+                                    </button>
+                                </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <variation key="default">
-                            <mask key="subviews">
-                                <exclude reference="TG7-k2-4AL"/>
-                            </mask>
-                        </variation>
                     </view>
                     <connections>
+                        <outlet property="FeedDisclaimerLabel" destination="HZD-dT-hts" id="cYz-oa-aVa"/>
                         <outlet property="careButton" destination="qdU-Fm-2R4" id="btY-i6-jfo"/>
                         <outlet property="changeButton" destination="zZn-Hu-ww1" id="cPH-fA-DF9"/>
                         <outlet property="cleanButton" destination="67H-eN-SBC" id="fbV-Vv-WxB"/>
                         <outlet property="closeSettingsPanelButton" destination="B1l-M8-gtG" id="mud-X5-34t"/>
                         <outlet property="feedButton" destination="z0Y-9Y-6EO" id="Kzz-rT-T67"/>
+                        <outlet property="feedNormalFoodButton" destination="5EL-un-bHA" id="WUc-U1-rYt"/>
+                        <outlet property="feedPanel" destination="SD6-Hh-LNT" id="7TJ-n7-9r2"/>
+                        <outlet property="feedSnackButton" destination="zXo-nT-McW" id="ehI-ff-lOJ"/>
                         <outlet property="healButton" destination="rno-T4-qXc" id="5sa-Il-tmd"/>
                         <outlet property="homeButton" destination="lZ4-LK-Iv7" id="d3E-pr-xZQ"/>
                         <outlet property="lightsButton" destination="nDS-94-Qzb" id="dyG-bW-gvP"/>
@@ -195,7 +215,7 @@
                         <outlet property="playButton" destination="Jw7-je-1kb" id="IuK-uJ-8la"/>
                         <outlet property="scoldButton" destination="BLi-XN-bdf" id="p6R-fK-8MT"/>
                         <outlet property="settingsButton" destination="0g3-r2-ECz" id="vte-YS-5ti"/>
-                        <outlet property="settingsView" destination="TG7-k2-4AL" id="icF-ZS-wDw"/>
+                        <outlet property="settingsPanel" destination="TG7-k2-4AL" id="icF-ZS-wDw"/>
                         <outlet property="statusButton" destination="EpY-YE-eiT" id="cCg-U4-9xh"/>
                         <outlet property="volumeSlider" destination="fWL-PJ-RcH" id="fSg-Rw-k5O"/>
                     </connections>

@@ -42,12 +42,19 @@ class MainViewController: UIViewController
     @IBOutlet weak var scoldButton: UIButton!
     @IBOutlet weak var careButton: UIButton!
     
-    // Panels
-    @IBOutlet weak var settingsView: UIView!
+    // Settings Panel
+    @IBOutlet weak var settingsPanel: UIView!
     @IBOutlet weak var volumeSlider: UISlider!
     @IBOutlet weak var closeSettingsPanelButton: UIButton!
     @IBOutlet weak var loggedAsUsernameLabel: UILabel!
     @IBOutlet weak var pickNewUserButton: UIButton!
+    
+    // Feed Button
+    @IBOutlet weak var feedPanel: UIView!
+    @IBOutlet weak var FeedDisclaimerLabel: UILabel!
+    @IBOutlet weak var feedNormalFoodButton: UIButton!
+    @IBOutlet weak var feedSnackButton: UIButton!
+    
     
     var currentlyActive: SubSections = SubSections.Main;
     
@@ -78,7 +85,7 @@ class MainViewController: UIViewController
     {
         if (!ShouldEnableSection(SubSections.Settings)) { return; }
         DisableAllButtonsExcept(settingsButton);
-        DisableAllPanelsExcept(settingsView);
+        DisableAllPanelsExcept(settingsPanel);
     }
     @IBAction func OnCloseSettingsButtonPressed(_ sender: Any) { OnSettingButtonPressed(sender); }
     
@@ -86,6 +93,7 @@ class MainViewController: UIViewController
     {
         if (!ShouldEnableSection(SubSections.Feed)) { return; }
         DisableAllButtonsExcept(feedButton);
+        DisableAllPanelsExcept(feedPanel);
     }
     
     @IBAction func OnLightsButtonPressed(_ sender: Any)
@@ -143,7 +151,8 @@ class MainViewController: UIViewController
     
     private func SetAllPanelsEnabledState(_ state: Bool)
     {
-        SetSinglePanelEnabledState(settingsView, state);
+        SetSinglePanelEnabledState(settingsPanel, state);
+        SetSinglePanelEnabledState(feedPanel, state);
     }
     
     private func SetSingleButtonEnabledState(_ button: UIButton, _ newState: Bool)

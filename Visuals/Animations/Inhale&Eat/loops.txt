@@ -1,0 +1,4 @@
+Inhale Intro: 	1-5
+Inhale Loop: 	3-5
+Inhaled: 		6-9
+Eat:			10-13

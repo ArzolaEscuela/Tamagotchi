@@ -27,7 +27,7 @@
                                 <color key="backgroundColor" red="0.8635191941624365" green="0.8635191941624365" blue="0.8635191941624365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Home"/>
                                 <connections>
-                                    <segue destination="HWu-WS-rtG" kind="show" id="bdG-Kp-njx"/>
+                                    <segue destination="HWu-WS-rtG" kind="show" identifier="fromMainToTitle" id="bdG-Kp-njx"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0g3-r2-ECz">
@@ -211,10 +211,10 @@
             </objects>
             <point key="canvasLocation" x="-7.2463768115942031" y="-723.09782608695662"/>
         </scene>
-        <!--Main Menu Scene-->
+        <!--Title Screen-->
         <scene sceneID="Ra2-ur-BG2">
             <objects>
-                <viewController id="HWu-WS-rtG" userLabel="Main Menu Scene" customClass="TitleScreenViewController" customModule="tamagotchi_2" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="HWu-WS-rtG" userLabel="Title Screen" customClass="TitleScreenViewController" customModule="tamagotchi_2" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="MxO-fg-q0A"/>
                         <viewControllerLayoutGuide type="bottom" id="wPI-qP-UhY"/>
@@ -223,6 +223,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="top" semanticContentAttribute="playback" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="title_screen.png" translatesAutoresizingMaskIntoConstraints="NO" id="ptC-AX-vbU" userLabel="Tiled Background">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="top" text="Tap Anywhere To Continue" textAlignment="center" minimumFontSize="19" translatesAutoresizingMaskIntoConstraints="NO" id="q3V-Kd-xuv">
                                 <rect key="frame" x="113.66666666666669" y="635" width="187" height="30"/>
                                 <constraints>
@@ -243,39 +248,43 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="walking1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ylq-Xs-PJU">
-                                <rect key="frame" x="20" y="268.66666666666669" width="374" height="199"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" secondItem="Ylq-Xs-PJU" secondAttribute="height" multiplier="374:199" id="7HK-MD-crY"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="walking1.png" translatesAutoresizingMaskIntoConstraints="NO" id="543-OB-y1I" userLabel="Title Screen Graphic 2">
+                                <rect key="frame" x="-75" y="307" width="145" height="145"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="walking1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ylq-Xs-PJU">
+                                <rect key="frame" x="340" y="308" width="144" height="144"/>
                             </imageView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
                         <constraints>
                             <constraint firstItem="JUb-ro-kw2" firstAttribute="top" secondItem="MxO-fg-q0A" secondAttribute="bottom" constant="46" id="1nT-dW-cYX"/>
-                            <constraint firstItem="Ylq-Xs-PJU" firstAttribute="centerX" secondItem="3Ed-9N-3tc" secondAttribute="centerX" id="5Zs-gw-ccb"/>
                             <constraint firstItem="q3V-Kd-xuv" firstAttribute="centerX" secondItem="3Ed-9N-3tc" secondAttribute="centerX" id="J6K-Pa-AvV"/>
-                            <constraint firstItem="Ylq-Xs-PJU" firstAttribute="trailing" secondItem="3Ed-9N-3tc" secondAttribute="trailingMargin" id="JbG-Ed-jCY"/>
                             <constraint firstItem="wPI-qP-UhY" firstAttribute="top" secondItem="q3V-Kd-xuv" secondAttribute="bottom" constant="71" id="Nas-8H-GUB"/>
-                            <constraint firstItem="Ylq-Xs-PJU" firstAttribute="centerY" secondItem="3Ed-9N-3tc" secondAttribute="centerY" id="X9E-TU-rRp"/>
+                            <constraint firstItem="Ylq-Xs-PJU" firstAttribute="centerX" secondItem="3Ed-9N-3tc" secondAttribute="centerX" id="SrX-dd-jhN"/>
+                            <constraint firstItem="Ylq-Xs-PJU" firstAttribute="centerY" secondItem="3Ed-9N-3tc" secondAttribute="centerY" id="Yru-Bq-GqG"/>
+                            <constraint firstItem="543-OB-y1I" firstAttribute="centerY" secondItem="3Ed-9N-3tc" secondAttribute="centerY" id="bHg-l8-bUn"/>
+                            <constraint firstItem="Ylq-Xs-PJU" firstAttribute="centerY" secondItem="543-OB-y1I" secondAttribute="centerY" id="c1m-W8-5aa"/>
                             <constraint firstItem="JUb-ro-kw2" firstAttribute="centerX" secondItem="3Ed-9N-3tc" secondAttribute="centerX" id="feB-bO-hqK"/>
-                            <constraint firstItem="Ylq-Xs-PJU" firstAttribute="leading" secondItem="3Ed-9N-3tc" secondAttribute="leadingMargin" id="vUO-ZX-AJ1"/>
+                            <constraint firstItem="543-OB-y1I" firstAttribute="centerY" secondItem="3Ed-9N-3tc" secondAttribute="centerY" id="s4B-DW-XXh"/>
+                            <constraint firstItem="Ylq-Xs-PJU" firstAttribute="centerY" secondItem="3Ed-9N-3tc" secondAttribute="centerY" id="xHF-nf-nWX"/>
+                            <constraint firstItem="543-OB-y1I" firstAttribute="centerX" secondItem="3Ed-9N-3tc" secondAttribute="centerX" id="ycs-Nu-n0m"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="s5g-Sm-0sF" appends="YES" id="Kdu-dj-js7"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="tiledBackground" destination="ptC-AX-vbU" id="EMT-tO-o1V"/>
                         <outlet property="titleScreenGraphic" destination="Ylq-Xs-PJU" id="BHI-hi-3BP"/>
+                        <outlet property="titleScreenGraphic2" destination="543-OB-y1I" id="tHz-e8-0rE"/>
+                        <segue destination="BYZ-38-t0r" kind="show" identifier="fromTitleToMain" id="EEC-f0-mYQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="T8L-kE-c9y" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="RSy-1g-yTa" userLabel="Exit" sceneMemberID="exit"/>
-                <tapGestureRecognizer id="s5g-Sm-0sF">
+                <tapGestureRecognizer cancelsTouchesInView="NO" id="s5g-Sm-0sF">
                     <connections>
-                        <action selector="OnTap:" destination="RSy-1g-yTa" id="gi5-5P-aDL"/>
-                        <segue destination="puv-Qg-B5G" kind="show" id="o6V-Ge-MHW"/>
+                        <action selector="OnScreenTap:" destination="HWu-WS-rtG" id="h2D-NJ-tgd"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
@@ -378,10 +387,11 @@
         <image name="Scold Button.png" width="64" height="64"/>
         <image name="Settings.png" width="43" height="40"/>
         <image name="Status Button.png" width="64" height="64"/>
+        <image name="title_screen.png" width="250" height="250"/>
         <image name="walking1.png" width="120" height="120"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zcH-bu-FC8"/>
+        <segue reference="EEC-f0-mYQ"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

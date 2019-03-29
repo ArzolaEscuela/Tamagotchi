@@ -1,11 +1,3 @@
-//
-//  AppDelegate.swift
-//  tamagotchi 2
-//
-//  Created by Diego on 3/17/19.
-//  Copyright © 2019 Diego. All rights reserved.
-//
-
 import UIKit
 
 @UIApplicationMain

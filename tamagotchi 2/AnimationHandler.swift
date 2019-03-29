@@ -1,11 +1,3 @@
-//
-//  AnimationHandler.swift
-//  tamagotchi 2
-//
-//  Created by alumno on 3/28/19.
-//  Copyright © 2019 Diego. All rights reserved.
-//
-
 import UIKit
 import Foundation
 
@@ -18,6 +10,7 @@ public class Animation
     init(_ prefferedAnimationDuration: Double, _ animationName: String, _ startFrame: Int, _ endFrame: Int, _ loops: Bool)
     {
         self.loops = loops;
+        self.prefferedAnimationDuration = prefferedAnimationDuration;
         
         for i in startFrame...endFrame
         {
@@ -25,8 +18,12 @@ public class Animation
         }
     }
     
-    public func PlayAnimation(_ targetGraphic: UIImageView)
+    public func PlayAnimation(_ targetGraphic: UIImageView)//, _ onAnimationEnd: () -> Void)
     {
+        
+        targetGraphic.stopAnimating();
+        targetGraphic.animationRepeatCount = loops ? Int.max : 0;
+        
         var images = [UIImage]();
         for i in 0..<imageNames.count
         {
@@ -34,27 +31,13 @@ public class Animation
         }
         targetGraphic.animationImages = images;
         targetGraphic.animationDuration = prefferedAnimationDuration;
+
         targetGraphic.startAnimating();
     }
 }
 
 public struct AnimationHandler
 {
-    public static var walkingAnimation = Animation(2.0, "walking", 1, 10, true);
-    
-    
-    
-    /*var walkingAnimation = SKTextureAtlas();
-    var walkingAnimationArray = [SKTexture]();
-    
-    public func AnimationHandler()
-    {
-        walkingAnimation = SKTextureAtlas(named: "Visuals/animations/walking");
-        
-        for i in 1...walkingAnimation.textureNames.count
-        {
-            var name = "walking\(i).png";
-            walkingAnimationArray.append(SKTexture(imageNamed: name));
-        }
-    }*/
+    public static var walkingAnimation = Animation(0.8, "walking", 1, 10, true);
+    public static var cheerAnimation = Animation(0.4, "cheer", 1, 10, false);
 }

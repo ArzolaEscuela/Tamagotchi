@@ -3,7 +3,7 @@ import Foundation
 
 public class Animation
 {
-    private var imageNames = [String]()
+    private var images = [UIImage]()
     private var prefferedAnimationDuration: Double = -1.0;
     private var loops: Bool = true;
     
@@ -14,21 +14,14 @@ public class Animation
         
         for i in startFrame...endFrame
         {
-            imageNames.append(animationName + String(i) + ".png");
+            let animationName = animationName + String(i) + ".png";
+            images.append(UIImage(named: animationName)!);
         }
     }
     
     public func PlayAnimation(_ targetGraphic: UIImageView)//, _ onAnimationEnd: () -> Void)
     {
-        
-        targetGraphic.stopAnimating();
-        targetGraphic.animationRepeatCount = loops ? Int.max : 0;
-        
-        var images = [UIImage]();
-        for i in 0..<imageNames.count
-        {
-            images.append(UIImage(named: imageNames[i])!);
-        }
+        targetGraphic.animationRepeatCount = loops ? Int.max : 0;        
         targetGraphic.animationImages = images;
         targetGraphic.animationDuration = prefferedAnimationDuration;
 
@@ -39,5 +32,5 @@ public class Animation
 public struct AnimationHandler
 {
     public static var walkingAnimation = Animation(0.8, "walking", 1, 10, true);
-    public static var cheerAnimation = Animation(0.4, "cheer", 1, 10, false);
+    public static var cheerAnimation = Animation(0.4, "cheer", 1, 10, true);
 }

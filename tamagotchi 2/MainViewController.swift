@@ -47,8 +47,16 @@ class MainViewController: UIViewController
     @IBOutlet weak var feedNormalFoodButton: UIButton!
     @IBOutlet weak var feedSnackButton: UIButton!
     
+    @IBOutlet weak var currentMood: UIImageView!
+    @IBOutlet weak var gotchi: UIImageView!
     
     var currentlyActive: SubSections = SubSections.Main;
+    
+    
+    override public func viewDidAppear(_ animated: Bool)
+    {
+        gotchi.startAnimating();
+    }
     
     private func BackToMainMenu()
     {
@@ -183,8 +191,10 @@ class MainViewController: UIViewController
     {
         super.viewDidLoad();
         BackToMainMenu();
-    }
         
+        AnimationHandler.walkingAnimation.PlayAnimation(gotchi);
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.

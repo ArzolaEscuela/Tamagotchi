@@ -11,13 +11,13 @@ import UIKit
 
 public class PhoneInformation
 {
-    public var screenWidth: Float;
-    public var screenHeight: Float;
+    public var screenWidth: CGFloat;
+    public var screenHeight: CGFloat;
     
     init()
     {
-        screenWidth  = Float(UIScreen.main.fixedCoordinateSpace.bounds.width);
-        screenHeight = Float(UIScreen.main.fixedCoordinateSpace.bounds.height);
+        screenWidth  = UIScreen.main.fixedCoordinateSpace.bounds.width;
+        screenHeight = UIScreen.main.fixedCoordinateSpace.bounds.height;
     }
 }
 

@@ -12,6 +12,7 @@
 		F1762ECB223F23DE00DFB199 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1762EC9223F23DE00DFB199 /* Main.storyboard */; };
 		F1762ECD223F23DE00DFB199 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F1762ECC223F23DE00DFB199 /* Assets.xcassets */; };
 		F1762ED0223F23DE00DFB199 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1762ECE223F23DE00DFB199 /* LaunchScreen.storyboard */; };
+		FB13E260224F21880008420D /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB13E25F224F21880008420D /* UIImageViewExtension.swift */; };
 		FBE793B52244955A0095A54C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE793B42244955A0095A54C /* MainViewController.swift */; };
 		FBFEABB3224D996E008ECDE2 /* AnimationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFEABB2224D996E008ECDE2 /* AnimationHandler.swift */; };
 		FBFEABB7224DA4D4008ECDE2 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFEABB6224DA4D4008ECDE2 /* TitleScreenViewController.swift */; };
@@ -135,6 +136,7 @@
 		F1762ECC223F23DE00DFB199 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1762ECF223F23DE00DFB199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1762ED1223F23DE00DFB199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB13E25F224F21880008420D /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		FBE793B42244955A0095A54C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FBFEABB2224D996E008ECDE2 /* AnimationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHandler.swift; sourceTree = "<group>"; };
 		FBFEABB6224DA4D4008ECDE2 /* TitleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
@@ -292,6 +294,7 @@
 				FBFEABB2224D996E008ECDE2 /* AnimationHandler.swift */,
 				FBFEABB6224DA4D4008ECDE2 /* TitleScreenViewController.swift */,
 				FBFEABD1224DBF80008ECDE2 /* Information.swift */,
+				FB13E25F224F21880008420D /* UIImageViewExtension.swift */,
 			);
 			path = "tamagotchi 2";
 			sourceTree = "<group>";
@@ -753,6 +756,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FBFEABD2224DBF80008ECDE2 /* Information.swift in Sources */,
+				FB13E260224F21880008420D /* UIImageViewExtension.swift in Sources */,
 				FBE793B52244955A0095A54C /* MainViewController.swift in Sources */,
 				F1762EC8223F23DE00DFB199 /* ViewController.swift in Sources */,
 				F1762EC6223F23DE00DFB199 /* AppDelegate.swift in Sources */,

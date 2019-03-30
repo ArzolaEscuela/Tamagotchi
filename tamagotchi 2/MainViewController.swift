@@ -187,12 +187,14 @@ class MainViewController: UIViewController
         SetSingleButtonEnabledState(careButton, state);
     }
     
+    func DoNothing(){}
+    
     override func viewDidLoad()
     {
         super.viewDidLoad();
         BackToMainMenu();
         
-        AnimationHandler.walkingAnimation.PlayAnimation(gotchi);
+        AnimationHandler.walkingAnimation.PlayAnimation(gotchi, DoNothing);
     }
     
     override func didReceiveMemoryWarning() {

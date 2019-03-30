@@ -8,42 +8,50 @@ public class TitleScreenViewController : UIViewController
     @IBOutlet weak var titleScreenGraphic: UIImageView!
     @IBOutlet weak var titleScreenGraphic2: UIImageView!
     
-    override public func prepare(for segue: UIStoryboardSegue, sender: Any?)
+    private func OnEndAnimationEnded()
     {
-        AnimationHandler.walkingAnimation.PlayAnimation(titleScreenGraphic);
-        AnimationHandler.walkingAnimation.PlayAnimation(titleScreenGraphic2);
+        performSegue(withIdentifier: Information.segueNames.fromTitleToMain, sender: nil);
+    }
+    
+    private func OnStartAnimationEnded()
+    {
+        
+    }
+    
+    private func AnimateKirby(_ start: Bool)
+    {
+        if (start)
+        {
+            AnimationHandler.walkingAnimation.PlayAnimation(titleScreenGraphic, OnStartAnimationEnded);
+            //AnimationHandler.walkingAnimation.PlayAnimation(titleScreenGraphic2,OnStartAnimationEnded);
+            return;
+        }
+        
+        AnimationHandler.cheerAnimation.PlayAnimation(titleScreenGraphic, OnEndAnimationEnded);
+        //AnimationHandler.cheerAnimation.PlayAnimation(titleScreenGraphic2, OnEndAnimationEnded);
     }
     
     override public func viewDidAppear(_ animated: Bool)
     {
+        titleScreenGraphic2.isHidden = true;
+        //titleScreenGraphic.frame.origin.x = 0;
+        //titleScreenGraphic2.frame.origin.x = Information.phoneInformation.screenWidth;
+        
         titleScreenGraphic.startAnimating();
-        titleScreenGraphic2.startAnimating();
+        //titleScreenGraphic2.startAnimating();
     }
     
     override public func viewDidLoad()
     {
         super.viewDidLoad();
-       
-        AnimationHandler.walkingAnimation.PlayAnimation(titleScreenGraphic);
-        AnimationHandler.walkingAnimation.PlayAnimation(titleScreenGraphic2);
+        
+        AnimateKirby(true);
     }
     
-    /*func yourTask() -> Bool
-    {
-        
-    }*/
     
     @IBAction func OnScreenTap(_ sender: Any)
     {
-       AnimationHandler.cheerAnimation.PlayAnimation(titleScreenGraphic);
-       AnimationHandler.cheerAnimation.PlayAnimation(titleScreenGraphic2);
-       
-        /*let timer = Timer.scheduledTimer(
-            timeInterval: 0.1, target: self, selector: #selector(yourTask),
-            userInfo: nil, repeats: true)*/
-        
-        
-       performSegue(withIdentifier: Information.segueNames.fromTitleToMain, sender: nil);
+        AnimateKirby(false);
     }
     
     override open var shouldAutorotate: Bool

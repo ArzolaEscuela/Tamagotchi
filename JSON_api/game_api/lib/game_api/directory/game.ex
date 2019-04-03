@@ -1,0 +1,18 @@
+defmodule GameApi.Directory.Game do
+  use Ecto.Schema
+  import Ecto.Changeset
+
+
+  schema "games" do
+    field :data, :string
+
+    timestamps()
+  end
+
+  @doc false
+  def changeset(game, attrs) do
+    game
+    |> cast(attrs, [:data])
+    |> validate_required([:data])
+  end
+end

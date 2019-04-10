@@ -165,15 +165,82 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="276"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="happy.png" translatesAutoresizingMaskIntoConstraints="NO" id="gWD-bK-gXQ" userLabel="current_mood">
+                                        <rect key="frame" x="325" y="8" width="81" height="81"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U17-5u-kq4" userLabel="kirby_animations">
+                                        <rect key="frame" x="147" y="50" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="walking1.png" translatesAutoresizingMaskIntoConstraints="NO" id="p9Q-tf-MT4" userLabel="Walking">
+                                                <rect key="frame" x="-12" y="-12" width="144" height="144"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inhale_eat1.png" translatesAutoresizingMaskIntoConstraints="NO" id="7Yv-xD-bCT" userLabel="Intro_Inhale">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angry.png" translatesAutoresizingMaskIntoConstraints="NO" id="h76-hd-YpF" userLabel="Anger">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paint1.png" translatesAutoresizingMaskIntoConstraints="NO" id="ofl-Z1-Olx" userLabel="Paint">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sleeping1.png" translatesAutoresizingMaskIntoConstraints="NO" id="S5R-2D-UUw" userLabel="Intro_Sleep">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sleeping5.png" translatesAutoresizingMaskIntoConstraints="NO" id="gQ0-cW-LrK" userLabel="Loop_Sleep">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sleeping9.png" translatesAutoresizingMaskIntoConstraints="NO" id="3cb-9M-j1w" userLabel="Wake_Up_Sleep">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="left1.png" translatesAutoresizingMaskIntoConstraints="NO" id="aEF-9a-K98" userLabel="Left">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="right1.png" translatesAutoresizingMaskIntoConstraints="NO" id="vI4-1a-KPc" userLabel="Right">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cheer1.png" translatesAutoresizingMaskIntoConstraints="NO" id="vWx-di-ngv" userLabel="Cheer">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help1.png" translatesAutoresizingMaskIntoConstraints="NO" id="EAe-zM-yZ2" userLabel="Help">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help9.png" translatesAutoresizingMaskIntoConstraints="NO" id="ZWO-Ms-SdP" userLabel="Help_Done">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inhale_eat3.png" translatesAutoresizingMaskIntoConstraints="NO" id="Na7-58-gjp" userLabel="Loop_Inhale">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inhale_eat6.png" translatesAutoresizingMaskIntoConstraints="NO" id="VPI-11-VG4" userLabel="Inhaled">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inhale_eat10.png" translatesAutoresizingMaskIntoConstraints="NO" id="jT4-Ja-dUn" userLabel="Inhale_Eating">
+                                                <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
                                     <view alpha="0.29999999999999999" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i7w-29-U1W" userLabel="night_overlay">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="276"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" red="0.28658659250000001" green="0.56220538499999995" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                     </view>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="happy.png" translatesAutoresizingMaskIntoConstraints="NO" id="gWD-bK-gXQ" userLabel="current_mood">
-                                        <rect key="frame" x="325" y="8" width="81" height="81"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <variation key="default">
@@ -183,11 +250,7 @@
                                     </mask>
                                 </variation>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="walking1.png" translatesAutoresizingMaskIntoConstraints="NO" id="JeW-mT-Msz">
-                                <rect key="frame" x="138" y="290" width="137" height="137"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TG7-k2-4AL" userLabel="Settings">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TG7-k2-4AL" userLabel="Settings">
                                 <rect key="frame" x="20" y="258" width="374" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -227,7 +290,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SD6-Hh-LNT" userLabel="Feed">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SD6-Hh-LNT" userLabel="Feed">
                                 <rect key="frame" x="19" y="260" width="375" height="220"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -255,6 +318,12 @@
                             </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="TG7-k2-4AL"/>
+                                <exclude reference="SD6-Hh-LNT"/>
+                            </mask>
+                        </variation>
                     </view>
                     <connections>
                         <outlet property="FeedDisclaimerLabel" destination="HZD-dT-hts" id="cYz-oa-aVa"/>
@@ -266,7 +335,6 @@
                         <outlet property="feedNormalFoodButton" destination="5EL-un-bHA" id="WUc-U1-rYt"/>
                         <outlet property="feedPanel" destination="SD6-Hh-LNT" id="7TJ-n7-9r2"/>
                         <outlet property="feedSnackButton" destination="zXo-nT-McW" id="ehI-ff-lOJ"/>
-                        <outlet property="gotchi" destination="JeW-mT-Msz" id="OeA-h6-5wQ"/>
                         <outlet property="healButton" destination="rno-T4-qXc" id="5sa-Il-tmd"/>
                         <outlet property="homeButton" destination="lZ4-LK-Iv7" id="d3E-pr-xZQ"/>
                         <outlet property="lightsButton" destination="nDS-94-Qzb" id="dyG-bW-gvP"/>
@@ -321,12 +389,73 @@
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters"/>
                             </textField>
-                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="walking1.png" translatesAutoresizingMaskIntoConstraints="NO" id="543-OB-y1I" userLabel="Title Screen Graphic 2">
-                                <rect key="frame" x="-75" y="307" width="145" height="145"/>
-                            </imageView>
-                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="walking1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ylq-Xs-PJU">
-                                <rect key="frame" x="340" y="308" width="144" height="144"/>
-                            </imageView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PyF-nX-1Ez" userLabel="kirby_animations">
+                                <rect key="frame" x="147" y="308" width="120" height="120"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="walking1.png" translatesAutoresizingMaskIntoConstraints="NO" id="Ylq-Xs-PJU" userLabel="Walking">
+                                        <rect key="frame" x="-12" y="-12" width="144" height="144"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inhale_eat1.png" translatesAutoresizingMaskIntoConstraints="NO" id="543-OB-y1I" userLabel="Intro_Inhale">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angry.png" translatesAutoresizingMaskIntoConstraints="NO" id="1rZ-ZV-Ov0" userLabel="Anger">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="paint1.png" translatesAutoresizingMaskIntoConstraints="NO" id="N5b-lh-tFK" userLabel="Paint">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sleeping1.png" translatesAutoresizingMaskIntoConstraints="NO" id="MzI-GP-Mii" userLabel="Intro_Sleep">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sleeping5.png" translatesAutoresizingMaskIntoConstraints="NO" id="aKq-nb-2kh" userLabel="Loop_Sleep">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="sleeping9.png" translatesAutoresizingMaskIntoConstraints="NO" id="nzA-oq-Myj" userLabel="Wake_Up_Sleep">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="left1.png" translatesAutoresizingMaskIntoConstraints="NO" id="B0o-yZ-z0n" userLabel="Left">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="right1.png" translatesAutoresizingMaskIntoConstraints="NO" id="oEl-Qh-e4z" userLabel="Right">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="cheer1.png" translatesAutoresizingMaskIntoConstraints="NO" id="FZX-4m-sV8" userLabel="Cheer">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help1.png" translatesAutoresizingMaskIntoConstraints="NO" id="IjK-N3-apA" userLabel="Help">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help9.png" translatesAutoresizingMaskIntoConstraints="NO" id="kRw-QA-Z7x" userLabel="Help_Done">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inhale_eat3.png" translatesAutoresizingMaskIntoConstraints="NO" id="BT1-xN-Sc6" userLabel="Loop_Inhale">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inhale_eat6.png" translatesAutoresizingMaskIntoConstraints="NO" id="O6y-2d-NeQ" userLabel="Inhaled">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="inhale_eat10.png" translatesAutoresizingMaskIntoConstraints="NO" id="S5p-iF-Gcq" userLabel="Inhale_Eating">
+                                        <rect key="frame" x="-12" y="-12" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <gestureRecognizers/>
@@ -334,23 +463,32 @@
                             <constraint firstItem="JUb-ro-kw2" firstAttribute="top" secondItem="MxO-fg-q0A" secondAttribute="bottom" constant="46" id="1nT-dW-cYX"/>
                             <constraint firstItem="q3V-Kd-xuv" firstAttribute="centerX" secondItem="3Ed-9N-3tc" secondAttribute="centerX" id="J6K-Pa-AvV"/>
                             <constraint firstItem="wPI-qP-UhY" firstAttribute="top" secondItem="q3V-Kd-xuv" secondAttribute="bottom" constant="71" id="Nas-8H-GUB"/>
-                            <constraint firstItem="Ylq-Xs-PJU" firstAttribute="centerX" secondItem="3Ed-9N-3tc" secondAttribute="centerX" id="SrX-dd-jhN"/>
-                            <constraint firstItem="Ylq-Xs-PJU" firstAttribute="centerY" secondItem="3Ed-9N-3tc" secondAttribute="centerY" id="Yru-Bq-GqG"/>
-                            <constraint firstItem="543-OB-y1I" firstAttribute="centerY" secondItem="3Ed-9N-3tc" secondAttribute="centerY" id="bHg-l8-bUn"/>
-                            <constraint firstItem="Ylq-Xs-PJU" firstAttribute="centerY" secondItem="543-OB-y1I" secondAttribute="centerY" id="c1m-W8-5aa"/>
                             <constraint firstItem="JUb-ro-kw2" firstAttribute="centerX" secondItem="3Ed-9N-3tc" secondAttribute="centerX" id="feB-bO-hqK"/>
-                            <constraint firstItem="543-OB-y1I" firstAttribute="centerY" secondItem="3Ed-9N-3tc" secondAttribute="centerY" id="s4B-DW-XXh"/>
-                            <constraint firstItem="Ylq-Xs-PJU" firstAttribute="centerY" secondItem="3Ed-9N-3tc" secondAttribute="centerY" id="xHF-nf-nWX"/>
-                            <constraint firstItem="543-OB-y1I" firstAttribute="centerX" secondItem="3Ed-9N-3tc" secondAttribute="centerX" id="ycs-Nu-n0m"/>
                         </constraints>
                         <connections>
                             <outletCollection property="gestureRecognizers" destination="s5g-Sm-0sF" appends="YES" id="Kdu-dj-js7"/>
                         </connections>
                     </view>
                     <connections>
+                        <outlet property="anger" destination="1rZ-ZV-Ov0" id="Yha-c2-Y1Q"/>
+                        <outlet property="cheer" destination="IjK-N3-apA" id="a92-gw-Oop"/>
+                        <outlet property="help" destination="IjK-N3-apA" id="a3w-6o-IrS"/>
+                        <outlet property="helpDone" destination="kRw-QA-Z7x" id="Ute-L8-AzD"/>
+                        <outlet property="inhaleEating" destination="S5p-iF-Gcq" id="jL9-tE-tUt"/>
+                        <outlet property="inhaleEnd" destination="O6y-2d-NeQ" id="kDi-1B-skD"/>
+                        <outlet property="inhaleIntro" destination="543-OB-y1I" id="cDX-VD-rj3"/>
+                        <outlet property="inhaleLoop" destination="BT1-xN-Sc6" id="imw-Xs-f58"/>
+                        <outlet property="kirbyAnimationsMain" destination="PyF-nX-1Ez" id="VFy-04-Ggm"/>
+                        <outlet property="left" destination="B0o-yZ-z0n" id="IGB-c3-DbB"/>
+                        <outlet property="paint" destination="N5b-lh-tFK" id="m7h-wn-Sv6"/>
+                        <outlet property="right" destination="oEl-Qh-e4z" id="BLs-fP-X9F"/>
+                        <outlet property="sleepIntro" destination="MzI-GP-Mii" id="e7x-dv-GNW"/>
+                        <outlet property="sleepLoop" destination="aKq-nb-2kh" id="0dI-gn-YIY"/>
+                        <outlet property="sleepWakeUp" destination="nzA-oq-Myj" id="aHg-p3-cbT"/>
                         <outlet property="tiledBackground" destination="ptC-AX-vbU" id="EMT-tO-o1V"/>
                         <outlet property="titleScreenGraphic" destination="Ylq-Xs-PJU" id="BHI-hi-3BP"/>
                         <outlet property="titleScreenGraphic2" destination="543-OB-y1I" id="tHz-e8-0rE"/>
+                        <outlet property="walking" destination="Ylq-Xs-PJU" id="0R2-Lo-niY"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="fromTitleToMain" id="EEC-f0-mYQ"/>
                     </connections>
                 </viewController>
@@ -461,11 +599,25 @@
         <image name="Scold Button.png" width="64" height="64"/>
         <image name="Settings.png" width="43" height="40"/>
         <image name="Status Button.png" width="64" height="64"/>
+        <image name="angry.png" width="120" height="120"/>
         <image name="button_area_background.png" width="305" height="150"/>
+        <image name="cheer1.png" width="120" height="120"/>
         <image name="day.png" width="859" height="431"/>
         <image name="happy.png" width="120" height="120"/>
+        <image name="help1.png" width="120" height="120"/>
+        <image name="help9.png" width="120" height="120"/>
+        <image name="inhale_eat1.png" width="120" height="120"/>
+        <image name="inhale_eat10.png" width="120" height="120"/>
+        <image name="inhale_eat3.png" width="120" height="120"/>
+        <image name="inhale_eat6.png" width="120" height="120"/>
+        <image name="left1.png" width="120" height="120"/>
         <image name="middle_background.png" width="1078" height="366"/>
         <image name="night.png" width="1005" height="357"/>
+        <image name="paint1.png" width="120" height="120"/>
+        <image name="right1.png" width="120" height="120"/>
+        <image name="sleeping1.png" width="120" height="120"/>
+        <image name="sleeping5.png" width="120" height="120"/>
+        <image name="sleeping9.png" width="120" height="120"/>
         <image name="title_screen.png" width="250" height="250"/>
         <image name="top.png" width="682" height="109"/>
         <image name="walking1.png" width="120" height="120"/>

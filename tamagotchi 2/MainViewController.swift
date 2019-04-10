@@ -194,7 +194,7 @@ class MainViewController: UIViewController
         super.viewDidLoad();
         BackToMainMenu();
         
-        AnimationHandler.walkingAnimation.PlayAnimation(gotchi, DoNothing);
+        AnimationHandler.walkingAnimation.PlayAnimation(gotchi);
     }
     
     override func didReceiveMemoryWarning() {

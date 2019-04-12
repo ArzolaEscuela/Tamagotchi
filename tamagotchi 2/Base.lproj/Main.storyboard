@@ -181,7 +181,7 @@
                                                 <rect key="frame" x="-12" y="-12" width="145" height="145"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
-                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angry.png" translatesAutoresizingMaskIntoConstraints="NO" id="h76-hd-YpF" userLabel="Anger">
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angry1.png" translatesAutoresizingMaskIntoConstraints="NO" id="h76-hd-YpF" userLabel="Anger">
                                                 <rect key="frame" x="-12" y="-12" width="145" height="145"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
@@ -401,7 +401,7 @@
                                         <rect key="frame" x="-12" y="-12" width="145" height="145"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angry.png" translatesAutoresizingMaskIntoConstraints="NO" id="1rZ-ZV-Ov0" userLabel="Anger">
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="angry1.png" translatesAutoresizingMaskIntoConstraints="NO" id="1rZ-ZV-Ov0" userLabel="Anger">
                                         <rect key="frame" x="-12" y="-12" width="145" height="145"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
@@ -471,7 +471,7 @@
                     </view>
                     <connections>
                         <outlet property="anger" destination="1rZ-ZV-Ov0" id="Yha-c2-Y1Q"/>
-                        <outlet property="cheer" destination="IjK-N3-apA" id="a92-gw-Oop"/>
+                        <outlet property="cheer" destination="FZX-4m-sV8" id="uOP-aq-qhu"/>
                         <outlet property="help" destination="IjK-N3-apA" id="a3w-6o-IrS"/>
                         <outlet property="helpDone" destination="kRw-QA-Z7x" id="Ute-L8-AzD"/>
                         <outlet property="inhaleEating" destination="S5p-iF-Gcq" id="jL9-tE-tUt"/>
@@ -485,9 +485,6 @@
                         <outlet property="sleepIntro" destination="MzI-GP-Mii" id="e7x-dv-GNW"/>
                         <outlet property="sleepLoop" destination="aKq-nb-2kh" id="0dI-gn-YIY"/>
                         <outlet property="sleepWakeUp" destination="nzA-oq-Myj" id="aHg-p3-cbT"/>
-                        <outlet property="tiledBackground" destination="ptC-AX-vbU" id="EMT-tO-o1V"/>
-                        <outlet property="titleScreenGraphic" destination="Ylq-Xs-PJU" id="BHI-hi-3BP"/>
-                        <outlet property="titleScreenGraphic2" destination="543-OB-y1I" id="tHz-e8-0rE"/>
                         <outlet property="walking" destination="Ylq-Xs-PJU" id="0R2-Lo-niY"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="fromTitleToMain" id="EEC-f0-mYQ"/>
                     </connections>
@@ -599,7 +596,7 @@
         <image name="Scold Button.png" width="64" height="64"/>
         <image name="Settings.png" width="43" height="40"/>
         <image name="Status Button.png" width="64" height="64"/>
-        <image name="angry.png" width="120" height="120"/>
+        <image name="angry1.png" width="120" height="120"/>
         <image name="button_area_background.png" width="305" height="150"/>
         <image name="cheer1.png" width="120" height="120"/>
         <image name="day.png" width="859" height="431"/>

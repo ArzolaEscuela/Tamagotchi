@@ -1,9 +1,29 @@
 import Foundation
 import UIKit
 
+public func delay(bySeconds seconds: Double, dispatchLevel: DispatchLevel = .main, closure: @escaping () -> Void)
+{
+    let dispatchTime = DispatchTime.now() + seconds
+    dispatchLevel.dispatchQueue.asyncAfter(deadline: dispatchTime, execute: closure)
+}
+
+public enum DispatchLevel
+{
+    case main, userInteractive, userInitiated, utility, background
+    var dispatchQueue: DispatchQueue
+    {
+        switch self
+        {
+            case .main:                 return DispatchQueue.main
+            case .userInteractive:      return DispatchQueue.global(qos: .userInteractive)
+            case .userInitiated:        return DispatchQueue.global(qos: .userInitiated)
+            case .utility:              return DispatchQueue.global(qos: .utility)
+            case .background:           return DispatchQueue.global(qos: .background)
+        }
+    }
+}
 public class TitleScreenViewController : UIViewController
 {
-        
     @IBOutlet weak var kirbyAnimationsMain: UIView!
     
     @IBOutlet weak var walking: UIImageView!
@@ -27,18 +47,14 @@ public class TitleScreenViewController : UIViewController
     @IBOutlet weak var inhaleEating: UIImageView!
     @IBOutlet weak var inhaleEnd: UIImageView!
     
-    /*private var kirby: KirbyInstance;*/
+    private var kirby: KirbyInstance!;
+    private var transitioning: Bool = false;
     
-    private func InitializeKirbyInstance()
+    private func InitializeKirby()
     {
-        /*kirby = KirbyInstance(kirbyAnimationsMain, walking, anger, paint, left
+        kirby = KirbyInstance(kirbyAnimationsMain, walking, anger, paint, left
             , right, cheer, sleepIntro, sleepLoop, sleepWakeUp, help, helpDone, inhaleIntro, inhaleLoop, inhaleEnd, inhaleEating, EAnimation.Walking);
-        kirby.StartAnimations();*/
-    }
-    
-    private func OnEndAnimationEnded()
-    {
-        performSegue(withIdentifier: Information.segueNames.fromTitleToMain, sender: nil);
+        kirby.StartAnimations();
     }
     
     private func OnStartAnimationEnded()
@@ -46,41 +62,28 @@ public class TitleScreenViewController : UIViewController
         
     }
     
-    private func AnimateKirby(_ start: Bool)
-    {
-        if (start)
-        {
-            /*AnimationHandler.walkingAnimation.PlayAnimation(titleScreenGraphic, OnStartAnimationEnded);*/
-            //AnimationHandler.walkingAnimation.PlayAnimation(titleScreenGraphic2,OnStartAnimationEnded);
-            return;
-        }
-        
-        /*AnimationHandler.cheerAnimation.PlayAnimation(titleScreenGraphic, OnEndAnimationEnded);*/
-        //AnimationHandler.cheerAnimation.PlayAnimation(titleScreenGraphic2, OnEndAnimationEnded);
-    }
-    
     override public func viewDidAppear(_ animated: Bool)
     {
-        InitializeKirbyInstance();
-        /*titleScreenGraphic2.isHidden = true;
-        //titleScreenGraphic.frame.origin.x = 0;
-        //titleScreenGraphic2.frame.origin.x = Information.phoneInformation.screenWidth;
-        
-        titleScreenGraphic.startAnimating();*/
-        //titleScreenGraphic2.startAnimating();
+        InitializeKirby();
+        transitioning = false;
     }
     
     override public func viewDidLoad()
     {
         super.viewDidLoad();
-        
-        //AnimateKirby(true);
+        transitioning = false;
     }
-    
     
     @IBAction func OnScreenTap(_ sender: Any)
     {
-        //AnimateKirby(false);
+        if (transitioning) { return; }
+        transitioning = true;
+        kirby.ViewAnimation(EAnimation.Cheer);
+        delay(bySeconds: AnimationHandler.walkingAnimation.AnimationDuration/2, dispatchLevel: .main)
+        {
+            self.kirby.ViewAnimation(EAnimation.Walking);
+            self.performSegue(withIdentifier: Information.segueNames.fromTitleToMain, sender: nil);
+        }
     }
     
     override open var shouldAutorotate: Bool

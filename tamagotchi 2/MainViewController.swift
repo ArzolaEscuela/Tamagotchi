@@ -55,7 +55,7 @@ class MainViewController: UIViewController
     
     override public func viewDidAppear(_ animated: Bool)
     {
-        gotchi.startAnimating();
+        //gotchi.startAnimating();
     }
     
     private func BackToMainMenu()
@@ -194,7 +194,7 @@ class MainViewController: UIViewController
         super.viewDidLoad();
         BackToMainMenu();
         
-        AnimationHandler.walkingAnimation.PlayAnimation(gotchi);
+        //AnimationHandler.walkingAnimation.PlayAnimation(gotchi);
     }
     
     override func didReceiveMemoryWarning() {

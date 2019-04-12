@@ -48,13 +48,45 @@ class MainViewController: UIViewController
     @IBOutlet weak var feedSnackButton: UIButton!
     
     @IBOutlet weak var currentMood: UIImageView!
-    @IBOutlet weak var gotchi: UIImageView!
+    
+    @IBOutlet weak var kirbyAnimationsMain: UIView!
+    
+    @IBOutlet weak var walking: UIImageView!
+    @IBOutlet weak var anger: UIImageView!
+    @IBOutlet weak var paint: UIImageView!
+    @IBOutlet weak var left: UIImageView!
+    @IBOutlet weak var right: UIImageView!
+    @IBOutlet weak var cheer: UIImageView!
+    
+    @IBOutlet weak var sleepIntro: UIImageView!
+    @IBOutlet weak var sleepLoop: UIImageView!
+    @IBOutlet weak var sleepWakeUp: UIImageView!
+    
+    // Help
+    @IBOutlet weak var help: UIImageView!
+    @IBOutlet weak var helpDone: UIImageView!
+    
+    // Inhale
+    @IBOutlet weak var inhaleIntro: UIImageView!
+    @IBOutlet weak var inhaleLoop: UIImageView!
+    @IBOutlet weak var inhaleEating: UIImageView!
+    @IBOutlet weak var inhaleEnd: UIImageView!
+    
+    private var kirby: KirbyInstance!;
     
     var currentlyActive: SubSections = SubSections.Main;
+    
+    private func InitializeKirby()
+    {
+        kirby = KirbyInstance(kirbyAnimationsMain, walking, anger, paint, left
+            , right, cheer, sleepIntro, sleepLoop, sleepWakeUp, help, helpDone, inhaleIntro, inhaleLoop, inhaleEnd, inhaleEating, EAnimation.Walking);
+        kirby.StartAnimations();
+    }
     
     
     override public func viewDidAppear(_ animated: Bool)
     {
+        InitializeKirby();
         //gotchi.startAnimating();
     }
     

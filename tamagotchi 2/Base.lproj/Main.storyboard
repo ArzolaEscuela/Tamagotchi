@@ -170,7 +170,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U17-5u-kq4" userLabel="kirby_animations">
-                                        <rect key="frame" x="147" y="50" width="120" height="120"/>
+                                        <rect key="frame" x="147" y="65" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="walking1.png" translatesAutoresizingMaskIntoConstraints="NO" id="p9Q-tf-MT4" userLabel="Walking">
@@ -327,7 +327,9 @@
                     </view>
                     <connections>
                         <outlet property="FeedDisclaimerLabel" destination="HZD-dT-hts" id="cYz-oa-aVa"/>
+                        <outlet property="anger" destination="h76-hd-YpF" id="tUI-LZ-aWr"/>
                         <outlet property="careButton" destination="qdU-Fm-2R4" id="btY-i6-jfo"/>
+                        <outlet property="cheer" destination="vWx-di-ngv" id="YkT-bF-etE"/>
                         <outlet property="cleanButton" destination="67H-eN-SBC" id="fbV-Vv-WxB"/>
                         <outlet property="closeSettingsPanelButton" destination="B1l-M8-gtG" id="mud-X5-34t"/>
                         <outlet property="currentMood" destination="gWD-bK-gXQ" id="HYu-w5-kc6"/>
@@ -336,16 +338,30 @@
                         <outlet property="feedPanel" destination="SD6-Hh-LNT" id="7TJ-n7-9r2"/>
                         <outlet property="feedSnackButton" destination="zXo-nT-McW" id="ehI-ff-lOJ"/>
                         <outlet property="healButton" destination="rno-T4-qXc" id="5sa-Il-tmd"/>
+                        <outlet property="help" destination="EAe-zM-yZ2" id="3qO-cm-rDD"/>
+                        <outlet property="helpDone" destination="ZWO-Ms-SdP" id="mWL-Ot-hJN"/>
                         <outlet property="homeButton" destination="lZ4-LK-Iv7" id="d3E-pr-xZQ"/>
+                        <outlet property="inhaleEating" destination="jT4-Ja-dUn" id="Gsq-v3-n6K"/>
+                        <outlet property="inhaleEnd" destination="VPI-11-VG4" id="Ajd-g3-T6t"/>
+                        <outlet property="inhaleIntro" destination="7Yv-xD-bCT" id="cUF-p7-ZM8"/>
+                        <outlet property="inhaleLoop" destination="Na7-58-gjp" id="zIV-yi-sWj"/>
+                        <outlet property="kirbyAnimationsMain" destination="U17-5u-kq4" id="Mr7-QT-L5d"/>
+                        <outlet property="left" destination="aEF-9a-K98" id="PGb-HX-oiy"/>
                         <outlet property="lightsButton" destination="nDS-94-Qzb" id="dyG-bW-gvP"/>
                         <outlet property="loggedAsUsernameLabel" destination="vfZ-hA-F4S" id="Sim-Ec-mBZ"/>
+                        <outlet property="paint" destination="ofl-Z1-Olx" id="LvA-1V-wPn"/>
                         <outlet property="pickNewUserButton" destination="ilt-rY-op9" id="X8l-du-QIz"/>
                         <outlet property="playButton" destination="Jw7-je-1kb" id="IuK-uJ-8la"/>
+                        <outlet property="right" destination="vI4-1a-KPc" id="8oN-BW-bdA"/>
                         <outlet property="scoldButton" destination="BLi-XN-bdf" id="p6R-fK-8MT"/>
                         <outlet property="settingsButton" destination="0g3-r2-ECz" id="vte-YS-5ti"/>
                         <outlet property="settingsPanel" destination="TG7-k2-4AL" id="icF-ZS-wDw"/>
+                        <outlet property="sleepIntro" destination="S5R-2D-UUw" id="brq-jE-jBb"/>
+                        <outlet property="sleepLoop" destination="gQ0-cW-LrK" id="azg-IM-B7s"/>
+                        <outlet property="sleepWakeUp" destination="3cb-9M-j1w" id="OV5-nm-MAM"/>
                         <outlet property="statusButton" destination="EpY-YE-eiT" id="cCg-U4-9xh"/>
                         <outlet property="volumeSlider" destination="fWL-PJ-RcH" id="fSg-Rw-k5O"/>
+                        <outlet property="walking" destination="p9Q-tf-MT4" id="UC9-tb-Jz6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

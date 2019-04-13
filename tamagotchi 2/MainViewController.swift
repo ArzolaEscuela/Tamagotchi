@@ -19,7 +19,6 @@ class MainViewController: UIViewController
     
     // Top Bar Buttons
     @IBOutlet weak var homeButton: UIButton!
-    @IBOutlet weak var changeButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
     
     // Top Buttons
@@ -72,14 +71,21 @@ class MainViewController: UIViewController
     @IBOutlet weak var inhaleEating: UIImageView!
     @IBOutlet weak var inhaleEnd: UIImageView!
     
+    @IBOutlet weak var dayImage: UIImageView!
+    @IBOutlet weak var nightImage: UIImageView!
+    @IBOutlet weak var nightOverlay: UIView!
+    
     private var kirby: KirbyInstance!;
     
     var currentlyActive: SubSections = SubSections.Main;
     
-    private func InitializeKirby()
+    public func InitializeKirby()
     {
-        kirby = KirbyInstance(kirbyAnimationsMain, walking, anger, paint, left
-            , right, cheer, sleepIntro, sleepLoop, sleepWakeUp, help, helpDone, inhaleIntro, inhaleLoop, inhaleEnd, inhaleEating, EAnimation.Walking);
+        if (kirby == nil)
+        {
+            kirby = KirbyInstance(kirbyAnimationsMain, walking, anger, paint, left
+            , right, cheer, sleepIntro, sleepLoop, sleepWakeUp, help, helpDone, inhaleIntro, inhaleLoop, inhaleEnd, inhaleEating, EAnimation.Walking);            
+        }
         kirby.StartAnimations();
     }
     
@@ -87,7 +93,7 @@ class MainViewController: UIViewController
     override public func viewDidAppear(_ animated: Bool)
     {
         InitializeKirby();
-        //gotchi.startAnimating();
+        SetDayNight(true);
     }
     
     private func BackToMainMenu()
@@ -128,11 +134,35 @@ class MainViewController: UIViewController
         DisableAllPanelsExcept(feedPanel);
     }
     
+    private func SetDayNight(_ isDay: Bool)
+    {
+        dayImage.isHidden = !isDay;
+        nightImage.isHidden = isDay;
+        nightOverlay.isHidden = isDay;
+    }
+    
     @IBAction func OnLightsButtonPressed(_ sender: Any)
     {
-        if (!ShouldEnableSection(SubSections.Lights)) { return; }
+        if (!ShouldEnableSection(SubSections.Lights))
+        {
+            SetDayNight(true);
+            kirby.ViewAnimation(EAnimation.WakeUp);
+            delay(bySeconds: AnimationHandler.wakeUpAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
+            {
+                self.kirby.ViewAnimation(EAnimation.Walking);
+            }
+            return;
+        }
         DisableAllButtonsExcept(lightsButton);
+        
+        SetDayNight(false);
+        kirby.ViewAnimation(EAnimation.SleepIntro);
+        delay(bySeconds: AnimationHandler.sleepIntroAnimation.AwaitableAnimationDuration , dispatchLevel: .main)
+        {
+            self.kirby.ViewAnimation(EAnimation.SleepLoop);
+        }
     }
+    
     
     @IBAction func OnPlayButtonPressed(_ sender: Any)
     {

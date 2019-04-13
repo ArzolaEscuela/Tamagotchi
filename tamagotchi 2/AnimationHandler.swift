@@ -3,11 +3,18 @@ import Foundation
 
 public class Animation
 {
-    public var AnimationDuration: Double { get { return prefferedAnimationDuration; } }
+    public var AwaitableAnimationDuration: Double
+    {
+        get
+        {
+            return (prefferedAnimationDuration * 0.75) + AnimationHandler.animationWaitOffset;
+        }
+    }
     
     private var images = [UIImage]()
     private var prefferedAnimationDuration: Double = -1.0;
     private var loops: Bool = true;
+    private var finalFrame = [UIImage]();
     
     init(_ prefferedAnimationDuration: Double, _ animationName: String, _ startFrame: Int, _ endFrame: Int, _ loops: Bool)
     {
@@ -19,17 +26,30 @@ public class Animation
             let animationName = animationName + String(i) + ".png";
             images.append(UIImage(named: animationName)!);
         }
+        finalFrame.append(images[self.images.count - 1]);
     }
     
+    public func TryPlayOneshotAnimation(_ targetGraphic: UIImageView)
+    {
+        if (loops) { return; }
+        
+        targetGraphic.animationImages = images;
+        targetGraphic.animationRepeatCount = 1;
+        targetGraphic.startAnimating();
+        delay(bySeconds: AwaitableAnimationDuration, dispatchLevel: .main)
+        {
+            targetGraphic.animationImages = self.finalFrame;
+        }
+    }
         
     public func PlayAnimation(_ targetGraphic: UIImageView)
     {
         targetGraphic.stopAnimating();
-        targetGraphic.animationRepeatCount = loops ? Int.max : 0;        
+        targetGraphic.animationRepeatCount = loops ? Int.max : 1;
         targetGraphic.animationImages = images;
         targetGraphic.animationDuration = prefferedAnimationDuration;
-        /*targetGraphic.startAnimatingWithCompletionBlock(block: onAnimationEnd);*/
     }
+    
 }
 
 public enum ErrorTypes : Error
@@ -61,16 +81,18 @@ public enum EAnimation
 
 public struct AnimationHandler
 {
-    public static var walkingAnimation = Animation(0.8, "walking", 1, 10, true);
-    public static var cheerAnimation = Animation(0.4, "cheer", 1, 10, true);
+    public static var animationWaitOffset: Double = -0.3;
+    
+    public static var walkingAnimation = Animation(1, "walking", 1, 10, true);
+    public static var cheerAnimation = Animation(0.6, "cheer", 1, 10, true);
     public static var paintAnimation = Animation(1, "paint", 1, 5, true);
     public static var leftAnimation = Animation(2, "left", 1, 3, true);
     public static var rightAnimation = Animation(2, "right", 1, 3, true);
     public static var angryAnimation = Animation(3, "angry", 1, 1, true);
     
-    public static var sleepIntroAnimation = Animation(1, "sleeping", 1, 8, true);
-    public static var sleepLoopAnimation = Animation(0.5, "sleeping", 5, 8, true);
-    public static var wakeUpAnimation = Animation(0.8, "sleeping", 9, 13, true);
+    public static var sleepIntroAnimation = Animation(1.3, "sleeping", 1, 8, true);
+    public static var sleepLoopAnimation = Animation(2, "sleeping", 5, 8, true);
+    public static var wakeUpAnimation = Animation(1.3, "sleeping", 9, 13, true);
     
     public static var helpLoopAnimation = Animation(1, "help", 1, 8, true);
     public static var helpEndAnimation = Animation(0.25, "help", 9, 12, true);

@@ -57,9 +57,15 @@ public class TitleScreenViewController : UIViewController
         kirby.StartAnimations();
     }
     
-    private func OnStartAnimationEnded()
+    
+    public override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        
+        return;
+        if (segue.identifier == Information.segueNames.fromTitleToMain)
+        {
+            let target = segue.destination as! MainViewController;
+            target.InitializeKirby();
+        }
     }
     
     override public func viewDidAppear(_ animated: Bool)
@@ -79,10 +85,10 @@ public class TitleScreenViewController : UIViewController
         if (transitioning) { return; }
         transitioning = true;
         kirby.ViewAnimation(EAnimation.Cheer);
-        delay(bySeconds: AnimationHandler.walkingAnimation.AnimationDuration/2, dispatchLevel: .main)
+        delay(bySeconds: AnimationHandler.walkingAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
         {
-            self.kirby.ViewAnimation(EAnimation.Walking);
             self.performSegue(withIdentifier: Information.segueNames.fromTitleToMain, sender: nil);
+            self.kirby.ViewAnimation(EAnimation.Walking);
         }
     }
     

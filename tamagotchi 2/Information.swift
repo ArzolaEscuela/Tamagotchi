@@ -31,4 +31,5 @@ public struct Information
 {
     public static var phoneInformation = PhoneInformation();
     public static var segueNames = SegueNames();
+    
 }

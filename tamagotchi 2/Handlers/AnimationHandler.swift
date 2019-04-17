@@ -12,7 +12,7 @@ public class Animation
     {
         get
         {
-            return prefferedAnimationDuration + AnimationHandler.animationWaitOffset;/*(prefferedAnimationDuration * 0.75) + AnimationHandler.animationWaitOffset;*/
+            return prefferedAnimationDuration + AnimationHandler.animationWaitOffset;
         }
     }
     

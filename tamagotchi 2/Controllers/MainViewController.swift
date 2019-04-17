@@ -29,9 +29,72 @@ class MainViewController: UIViewController
     
     // Bottom Buttons
     @IBOutlet weak var cleanButton: UIButton!
-    @IBOutlet weak var statusButton: UIButton!
     @IBOutlet weak var scoldButton: UIButton!
     @IBOutlet weak var careButton: UIButton!
+    @IBOutlet weak var statusButton: UIButton!
+    
+    // Status Panel
+    @IBOutlet weak var statusPanel: UIView!
+    @IBOutlet weak var statusName: UILabel!
+    @IBOutlet weak var statusAge: UILabel!
+    @IBOutlet weak var statusWeight: UILabel!
+    private var statusHungerPanels = [UIImageView]();
+    private var StatusHungerPanels : [UIImageView]
+    {
+        get
+        {
+            if (statusHungerPanels.count > 0) { return statusHungerPanels; }
+            statusHungerPanels.append(statusHunger1);
+            statusHungerPanels.append(statusHunger2);
+            statusHungerPanels.append(statusHunger3);
+            statusHungerPanels.append(statusHunger4);
+            statusHungerPanels.append(statusHunger5);
+            return statusHungerPanels;
+        }
+    }
+    @IBOutlet weak var statusHunger1: UIImageView!
+    @IBOutlet weak var statusHunger2: UIImageView!
+    @IBOutlet weak var statusHunger3: UIImageView!
+    @IBOutlet weak var statusHunger4: UIImageView!
+    @IBOutlet weak var statusHunger5: UIImageView!
+    private var statusDisciplinePanels = [UIImageView]();
+    private var StatusDisciplinePanels : [UIImageView]
+    {
+        get
+        {
+            if (statusDisciplinePanels.count > 0) { return statusDisciplinePanels; }
+            statusDisciplinePanels.append(statusDiscipline1);
+            statusDisciplinePanels.append(statusDiscipline2);
+            statusDisciplinePanels.append(statusDiscipline3);
+            statusDisciplinePanels.append(statusDiscipline4);
+            statusDisciplinePanels.append(statusDiscipline5);
+            return statusDisciplinePanels;
+        }
+    }
+    @IBOutlet weak var statusDiscipline1: UIImageView!
+    @IBOutlet weak var statusDiscipline2: UIImageView!
+    @IBOutlet weak var statusDiscipline3: UIImageView!
+    @IBOutlet weak var statusDiscipline4: UIImageView!
+    @IBOutlet weak var statusDiscipline5: UIImageView!
+    private var statusHappinessPanels = [UIImageView]();
+    private var StatusHappinessPanels : [UIImageView]
+    {
+        get
+        {
+            if (statusHappinessPanels.count > 0) { return statusHappinessPanels; }
+            statusHappinessPanels.append(statusHappiness1);
+            statusHappinessPanels.append(statusHappiness2);
+            statusHappinessPanels.append(statusHappiness3);
+            statusHappinessPanels.append(statusHappiness4);
+            statusHappinessPanels.append(statusHappiness5);
+            return statusHappinessPanels;
+        }
+    }
+    @IBOutlet weak var statusHappiness1: UIImageView!
+    @IBOutlet weak var statusHappiness2: UIImageView!
+    @IBOutlet weak var statusHappiness3: UIImageView!
+    @IBOutlet weak var statusHappiness4: UIImageView!
+    @IBOutlet weak var statusHappiness5: UIImageView!
     
     // Settings Panel
     @IBOutlet weak var settingsPanel: UIView!
@@ -186,6 +249,11 @@ class MainViewController: UIViewController
     {
         if (!ShouldEnableSection(SubSections.Status)) { return; }
         DisableAllButtonsExcept(statusButton);
+        Information.TamagotchiStatus.SetStatusPanels(StatusHungerPanels, KirbyStatus.EStatusBar.Hunger);
+        Information.TamagotchiStatus.SetStatusPanels(StatusHappinessPanels, KirbyStatus.EStatusBar.Happiness);
+        Information.TamagotchiStatus.SetStatusPanels(StatusDisciplinePanels, KirbyStatus.EStatusBar.Discipline);
+        Information.TamagotchiStatus.SetStatus(statusName, statusAge, statusWeight);
+        DisableAllPanelsExcept(statusPanel);
     }
     
     @IBAction func OnScoldButtonPressed(_ sender: Any)
@@ -215,6 +283,7 @@ class MainViewController: UIViewController
     {
         SetSinglePanelEnabledState(settingsPanel, state);
         SetSinglePanelEnabledState(feedPanel, state);
+        SetSinglePanelEnabledState(statusPanel, state);
     }
     
     private func SetSingleButtonEnabledState(_ button: UIButton, _ newState: Bool)

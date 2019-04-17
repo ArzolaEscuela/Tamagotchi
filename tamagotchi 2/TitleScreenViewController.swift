@@ -84,8 +84,8 @@ public class TitleScreenViewController : UIViewController
     {
         if (transitioning) { return; }
         transitioning = true;
-        kirby.ViewAnimation(EAnimation.Cheer);
-        delay(bySeconds: AnimationHandler.walkingAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
+        kirby.AttemptToPlayOneshotAnimation(EAnimation.Cheer);
+        delay(bySeconds: AnimationHandler.cheerAnimation.AwaitableAnimationDuration + 0.4, dispatchLevel: .main)
         {
             self.performSegue(withIdentifier: Information.segueNames.fromTitleToMain, sender: nil);
             self.kirby.ViewAnimation(EAnimation.Walking);

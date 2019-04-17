@@ -146,7 +146,7 @@ class MainViewController: UIViewController
         if (!ShouldEnableSection(SubSections.Lights))
         {
             SetDayNight(true);
-            kirby.ViewAnimation(EAnimation.WakeUp);
+            kirby.AttemptToPlayOneshotAnimation(EAnimation.WakeUp);
             delay(bySeconds: AnimationHandler.wakeUpAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
             {
                 self.kirby.ViewAnimation(EAnimation.Walking);
@@ -156,7 +156,7 @@ class MainViewController: UIViewController
         DisableAllButtonsExcept(lightsButton);
         
         SetDayNight(false);
-        kirby.ViewAnimation(EAnimation.SleepIntro);
+        kirby.AttemptToPlayOneshotAnimation(EAnimation.SleepIntro);
         delay(bySeconds: AnimationHandler.sleepIntroAnimation.AwaitableAnimationDuration , dispatchLevel: .main)
         {
             self.kirby.ViewAnimation(EAnimation.SleepLoop);

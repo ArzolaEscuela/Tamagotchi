@@ -109,8 +109,10 @@ class MainViewController: UIViewController
     @IBOutlet weak var feedNormalFoodButton: UIButton!
     @IBOutlet weak var feedSnackButton: UIButton!
     
+    // Mood Icon
     @IBOutlet weak var currentMood: UIImageView!
     
+    // Kirby Animations
     @IBOutlet weak var kirbyAnimationsMain: UIView!
     
     @IBOutlet weak var walking: UIImageView!

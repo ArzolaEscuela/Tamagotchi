@@ -14,6 +14,27 @@
 		F1762ED0223F23DE00DFB199 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1762ECE223F23DE00DFB199 /* LaunchScreen.storyboard */; };
 		FB13E260224F21880008420D /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB13E25F224F21880008420D /* UIImageViewExtension.swift */; };
 		FB192D142266B613000442A9 /* VisualsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB192D132266B613000442A9 /* VisualsHandler.swift */; };
+		FB56BF12226B80DE00C7B9BB /* happiness_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF0E226B80D600C7B9BB /* happiness_empty.png */; };
+		FB56BF13226B80DE00C7B9BB /* submenu_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF0F226B80D900C7B9BB /* submenu_background.png */; };
+		FB56BF14226B80DE00C7B9BB /* hunger_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF10226B80DC00C7B9BB /* hunger_empty.png */; };
+		FB56BF15226B80DE00C7B9BB /* discipline_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF11226B80DD00C7B9BB /* discipline_empty.png */; };
+		FB56BF1C226B811E00C7B9BB /* kirby-classic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF17226B811900C7B9BB /* kirby-classic.ttf */; };
+		FB56BF1D226B811E00C7B9BB /* rounded-elegance.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF18226B811A00C7B9BB /* rounded-elegance.ttf */; };
+		FB56BF1E226B811E00C7B9BB /* gilroy-light.otf in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF19226B811A00C7B9BB /* gilroy-light.otf */; };
+		FB56BF1F226B811E00C7B9BB /* vevey.otf in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF1A226B811B00C7B9BB /* vevey.otf */; };
+		FB56BF20226B811E00C7B9BB /* miso.otf in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF1B226B811B00C7B9BB /* miso.otf */; };
+		FB56BF2C226B81A600C7B9BB /* reverse_walking5.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF22226B81A400C7B9BB /* reverse_walking5.png */; };
+		FB56BF2D226B81A600C7B9BB /* reverse_walking2.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF23226B81A400C7B9BB /* reverse_walking2.png */; };
+		FB56BF2E226B81A600C7B9BB /* reverse_walking9.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF24226B81A400C7B9BB /* reverse_walking9.png */; };
+		FB56BF2F226B81A600C7B9BB /* reverse_walking6.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF25226B81A400C7B9BB /* reverse_walking6.png */; };
+		FB56BF30226B81A600C7B9BB /* reverse_walking3.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF26226B81A500C7B9BB /* reverse_walking3.png */; };
+		FB56BF31226B81A600C7B9BB /* reverse_walking1.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF27226B81A500C7B9BB /* reverse_walking1.png */; };
+		FB56BF32226B81A600C7B9BB /* reverse_walking7.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF28226B81A500C7B9BB /* reverse_walking7.png */; };
+		FB56BF33226B81A600C7B9BB /* reverse_walking10.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF29226B81A500C7B9BB /* reverse_walking10.png */; };
+		FB56BF34226B81A600C7B9BB /* reverse_walking4.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF2A226B81A500C7B9BB /* reverse_walking4.png */; };
+		FB56BF35226B81A600C7B9BB /* reverse_walking8.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF2B226B81A600C7B9BB /* reverse_walking8.png */; };
+		FB56BF39226B8D6400C7B9BB /* UIOutlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56BF38226B8D6400C7B9BB /* UIOutlinedLabel.swift */; };
+		FB56BF3B226B92C800C7B9BB /* title_screen_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF3A226B92C700C7B9BB /* title_screen_background.png */; };
 		FBE793B52244955A0095A54C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE793B42244955A0095A54C /* MainViewController.swift */; };
 		FBFEABB3224D996E008ECDE2 /* AnimationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFEABB2224D996E008ECDE2 /* AnimationHandler.swift */; };
 		FBFEABB7224DA4D4008ECDE2 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFEABB6224DA4D4008ECDE2 /* TitleScreenViewController.swift */; };
@@ -38,7 +59,6 @@
 		FBFEABE5224DC494008ECDE2 /* cheer6.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABDB224DC494008ECDE2 /* cheer6.png */; };
 		FBFEABE6224DC494008ECDE2 /* cheer10.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABDC224DC494008ECDE2 /* cheer10.png */; };
 		FBFEABE7224DC494008ECDE2 /* cheer8.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABDD224DC494008ECDE2 /* cheer8.png */; };
-		FBFEABEB224DC7B2008ECDE2 /* title_screen.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABEA224DC7B2008ECDE2 /* title_screen.png */; };
 		FBFEABF5224DC90D008ECDE2 /* Status Button.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABED224DC90D008ECDE2 /* Status Button.png */; };
 		FBFEABF6224DC90D008ECDE2 /* Care Button.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABEE224DC90D008ECDE2 /* Care Button.png */; };
 		FBFEABF7224DC90D008ECDE2 /* Feed Button.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABEF224DC90D008ECDE2 /* Feed Button.png */; };
@@ -126,7 +146,6 @@
 		FBFEACA9224DCBD3008ECDE2 /* Meat.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEACA3224DCBD3008ECDE2 /* Meat.png */; };
 		FBFEACAA224DCBD3008ECDE2 /* Peach.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEACA4224DCBD3008ECDE2 /* Peach.png */; };
 		FBFEACAB224DCBD3008ECDE2 /* Hamburger.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEACA5224DCBD3008ECDE2 /* Hamburger.png */; };
-		FBFEACAE224DCC8B008ECDE2 /* Media.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FBFEACAD224DCC8B008ECDE2 /* Media.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -139,6 +158,27 @@
 		F1762ED1223F23DE00DFB199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB13E25F224F21880008420D /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		FB192D132266B613000442A9 /* VisualsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualsHandler.swift; sourceTree = "<group>"; };
+		FB56BF0E226B80D600C7B9BB /* happiness_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = happiness_empty.png; path = "Visuals/Main Menu/happiness_empty.png"; sourceTree = SOURCE_ROOT; };
+		FB56BF0F226B80D900C7B9BB /* submenu_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = submenu_background.png; path = "tamagotchi 2/visuals/menus/main/submenu_background.png"; sourceTree = SOURCE_ROOT; };
+		FB56BF10226B80DC00C7B9BB /* hunger_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hunger_empty.png; path = "Visuals/Main Menu/hunger_empty.png"; sourceTree = SOURCE_ROOT; };
+		FB56BF11226B80DD00C7B9BB /* discipline_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = discipline_empty.png; path = "Visuals/Main Menu/discipline_empty.png"; sourceTree = SOURCE_ROOT; };
+		FB56BF17226B811900C7B9BB /* kirby-classic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "kirby-classic.ttf"; path = "Visuals/Fonts/kirby-classic.ttf"; sourceTree = SOURCE_ROOT; };
+		FB56BF18226B811A00C7B9BB /* rounded-elegance.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "rounded-elegance.ttf"; path = "Visuals/Fonts/rounded-elegance.ttf"; sourceTree = SOURCE_ROOT; };
+		FB56BF19226B811A00C7B9BB /* gilroy-light.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "gilroy-light.otf"; path = "Visuals/Fonts/gilroy-light.otf"; sourceTree = SOURCE_ROOT; };
+		FB56BF1A226B811B00C7B9BB /* vevey.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = vevey.otf; path = Visuals/Fonts/vevey.otf; sourceTree = SOURCE_ROOT; };
+		FB56BF1B226B811B00C7B9BB /* miso.otf */ = {isa = PBXFileReference; lastKnownFileType = file; name = miso.otf; path = Visuals/Fonts/miso.otf; sourceTree = SOURCE_ROOT; };
+		FB56BF22226B81A400C7B9BB /* reverse_walking5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reverse_walking5.png; path = Visuals/animations/ReverseWalking/reverse_walking5.png; sourceTree = SOURCE_ROOT; };
+		FB56BF23226B81A400C7B9BB /* reverse_walking2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reverse_walking2.png; path = Visuals/animations/ReverseWalking/reverse_walking2.png; sourceTree = SOURCE_ROOT; };
+		FB56BF24226B81A400C7B9BB /* reverse_walking9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reverse_walking9.png; path = Visuals/animations/ReverseWalking/reverse_walking9.png; sourceTree = SOURCE_ROOT; };
+		FB56BF25226B81A400C7B9BB /* reverse_walking6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reverse_walking6.png; path = Visuals/animations/ReverseWalking/reverse_walking6.png; sourceTree = SOURCE_ROOT; };
+		FB56BF26226B81A500C7B9BB /* reverse_walking3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reverse_walking3.png; path = Visuals/animations/ReverseWalking/reverse_walking3.png; sourceTree = SOURCE_ROOT; };
+		FB56BF27226B81A500C7B9BB /* reverse_walking1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reverse_walking1.png; path = Visuals/animations/ReverseWalking/reverse_walking1.png; sourceTree = SOURCE_ROOT; };
+		FB56BF28226B81A500C7B9BB /* reverse_walking7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reverse_walking7.png; path = Visuals/animations/ReverseWalking/reverse_walking7.png; sourceTree = SOURCE_ROOT; };
+		FB56BF29226B81A500C7B9BB /* reverse_walking10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reverse_walking10.png; path = Visuals/animations/ReverseWalking/reverse_walking10.png; sourceTree = SOURCE_ROOT; };
+		FB56BF2A226B81A500C7B9BB /* reverse_walking4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reverse_walking4.png; path = Visuals/animations/ReverseWalking/reverse_walking4.png; sourceTree = SOURCE_ROOT; };
+		FB56BF2B226B81A600C7B9BB /* reverse_walking8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reverse_walking8.png; path = Visuals/animations/ReverseWalking/reverse_walking8.png; sourceTree = SOURCE_ROOT; };
+		FB56BF38226B8D6400C7B9BB /* UIOutlinedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIOutlinedLabel.swift; sourceTree = "<group>"; };
+		FB56BF3A226B92C700C7B9BB /* title_screen_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title_screen_background.png; path = Visuals/title_screen_background.png; sourceTree = SOURCE_ROOT; };
 		FBE793B42244955A0095A54C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FBFEABB2224D996E008ECDE2 /* AnimationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHandler.swift; sourceTree = "<group>"; };
 		FBFEABB6224DA4D4008ECDE2 /* TitleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
@@ -163,7 +203,6 @@
 		FBFEABDB224DC494008ECDE2 /* cheer6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer6.png; path = Visuals/animations/Cheer/cheer6.png; sourceTree = SOURCE_ROOT; };
 		FBFEABDC224DC494008ECDE2 /* cheer10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer10.png; path = Visuals/animations/Cheer/cheer10.png; sourceTree = SOURCE_ROOT; };
 		FBFEABDD224DC494008ECDE2 /* cheer8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer8.png; path = Visuals/animations/Cheer/cheer8.png; sourceTree = SOURCE_ROOT; };
-		FBFEABEA224DC7B2008ECDE2 /* title_screen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title_screen.png; path = Visuals/title_screen.png; sourceTree = SOURCE_ROOT; };
 		FBFEABED224DC90D008ECDE2 /* Status Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Status Button.png"; path = "tamagotchi 2/visuals/menus/main/buttons/Status Button.png"; sourceTree = SOURCE_ROOT; };
 		FBFEABEE224DC90D008ECDE2 /* Care Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Care Button.png"; path = "tamagotchi 2/visuals/menus/main/buttons/Care Button.png"; sourceTree = SOURCE_ROOT; };
 		FBFEABEF224DC90D008ECDE2 /* Feed Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Feed Button.png"; path = "tamagotchi 2/visuals/menus/main/buttons/Feed Button.png"; sourceTree = SOURCE_ROOT; };
@@ -251,7 +290,6 @@
 		FBFEACA3224DCBD3008ECDE2 /* Meat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Meat.png; path = Visuals/food/Meat.png; sourceTree = SOURCE_ROOT; };
 		FBFEACA4224DCBD3008ECDE2 /* Peach.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Peach.png; path = Visuals/food/Peach.png; sourceTree = SOURCE_ROOT; };
 		FBFEACA5224DCBD3008ECDE2 /* Hamburger.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Hamburger.png; path = Visuals/food/Hamburger.png; sourceTree = SOURCE_ROOT; };
-		FBFEACAD224DCC8B008ECDE2 /* Media.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Media.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -285,7 +323,7 @@
 			isa = PBXGroup;
 			children = (
 				FBFEABB8224DBCC1008ECDE2 /* visuals */,
-				FBFEACAC224DCC6D008ECDE2 /* asset_catalogues */,
+				FB56BF36226B8D3100C7B9BB /* Custom_Classes */,
 				FB192D172266B6A2000442A9 /* Extensions */,
 				FB192D162266B691000442A9 /* Handlers */,
 				FB192D152266B668000442A9 /* Controllers */,
@@ -326,9 +364,47 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		FB56BF16226B810600C7B9BB /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				FB56BF19226B811A00C7B9BB /* gilroy-light.otf */,
+				FB56BF17226B811900C7B9BB /* kirby-classic.ttf */,
+				FB56BF1B226B811B00C7B9BB /* miso.otf */,
+				FB56BF18226B811A00C7B9BB /* rounded-elegance.ttf */,
+				FB56BF1A226B811B00C7B9BB /* vevey.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
+		FB56BF21226B818700C7B9BB /* reverse_walking */ = {
+			isa = PBXGroup;
+			children = (
+				FB56BF27226B81A500C7B9BB /* reverse_walking1.png */,
+				FB56BF23226B81A400C7B9BB /* reverse_walking2.png */,
+				FB56BF26226B81A500C7B9BB /* reverse_walking3.png */,
+				FB56BF2A226B81A500C7B9BB /* reverse_walking4.png */,
+				FB56BF22226B81A400C7B9BB /* reverse_walking5.png */,
+				FB56BF25226B81A400C7B9BB /* reverse_walking6.png */,
+				FB56BF28226B81A500C7B9BB /* reverse_walking7.png */,
+				FB56BF2B226B81A600C7B9BB /* reverse_walking8.png */,
+				FB56BF24226B81A400C7B9BB /* reverse_walking9.png */,
+				FB56BF29226B81A500C7B9BB /* reverse_walking10.png */,
+			);
+			path = reverse_walking;
+			sourceTree = "<group>";
+		};
+		FB56BF36226B8D3100C7B9BB /* Custom_Classes */ = {
+			isa = PBXGroup;
+			children = (
+				FB56BF38226B8D6400C7B9BB /* UIOutlinedLabel.swift */,
+			);
+			path = Custom_Classes;
+			sourceTree = "<group>";
+		};
 		FBFEABB8224DBCC1008ECDE2 /* visuals */ = {
 			isa = PBXGroup;
 			children = (
+				FB56BF16226B810600C7B9BB /* fonts */,
 				FBFEAC9F224DCBC0008ECDE2 /* food */,
 				FBFEABE8224DC7A0008ECDE2 /* menus */,
 				FBFEABB9224DBCD1008ECDE2 /* animations */,
@@ -339,6 +415,7 @@
 		FBFEABB9224DBCD1008ECDE2 /* animations */ = {
 			isa = PBXGroup;
 			children = (
+				FB56BF21226B818700C7B9BB /* reverse_walking */,
 				FBFEAC84224DCBA3008ECDE2 /* inhale_eat */,
 				FBFEAC81224DCB7D008ECDE2 /* angry */,
 				FBFEAC67224DCB3D008ECDE2 /* paint */,
@@ -398,7 +475,7 @@
 		FBFEABE9224DC7A6008ECDE2 /* title */ = {
 			isa = PBXGroup;
 			children = (
-				FBFEABEA224DC7B2008ECDE2 /* title_screen.png */,
+				FB56BF3A226B92C700C7B9BB /* title_screen_background.png */,
 			);
 			path = title;
 			sourceTree = "<group>";
@@ -406,6 +483,7 @@
 		FBFEABEC224DC8F1008ECDE2 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				FB56BF0F226B80D900C7B9BB /* submenu_background.png */,
 				FBFEAC21224DCA9E008ECDE2 /* top.png */,
 				FBFEAC1F224DCA95008ECDE2 /* bottom.png */,
 				FBFEAC1E224DC9E8008ECDE2 /* current_status */,
@@ -447,6 +525,9 @@
 		FBFEAC1D224DC9CD008ECDE2 /* status */ = {
 			isa = PBXGroup;
 			children = (
+				FB56BF11226B80DD00C7B9BB /* discipline_empty.png */,
+				FB56BF0E226B80D600C7B9BB /* happiness_empty.png */,
+				FB56BF10226B80DC00C7B9BB /* hunger_empty.png */,
 				FBFEAC0B224DC9C2008ECDE2 /* hunger_half.png */,
 				FBFEAC0C224DC9C2008ECDE2 /* hunger.png */,
 				FBFEAC0F224DC9C2008ECDE2 /* discipline_half.png */,
@@ -593,14 +674,6 @@
 			path = food;
 			sourceTree = "<group>";
 		};
-		FBFEACAC224DCC6D008ECDE2 /* asset_catalogues */ = {
-			isa = PBXGroup;
-			children = (
-				FBFEACAD224DCC8B008ECDE2 /* Media.xcassets */,
-			);
-			path = asset_catalogues;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -660,14 +733,17 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB56BF30226B81A600C7B9BB /* reverse_walking3.png in Resources */,
 				FBFEACA8224DCBD3008ECDE2 /* Flan.png in Resources */,
 				FBFEABFA224DC90D008ECDE2 /* Scold Button.png in Resources */,
 				FBFEAC5E224DCB3A008ECDE2 /* sleeping2.png in Resources */,
 				FBFEAC7E224DCB76008ECDE2 /* smears2.png in Resources */,
 				FBFEAC7D224DCB76008ECDE2 /* smears1.png in Resources */,
+				FB56BF32226B81A600C7B9BB /* reverse_walking7.png in Resources */,
 				FBFEAC43224DCB17008ECDE2 /* help7.png in Resources */,
 				FBFEABF5224DC90D008ECDE2 /* Status Button.png in Resources */,
 				FBFEAC6E224DCB50008ECDE2 /* paint3.png in Resources */,
+				FB56BF12226B80DE00C7B9BB /* happiness_empty.png in Resources */,
 				FBFEAC61224DCB3A008ECDE2 /* sleeping6.png in Resources */,
 				FBFEAC1C224DC9C3008ECDE2 /* normal.png in Resources */,
 				FBFEABDF224DC494008ECDE2 /* cheer5.png in Resources */,
@@ -680,12 +756,16 @@
 				FBFEABD0224DBD15008ECDE2 /* walking1.png in Resources */,
 				FBFEAC19224DC9C3008ECDE2 /* Settings.png in Resources */,
 				FBFEAC18224DC9C3008ECDE2 /* happiness_half.png in Resources */,
+				FB56BF15226B80DE00C7B9BB /* discipline_empty.png in Resources */,
 				FBFEAC5F224DCB3A008ECDE2 /* sleeping12.png in Resources */,
 				FBFEABF6224DC90D008ECDE2 /* Care Button.png in Resources */,
 				FBFEABCA224DBD15008ECDE2 /* walking9.png in Resources */,
 				FBFEAC02224DC97A008ECDE2 /* night.png in Resources */,
 				FBFEAC4B224DCB17008ECDE2 /* help2.png in Resources */,
+				FB56BF35226B81A600C7B9BB /* reverse_walking8.png in Resources */,
 				FBFEABC8224DBD15008ECDE2 /* walking8.png in Resources */,
+				FB56BF31226B81A600C7B9BB /* reverse_walking1.png in Resources */,
+				FB56BF14226B80DE00C7B9BB /* hunger_empty.png in Resources */,
 				FBFEAC14224DC9C3008ECDE2 /* discipline.png in Resources */,
 				FBFEAC60224DCB3A008ECDE2 /* sleeping13.png in Resources */,
 				FBFEAC62224DCB3A008ECDE2 /* sleeping11.png in Resources */,
@@ -693,7 +773,6 @@
 				FBFEAC06224DC99E008ECDE2 /* button_area_background.png in Resources */,
 				FBFEAC5B224DCB3A008ECDE2 /* sleeping1.png in Resources */,
 				FBFEAC9D224DCBB6008ECDE2 /* inhale_eat3.png in Resources */,
-				FBFEABEB224DC7B2008ECDE2 /* title_screen.png in Resources */,
 				FBFEAC13224DC9C3008ECDE2 /* Home.png in Resources */,
 				FBFEAC5D224DCB3A008ECDE2 /* sleeping8.png in Resources */,
 				FBFEABF8224DC90D008ECDE2 /* Lights Button.png in Resources */,
@@ -701,6 +780,7 @@
 				FBFEAC49224DCB17008ECDE2 /* help8.png in Resources */,
 				FBFEABCC224DBD15008ECDE2 /* walking2.png in Resources */,
 				FBFEAC12224DC9C3008ECDE2 /* happiness.png in Resources */,
+				FB56BF2E226B81A600C7B9BB /* reverse_walking9.png in Resources */,
 				FBFEABE4224DC494008ECDE2 /* cheer1.png in Resources */,
 				F1762ED0223F23DE00DFB199 /* LaunchScreen.storyboard in Resources */,
 				FBFEABE0224DC494008ECDE2 /* cheer2.png in Resources */,
@@ -708,6 +788,7 @@
 				FBFEABC9224DBD15008ECDE2 /* walking4.png in Resources */,
 				FBFEAC2A224DCAE0008ECDE2 /* left2.png in Resources */,
 				FBFEABE1224DC494008ECDE2 /* cheer7.png in Resources */,
+				FB56BF2D226B81A600C7B9BB /* reverse_walking2.png in Resources */,
 				FBFEABF9224DC90D008ECDE2 /* Help Button.png in Resources */,
 				FBFEABE3224DC494008ECDE2 /* cheer9.png in Resources */,
 				FBFEABCE224DBD15008ECDE2 /* walking5.png in Resources */,
@@ -715,10 +796,11 @@
 				FBFEAC65224DCB3A008ECDE2 /* sleeping4.png in Resources */,
 				FBFEAC03224DC97A008ECDE2 /* middle_background.png in Resources */,
 				FBFEAC4A224DCB17008ECDE2 /* help11.png in Resources */,
+				FB56BF34226B81A600C7B9BB /* reverse_walking4.png in Resources */,
 				FBFEAC6F224DCB50008ECDE2 /* paint4.png in Resources */,
 				FBFEABCD224DBD15008ECDE2 /* walking7.png in Resources */,
+				FB56BF1E226B811E00C7B9BB /* gilroy-light.otf in Resources */,
 				FBFEAC64224DCB3A008ECDE2 /* sleeping7.png in Resources */,
-				FBFEACAE224DCC8B008ECDE2 /* Media.xcassets in Resources */,
 				F1762ECD223F23DE00DFB199 /* Assets.xcassets in Resources */,
 				FBFEAC30224DCAF6008ECDE2 /* right1.png in Resources */,
 				FBFEABFC224DC90D008ECDE2 /* Play Button.png in Resources */,
@@ -727,15 +809,21 @@
 				FBFEACAA224DCBD3008ECDE2 /* Peach.png in Resources */,
 				FBFEAC9A224DCBB6008ECDE2 /* inhale_eat4.png in Resources */,
 				FBFEABE7224DC494008ECDE2 /* cheer8.png in Resources */,
+				FB56BF33226B81A600C7B9BB /* reverse_walking10.png in Resources */,
 				FBFEAC40224DCB17008ECDE2 /* help9.png in Resources */,
 				FBFEAC7F224DCB76008ECDE2 /* smears4.png in Resources */,
 				FBFEAC98224DCBB6008ECDE2 /* inhale_eat10.png in Resources */,
 				FBFEACAB224DCBD3008ECDE2 /* Hamburger.png in Resources */,
 				FBFEACA7224DCBD3008ECDE2 /* Cake.png in Resources */,
+				FB56BF20226B811E00C7B9BB /* miso.otf in Resources */,
 				FBFEAC80224DCB76008ECDE2 /* smears5.png in Resources */,
 				FBFEAC20224DCA95008ECDE2 /* bottom.png in Resources */,
 				FBFEAC2B224DCAE0008ECDE2 /* left3.png in Resources */,
+				FB56BF1F226B811E00C7B9BB /* vevey.otf in Resources */,
+				FB56BF2F226B81A600C7B9BB /* reverse_walking6.png in Resources */,
+				FB56BF3B226B92C800C7B9BB /* title_screen_background.png in Resources */,
 				FBFEAC7C224DCB76008ECDE2 /* smears6.png in Resources */,
+				FB56BF2C226B81A600C7B9BB /* reverse_walking5.png in Resources */,
 				FBFEAC41224DCB17008ECDE2 /* help12.png in Resources */,
 				FBFEAC92224DCBB6008ECDE2 /* inhale_eat11.png in Resources */,
 				FBFEABDE224DC494008ECDE2 /* cheer3.png in Resources */,
@@ -745,9 +833,11 @@
 				FBFEAC94224DCBB6008ECDE2 /* inhale_eat6.png in Resources */,
 				FBFEAC93224DCBB6008ECDE2 /* inhale_eat5.png in Resources */,
 				FBFEAC5C224DCB3A008ECDE2 /* sleeping10.png in Resources */,
+				FB56BF1D226B811E00C7B9BB /* rounded-elegance.ttf in Resources */,
 				FBFEAC5A224DCB3A008ECDE2 /* sleeping9.png in Resources */,
 				FBFEABC7224DBD15008ECDE2 /* walking6.png in Resources */,
 				FBFEAC9B224DCBB6008ECDE2 /* inhale_eat1.png in Resources */,
+				FB56BF1C226B811E00C7B9BB /* kirby-classic.ttf in Resources */,
 				F1762ECB223F23DE00DFB199 /* Main.storyboard in Resources */,
 				FBFEABCF224DBD15008ECDE2 /* walking10.png in Resources */,
 				FBFEAC9C224DCBB6008ECDE2 /* inhale_eat13.png in Resources */,
@@ -772,6 +862,7 @@
 				FBFEACA9224DCBD3008ECDE2 /* Meat.png in Resources */,
 				FBFEAC17224DC9C3008ECDE2 /* hunger.png in Resources */,
 				FBFEABE5224DC494008ECDE2 /* cheer6.png in Resources */,
+				FB56BF13226B80DE00C7B9BB /* submenu_background.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -782,6 +873,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB56BF39226B8D6400C7B9BB /* UIOutlinedLabel.swift in Sources */,
 				FBFEABD2224DBF80008ECDE2 /* Information.swift in Sources */,
 				FB13E260224F21880008420D /* UIImageViewExtension.swift in Sources */,
 				FBE793B52244955A0095A54C /* MainViewController.swift in Sources */,

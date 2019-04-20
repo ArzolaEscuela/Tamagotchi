@@ -25,7 +25,7 @@ class MainViewController: UIViewController
     @IBOutlet weak var feedButton: UIButton!
     @IBOutlet weak var lightsButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
-    @IBOutlet weak var healButton: UIButton!
+    @IBOutlet weak var helpButton: UIButton!
     
     // Bottom Buttons
     @IBOutlet weak var cleanButton: UIButton!
@@ -105,6 +105,7 @@ class MainViewController: UIViewController
     
     // Feed Button
     @IBOutlet weak var feedPanel: UIView!
+    @IBOutlet weak var feedName: UIOutlinedLabel!
     @IBOutlet weak var FeedDisclaimerLabel: UILabel!
     @IBOutlet weak var feedNormalFoodButton: UIButton!
     @IBOutlet weak var feedSnackButton: UIButton!
@@ -141,8 +142,14 @@ class MainViewController: UIViewController
     @IBOutlet weak var nightOverlay: UIView!
     
     private var kirby: KirbyInstance!;
+    private var leftTarget: CGFloat!;
+    private var rightTarget: CGFloat!;
+    private var targetDistance: CGFloat!;
     
     var currentlyActive: SubSections = SubSections.Main;
+    
+    private var ScreenWidth: CGFloat {get {return Information.phoneInformation.ScreenWidth;}}
+    private var FullWalkTimer: Double {get {return 2.6;}}
     
     public func InitializeKirby()
     {
@@ -152,13 +159,6 @@ class MainViewController: UIViewController
             , right, cheer, sleepIntro, sleepLoop, sleepWakeUp, help, helpDone, inhaleIntro, inhaleLoop, inhaleEnd, inhaleEating, EAnimation.Walking);            
         }
         kirby.StartAnimations();
-    }
-    
-    
-    override public func viewDidAppear(_ animated: Bool)
-    {
-        InitializeKirby();
-        SetDayNight(true);
     }
     
     private func BackToMainMenu()
@@ -199,6 +199,16 @@ class MainViewController: UIViewController
         DisableAllPanelsExcept(feedPanel);
     }
     
+    @IBAction func OnFeedSnackButtonPressed(_ sender: Any)
+    {
+        
+    }
+    
+    @IBAction func OnFeedNormalFoodButtonPressed(_ sender: Any)
+    {
+        
+    }
+    
     private func SetDayNight(_ isDay: Bool)
     {
         dayImage.isHidden = !isDay;
@@ -215,12 +225,14 @@ class MainViewController: UIViewController
             delay(bySeconds: AnimationHandler.wakeUpAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
             {
                 self.kirby.ViewAnimation(EAnimation.Walking);
+                self.ResumeKirbyMovement(0);
             }
             return;
         }
         DisableAllButtonsExcept(lightsButton);
         
         SetDayNight(false);
+        self.StopKirbyMovement();
         kirby.AttemptToPlayOneshotAnimation(EAnimation.SleepIntro);
         delay(bySeconds: AnimationHandler.sleepIntroAnimation.AwaitableAnimationDuration , dispatchLevel: .main)
         {
@@ -238,7 +250,7 @@ class MainViewController: UIViewController
     @IBAction func OnHealButtonPressed(_ sender: Any)
     {
         if (!ShouldEnableSection(SubSections.Heal)) { return; }
-        DisableAllButtonsExcept(healButton);
+        DisableAllButtonsExcept(helpButton);
     }
     
     @IBAction func OnCleanButtonPressed(_ sender: Any)
@@ -303,16 +315,46 @@ class MainViewController: UIViewController
     private func SetTopmostButtonsEnabledState(_ state: Bool)
     {
         SetSingleButtonEnabledState(homeButton, state);
-        // SetSingleButtonEnabledState(changeButton, state);
         SetSingleButtonEnabledState(settingsButton, state);
     }
     
     private func SetAllNonTopButtonsEnabledState(_ state: Bool)
     {
+        if (!state)
+        {
+            ActuallySetButtonStates(false);
+            return;
+        }
+        
+        switch(Information.TamagotchiStatus.CurrentEvent)
+        {
+            case KirbyStatus.EKirbyEvent.Hungry:
+                SetButtonStates_Hungry(state);
+                break;
+            case KirbyStatus.EKirbyEvent.Tired:
+                SetButtonStates_Tired(state);
+                break;
+            case KirbyStatus.EKirbyEvent.Painting:
+                SetButtonStates_Painting(state);
+                break;
+            case KirbyStatus.EKirbyEvent.Rebel:
+                SetButtonStates_Rebel(state);
+                break;
+            case KirbyStatus.EKirbyEvent.Stuck:
+                SetButtonStates_Stuck(state);
+                break;
+            default:
+                SetButtonStates_Eventless(state);
+                break;
+        }
+    }
+    
+    private func ActuallySetButtonStates(_ state: Bool)
+    {
         SetSingleButtonEnabledState(feedButton, state);
         SetSingleButtonEnabledState(lightsButton, state);
         SetSingleButtonEnabledState(playButton, state);
-        SetSingleButtonEnabledState(healButton, state);
+        SetSingleButtonEnabledState(helpButton, state);
         
         SetSingleButtonEnabledState(cleanButton, state);
         SetSingleButtonEnabledState(statusButton, state);
@@ -320,19 +362,130 @@ class MainViewController: UIViewController
         SetSingleButtonEnabledState(careButton, state);
     }
     
-    func DoNothing(){}
+    private func SetButtonStates_Hungry(_ state: Bool)
+    {
+        ActuallySetButtonStates(false);
+        SetSingleButtonEnabledState(feedButton, true);
+    }
+    
+    private func SetButtonStates_Tired(_ state: Bool)
+    {
+        ActuallySetButtonStates(false);
+        SetSingleButtonEnabledState(lightsButton, true);
+    }
+    
+    private func SetButtonStates_Painting(_ state: Bool)
+    {
+        ActuallySetButtonStates(false);
+        SetSingleButtonEnabledState(cleanButton, true);
+    }
+    
+    private func SetButtonStates_Rebel(_ state: Bool)
+    {
+        ActuallySetButtonStates(false);
+        SetSingleButtonEnabledState(scoldButton, true);
+    }
+    
+    private func SetButtonStates_Stuck(_ state: Bool)
+    {
+        ActuallySetButtonStates(false);
+        SetSingleButtonEnabledState(helpButton, true);
+    }
+    
+    private func SetButtonStates_Eventless(_ state: Bool)
+    {
+        SetSingleButtonEnabledState(feedButton, state);
+        SetSingleButtonEnabledState(lightsButton, state);
+        SetSingleButtonEnabledState(playButton, state);
+        HandleSpecialStateButton(state, helpButton, KirbyStatus.EKirbyEvent.Stuck);
+    
+        HandleSpecialStateButton(state, cleanButton, KirbyStatus.EKirbyEvent.Painting);        SetSingleButtonEnabledState(statusButton, state);
+        HandleSpecialStateButton(state, scoldButton, KirbyStatus.EKirbyEvent.Rebel);
+        HandleSpecialStateButton(state, careButton, KirbyStatus.EKirbyEvent.CareAble);
+    }
+    
+    private func HandleSpecialStateButton(_ requestedState: Bool, _ button: UIButton, _ requiredEvent : KirbyStatus.EKirbyEvent)
+    {
+        SetSingleButtonEnabledState(button, Information.TamagotchiStatus.CurrentEvent == requiredEvent);
+    }
+    
+    private func PrepareKirby()
+    {
+        kirbyAnimationsMain.center.x = leftTarget;
+    }
+    
+    private func StopKirbyMovement()
+    {
+        isKirbyMoving = false;
+        return;
+        kirbyAnimationsMain.layer.removeAnimation(forKey: "move")
+    }
+    
+    private var isKirbyMoving: Bool = false;
+    
+    private func ResumeKirbyMovement(_ timerToResumeAfter: Double)
+    {
+        isKirbyMoving = true;
+        return;
+        let remainingDuration : Double = self.GetMovementTimerToEdge(true);
+        
+        delay(bySeconds: timerToResumeAfter, dispatchLevel: .main)
+        {
+            UIView.animate(withDuration: remainingDuration)
+            {
+                self.kirbyAnimationsMain.center.x = self.rightTarget;
+            }
+        }
+        
+        delay(bySeconds: timerToResumeAfter + remainingDuration, dispatchLevel: .main)
+        {
+            self.StartMovingKirby();
+        }
+    }
+    
+    private func GetMovementTimerToEdge(_ goingRight: Bool) -> Double
+    {
+        let currentPos = kirbyAnimationsMain.center.x;
+        let timePerUnit : Double = Double(targetDistance) / FullWalkTimer;
+        let remainingDistance : Double = Double(goingRight ? rightTarget - currentPos : currentPos - leftTarget);
+        return timePerUnit * remainingDistance;
+    }
+    
+    private func StartMovingKirby()
+    {
+        isKirbyMoving = true;
+        UIView.animate(withDuration: self.FullWalkTimer, delay: 0, options: [.repeat], animations:
+            {
+                self.kirbyAnimationsMain.center.x = self.isKirbyMoving ? self.rightTarget : self.kirbyAnimationsMain.center.x;
+        }, completion: nil)
+    }
+    
+    override public func viewWillAppear(_ animated: Bool)
+    {
+        InitializeKirby();
+        SetDayNight(true);
+        PrepareKirby();
+    }
     
     override func viewDidLoad()
     {
         super.viewDidLoad();
         BackToMainMenu();
-        
-        //AnimationHandler.walkingAnimation.PlayAnimation(gotchi);
+        let center = kirbyAnimationsMain.center.x;
+        let width = kirbyAnimationsMain.bounds.size.width;
+        leftTarget = center - ScreenWidth/2 - width;
+        rightTarget = center + ScreenWidth/2 + width;
+        targetDistance = rightTarget - leftTarget;
     }
     
-    override func didReceiveMemoryWarning() {
+    override func viewDidAppear(_ animated: Bool)
+    {
+        StartMovingKirby();
+    }
+    
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
     }
     
     override open var shouldAutorotate: Bool

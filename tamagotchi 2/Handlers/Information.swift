@@ -11,8 +11,10 @@ import UIKit
 
 public class PhoneInformation
 {
-    public var screenWidth: CGFloat;
-    public var screenHeight: CGFloat;
+    private var screenWidth: CGFloat;
+    public var ScreenWidth: CGFloat { get { return screenWidth; } }
+    private var screenHeight: CGFloat;
+    public var ScreenHeight: CGFloat { get { return screenHeight; } }
     
     init()
     {
@@ -32,10 +34,8 @@ public class KirbyStatus
     public enum EKirbyEvent
     {
         case None; // Nothing unusual will happen.
-        case Sleeping;
-        case Playing;
-        case Hungry;
-        case Tired;
+        case Hungry; // Kirby will stop moving until fed
+        case Tired; // Kirby will stop moving until slept at least 1 hour.
         case Stuck; // Kirby will remain stuck
         case CareAble; // Similar to normal, nothing unusual will happen, but can be cared for.
         case Painting; // Kirby will stop running, and will instead start painting.
@@ -60,6 +60,7 @@ public class KirbyStatus
     private var age: Int = 0;
     private var weight: String = "2 oz";
     private var status: EStatus = EStatus.Normal;
+    private var currentEvent: EKirbyEvent = EKirbyEvent.None;
     // These will range from 0 to 10
     private var hunger: Int = 10;
     private var happiness: Int = 0;
@@ -69,6 +70,7 @@ public class KirbyStatus
     public var Age: Int { get { return age; } }
     public var Weight: String { get { return weight; } }
     public var Status: EStatus { get { return status; } }
+    public var CurrentEvent: EKirbyEvent { get { return currentEvent; } }
     public var Hunger: Int { get { return hunger; } }
     public var Happiness: Int { get { return happiness; } }
     public var Discipline: Int { get { return discipline; } }

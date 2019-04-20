@@ -328,13 +328,19 @@
                                         <rect key="frame" x="215" y="99" width="128" height="133"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="Flan.png"/>
+                                        <connections>
+                                            <action selector="OnFeedSnackButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HzW-3O-aEu"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5EL-un-bHA">
                                         <rect key="frame" x="58" y="99" width="132" height="133"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="Meat.png"/>
+                                        <connections>
+                                            <action selector="OnFeedNormalFoodButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HzR-nG-5Y0"/>
+                                        </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kirby" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV5-Qw-XZ0" customClass="UIOutlinedLabel" customModule="Tamagotchi" customModuleProvider="target">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kirby" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LV5-Qw-XZ0" userLabel="Feed_Name" customClass="UIOutlinedLabel" customModule="Tamagotchi" customModuleProvider="target">
                                         <rect key="frame" x="8" y="53" width="384" height="50"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="KirbyClassic" family="Kirby Classic" pointSize="40"/>
@@ -487,11 +493,12 @@
                         <outlet property="currentMood" destination="gWD-bK-gXQ" id="HYu-w5-kc6"/>
                         <outlet property="dayImage" destination="mhR-mO-3hj" id="WkT-ZF-h3M"/>
                         <outlet property="feedButton" destination="z0Y-9Y-6EO" id="Kzz-rT-T67"/>
+                        <outlet property="feedName" destination="LV5-Qw-XZ0" id="iHQ-ed-83o"/>
                         <outlet property="feedNormalFoodButton" destination="5EL-un-bHA" id="WUc-U1-rYt"/>
                         <outlet property="feedPanel" destination="SD6-Hh-LNT" id="7TJ-n7-9r2"/>
                         <outlet property="feedSnackButton" destination="zXo-nT-McW" id="ehI-ff-lOJ"/>
-                        <outlet property="healButton" destination="rno-T4-qXc" id="5sa-Il-tmd"/>
                         <outlet property="help" destination="EAe-zM-yZ2" id="3qO-cm-rDD"/>
+                        <outlet property="helpButton" destination="rno-T4-qXc" id="5sa-Il-tmd"/>
                         <outlet property="helpDone" destination="ZWO-Ms-SdP" id="mWL-Ot-hJN"/>
                         <outlet property="homeButton" destination="lZ4-LK-Iv7" id="d3E-pr-xZQ"/>
                         <outlet property="inhaleEating" destination="jT4-Ja-dUn" id="Gsq-v3-n6K"/>
@@ -680,6 +687,9 @@
                         <outlet property="sleepIntro" destination="MzI-GP-Mii" id="e7x-dv-GNW"/>
                         <outlet property="sleepLoop" destination="aKq-nb-2kh" id="0dI-gn-YIY"/>
                         <outlet property="sleepWakeUp" destination="nzA-oq-Myj" id="aHg-p3-cbT"/>
+                        <outlet property="tamagotchiText" destination="jl2-pV-QWu" id="YeL-pS-CXc"/>
+                        <outlet property="tapAnywhereText" destination="q3V-Kd-xuv" id="fG6-jF-ITh"/>
+                        <outlet property="versionText" destination="rJZ-di-1JT" id="6ya-6a-HaE"/>
                         <outlet property="walking" destination="Ylq-Xs-PJU" id="0R2-Lo-niY"/>
                         <segue destination="BYZ-38-t0r" kind="show" identifier="fromTitleToMain" id="EEC-f0-mYQ"/>
                     </connections>

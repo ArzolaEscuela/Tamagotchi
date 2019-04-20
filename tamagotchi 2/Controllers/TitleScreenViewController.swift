@@ -22,8 +22,15 @@ public enum DispatchLevel
         }
     }
 }
+
 public class TitleScreenViewController : UIViewController
 {
+    // UI Elements
+    @IBOutlet weak var tapAnywhereText: UITextField!
+    @IBOutlet weak var tamagotchiText: UILabel!
+    @IBOutlet weak var versionText: UIOutlinedLabel!
+        
+    // Animations
     @IBOutlet weak var kirbyAnimationsMain: UIView!
     
     @IBOutlet weak var walking: UIImageView!
@@ -50,6 +57,8 @@ public class TitleScreenViewController : UIViewController
     private var kirby: KirbyInstance!;
     private var transitioning: Bool = false;
     
+    private var ScreenHeight: CGFloat {get {return Information.phoneInformation.ScreenHeight;}}
+    
     private func InitializeKirby()
     {
         kirby = KirbyInstance(kirbyAnimationsMain, walking, anger, paint, left
@@ -68,10 +77,40 @@ public class TitleScreenViewController : UIViewController
         }
     }
     
+    override public func viewWillAppear(_ animated: Bool)
+    {
+        tapAnywhereText.center.y += ScreenHeight;
+        tamagotchiText.center.y -= ScreenHeight;
+        versionText.center.y -= ScreenHeight;
+        transitioning = false;
+        InitializeKirby();
+    }
+    
     override public func viewDidAppear(_ animated: Bool)
     {
-        InitializeKirby();
-        transitioning = false;
+        let animationDurations: Double = 0.35;
+        
+        delay(bySeconds: animationDurations, dispatchLevel: .main)
+        {
+            UIView.animate(withDuration: animationDurations)
+            {
+                self.tamagotchiText.center.y += self.ScreenHeight;
+            }
+        }
+        delay(bySeconds: animationDurations*2, dispatchLevel: .main)
+        {
+            UIView.animate(withDuration: animationDurations)
+            {
+                self.versionText.center.y += self.ScreenHeight;
+            }
+        }
+        delay(bySeconds: animationDurations*3, dispatchLevel: .main)
+        {
+            UIView.animate(withDuration: animationDurations)
+            {
+                self.tapAnywhereText.center.y -= self.ScreenHeight;
+            }
+        }
     }
     
     override public func viewDidLoad()

@@ -35,6 +35,7 @@
 		FB56BF35226B81A600C7B9BB /* reverse_walking8.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF2B226B81A600C7B9BB /* reverse_walking8.png */; };
 		FB56BF39226B8D6400C7B9BB /* UIOutlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56BF38226B8D6400C7B9BB /* UIOutlinedLabel.swift */; };
 		FB56BF3B226B92C800C7B9BB /* title_screen_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF3A226B92C700C7B9BB /* title_screen_background.png */; };
+		FB56BF3D226BA00700C7B9BB /* ScheduledEventsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56BF3C226BA00700C7B9BB /* ScheduledEventsHandler.swift */; };
 		FBE793B52244955A0095A54C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE793B42244955A0095A54C /* MainViewController.swift */; };
 		FBFEABB3224D996E008ECDE2 /* AnimationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFEABB2224D996E008ECDE2 /* AnimationHandler.swift */; };
 		FBFEABB7224DA4D4008ECDE2 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFEABB6224DA4D4008ECDE2 /* TitleScreenViewController.swift */; };
@@ -179,6 +180,7 @@
 		FB56BF2B226B81A600C7B9BB /* reverse_walking8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reverse_walking8.png; path = Visuals/animations/ReverseWalking/reverse_walking8.png; sourceTree = SOURCE_ROOT; };
 		FB56BF38226B8D6400C7B9BB /* UIOutlinedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIOutlinedLabel.swift; sourceTree = "<group>"; };
 		FB56BF3A226B92C700C7B9BB /* title_screen_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title_screen_background.png; path = Visuals/title_screen_background.png; sourceTree = SOURCE_ROOT; };
+		FB56BF3C226BA00700C7B9BB /* ScheduledEventsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledEventsHandler.swift; sourceTree = "<group>"; };
 		FBE793B42244955A0095A54C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FBFEABB2224D996E008ECDE2 /* AnimationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHandler.swift; sourceTree = "<group>"; };
 		FBFEABB6224DA4D4008ECDE2 /* TitleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
@@ -352,6 +354,7 @@
 				FBFEABD1224DBF80008ECDE2 /* Information.swift */,
 				FB192D132266B613000442A9 /* VisualsHandler.swift */,
 				FBFEABB2224D996E008ECDE2 /* AnimationHandler.swift */,
+				FB56BF3C226BA00700C7B9BB /* ScheduledEventsHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -878,6 +881,7 @@
 				FB13E260224F21880008420D /* UIImageViewExtension.swift in Sources */,
 				FBE793B52244955A0095A54C /* MainViewController.swift in Sources */,
 				F1762EC8223F23DE00DFB199 /* ViewController.swift in Sources */,
+				FB56BF3D226BA00700C7B9BB /* ScheduledEventsHandler.swift in Sources */,
 				FB192D142266B613000442A9 /* VisualsHandler.swift in Sources */,
 				F1762EC6223F23DE00DFB199 /* AppDelegate.swift in Sources */,
 				FBFEABB7224DA4D4008ECDE2 /* TitleScreenViewController.swift in Sources */,

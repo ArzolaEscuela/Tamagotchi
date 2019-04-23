@@ -56,6 +56,8 @@ public class KirbyStatus
         case Discipline;
     }
     
+    private var progress: Int = 0;
+    
     private var name: String = "Kirby";
     private var age: Int = 0;
     private var weight: String = "2 oz";
@@ -66,6 +68,7 @@ public class KirbyStatus
     private var happiness: Int = 0;
     private var discipline: Int = 0;
     
+    public var Progress: Int { get { return progress; } }
     public var Name: String { get { return name; } }
     public var Age: Int { get { return age; } }
     public var Weight: String { get { return weight; } }

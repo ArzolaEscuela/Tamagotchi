@@ -245,7 +245,16 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             </imageView>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SCH-ml-pCT" userLabel="walking_kirby">
+                                        <rect key="frame" x="147" y="65" width="120" height="120"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="walking1.png" translatesAutoresizingMaskIntoConstraints="NO" id="okk-ZJ-gy8">
+                                                <rect key="frame" x="-12" y="-12" width="144" height="144"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            </imageView>
+                                        </subviews>
                                     </view>
                                     <view alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i7w-29-U1W" userLabel="night_overlay">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="276"/>
@@ -255,6 +264,13 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="1.000.000m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="joe-Wu-JSr" userLabel="Progress" customClass="UIOutlinedLabel" customModule="Tamagotchi" customModuleProvider="target">
+                                <rect key="frame" x="8" y="240" width="393" height="41"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="KirbyClassic" family="Kirby Classic" pointSize="30"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TG7-k2-4AL" userLabel="Settings">
                                 <rect key="frame" x="8" y="248" width="400" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -317,7 +333,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="400" height="240"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="What Would You Like To Feed" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZD-dT-hts">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Pick Someting To Feed" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HZD-dT-hts">
                                         <rect key="frame" x="8" y="17" width="384" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="RoundedEleganceNew-Regular" family="Rounded Elegance" pointSize="25"/>
@@ -480,6 +496,54 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Pyy-xf-RYi" userLabel="Play">
+                                <rect key="frame" x="8" y="249" width="397" height="237"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="submenu_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="lJD-Aa-lRH" userLabel="Background">
+                                        <rect key="frame" x="0.0" y="0.0" width="397" height="237"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPc-fx-mco" userLabel="Left">
+                                        <rect key="frame" x="58" y="99" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Peach.png"/>
+                                        <connections>
+                                            <action selector="OnPlayLeftButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IVD-46-Sxb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epi-2j-Syx" userLabel="Right">
+                                        <rect key="frame" x="215" y="99" width="128" height="128"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Sushi.png"/>
+                                        <connections>
+                                            <action selector="OnPlayRightButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S2k-Jp-88u"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Which direction will" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ngv-Tb-jrG" userLabel="Disclaimer 1">
+                                        <rect key="frame" x="8" y="9" width="381" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="RoundedEleganceNew-Regular" family="Rounded Elegance" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Kirby" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLC-gw-hQ7" userLabel="Play_Name" customClass="UIOutlinedLabel" customModule="Tamagotchi" customModuleProvider="target">
+                                        <rect key="frame" x="8" y="38" width="381" height="45"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KirbyClassic" family="Kirby Classic" pointSize="40"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="look to?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DI1-x0-lQx" userLabel="Disclaimer 2">
+                                        <rect key="frame" x="8" y="91" width="381" height="28"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="RoundedEleganceNew-Regular" family="Rounded Elegance" pointSize="25"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -505,7 +569,6 @@
                         <outlet property="inhaleEnd" destination="VPI-11-VG4" id="Ajd-g3-T6t"/>
                         <outlet property="inhaleIntro" destination="7Yv-xD-bCT" id="cUF-p7-ZM8"/>
                         <outlet property="inhaleLoop" destination="Na7-58-gjp" id="zIV-yi-sWj"/>
-                        <outlet property="kirbyAnimationsMain" destination="U17-5u-kq4" id="Mr7-QT-L5d"/>
                         <outlet property="left" destination="aEF-9a-K98" id="PGb-HX-oiy"/>
                         <outlet property="lightsButton" destination="nDS-94-Qzb" id="dyG-bW-gvP"/>
                         <outlet property="loggedAsUsernameLabel" destination="vfZ-hA-F4S" id="Sim-Ec-mBZ"/>
@@ -514,6 +577,11 @@
                         <outlet property="paint" destination="ofl-Z1-Olx" id="LvA-1V-wPn"/>
                         <outlet property="pickNewUserButton" destination="ilt-rY-op9" id="X8l-du-QIz"/>
                         <outlet property="playButton" destination="Jw7-je-1kb" id="IuK-uJ-8la"/>
+                        <outlet property="playLeftButton" destination="mPc-fx-mco" id="96M-mg-t5v"/>
+                        <outlet property="playName" destination="gLC-gw-hQ7" id="DQf-Dv-8nG"/>
+                        <outlet property="playPanel" destination="Pyy-xf-RYi" id="bEx-cp-5X9"/>
+                        <outlet property="playRightButton" destination="Epi-2j-Syx" id="w2m-v7-ATw"/>
+                        <outlet property="progressLabel" destination="joe-Wu-JSr" id="PeP-uq-shG"/>
                         <outlet property="right" destination="vI4-1a-KPc" id="8oN-BW-bdA"/>
                         <outlet property="scoldButton" destination="BLi-XN-bdf" id="p6R-fK-8MT"/>
                         <outlet property="settingsButton" destination="0g3-r2-ECz" id="vte-YS-5ti"/>
@@ -521,6 +589,7 @@
                         <outlet property="sleepIntro" destination="S5R-2D-UUw" id="brq-jE-jBb"/>
                         <outlet property="sleepLoop" destination="gQ0-cW-LrK" id="azg-IM-B7s"/>
                         <outlet property="sleepWakeUp" destination="3cb-9M-j1w" id="OV5-nm-MAM"/>
+                        <outlet property="staticKirby" destination="U17-5u-kq4" id="Mr7-QT-L5d"/>
                         <outlet property="statusAge" destination="FNQ-KA-pFz" id="Yq6-rz-qWA"/>
                         <outlet property="statusButton" destination="EpY-YE-eiT" id="cCg-U4-9xh"/>
                         <outlet property="statusDiscipline1" destination="BeU-5f-G5R" id="H2c-ed-otr"/>
@@ -543,6 +612,7 @@
                         <outlet property="statusWeight" destination="gGZ-jW-6kv" id="EV0-bh-GZe"/>
                         <outlet property="volumeSlider" destination="fWL-PJ-RcH" id="fSg-Rw-k5O"/>
                         <outlet property="walking" destination="p9Q-tf-MT4" id="UC9-tb-Jz6"/>
+                        <outlet property="walkingKirby" destination="okk-ZJ-gy8" id="Lgy-rM-vAP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -713,10 +783,12 @@
         <image name="Home.png" width="185" height="200"/>
         <image name="Lights Button.png" width="64" height="64"/>
         <image name="Meat.png" width="96" height="96"/>
+        <image name="Peach.png" width="84" height="72"/>
         <image name="Play Button.png" width="64" height="64"/>
         <image name="Scold Button.png" width="64" height="64"/>
         <image name="Settings.png" width="43" height="40"/>
         <image name="Status Button.png" width="64" height="64"/>
+        <image name="Sushi.png" width="78" height="75"/>
         <image name="button_area_background.png" width="305" height="150"/>
         <image name="day.png" width="859" height="431"/>
         <image name="happy.png" width="120" height="120"/>

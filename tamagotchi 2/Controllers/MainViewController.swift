@@ -17,6 +17,9 @@ enum SubSections
 class MainViewController: UIViewController
 {
     
+    @IBOutlet weak var progressLabel: UIOutlinedLabel!
+    @IBOutlet weak var walkingKirby: UIImageView!
+    
     // Top Bar Buttons
     @IBOutlet weak var homeButton: UIButton!
     @IBOutlet weak var settingsButton: UIButton!
@@ -26,6 +29,12 @@ class MainViewController: UIViewController
     @IBOutlet weak var lightsButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var helpButton: UIButton!
+    
+    // Play Panel
+    @IBOutlet weak var playPanel: UIView!
+    @IBOutlet weak var playName: UIOutlinedLabel!
+    @IBOutlet weak var playLeftButton: UIButton!
+    @IBOutlet weak var playRightButton: UIButton!
     
     // Bottom Buttons
     @IBOutlet weak var cleanButton: UIButton!
@@ -114,7 +123,7 @@ class MainViewController: UIViewController
     @IBOutlet weak var currentMood: UIImageView!
     
     // Kirby Animations
-    @IBOutlet weak var kirbyAnimationsMain: UIView!
+    @IBOutlet weak var staticKirby: UIView!
     
     @IBOutlet weak var walking: UIImageView!
     @IBOutlet weak var anger: UIImageView!
@@ -155,7 +164,7 @@ class MainViewController: UIViewController
     {
         if (kirby == nil)
         {
-            kirby = KirbyInstance(kirbyAnimationsMain, walking, anger, paint, left
+            kirby = KirbyInstance(staticKirby, walking, anger, paint, left
             , right, cheer, sleepIntro, sleepLoop, sleepWakeUp, help, helpDone, inhaleIntro, inhaleLoop, inhaleEnd, inhaleEating, EAnimation.Walking);            
         }
         kirby.StartAnimations();
@@ -245,6 +254,7 @@ class MainViewController: UIViewController
     {
         if (!ShouldEnableSection(SubSections.Play)) { return; }
         DisableAllButtonsExcept(playButton);
+        DisableAllPanelsExcept(playPanel);
     }
     
     @IBAction func OnHealButtonPressed(_ sender: Any)
@@ -259,15 +269,20 @@ class MainViewController: UIViewController
         DisableAllButtonsExcept(cleanButton);
     }
     
+    private func SetStatusPanels()
+{
+    Information.TamagotchiStatus.SetStatusPanels(StatusHungerPanels, KirbyStatus.EStatusBar.Hunger);
+    Information.TamagotchiStatus.SetStatusPanels(StatusHappinessPanels, KirbyStatus.EStatusBar.Happiness);
+    Information.TamagotchiStatus.SetStatusPanels(StatusDisciplinePanels, KirbyStatus.EStatusBar.Discipline);
+        Information.TamagotchiStatus.SetStatus(statusName, statusAge, statusWeight);
+    }
+    
     @IBAction func OnStatusButtonPressed(_ sender: Any)
     {
         if (!ShouldEnableSection(SubSections.Status)) { return; }
         DisableAllButtonsExcept(statusButton);
-        Information.TamagotchiStatus.SetStatusPanels(StatusHungerPanels, KirbyStatus.EStatusBar.Hunger);
-        Information.TamagotchiStatus.SetStatusPanels(StatusHappinessPanels, KirbyStatus.EStatusBar.Happiness);
-        Information.TamagotchiStatus.SetStatusPanels(StatusDisciplinePanels, KirbyStatus.EStatusBar.Discipline);
-        Information.TamagotchiStatus.SetStatus(statusName, statusAge, statusWeight);
         DisableAllPanelsExcept(statusPanel);
+        SetStatusPanels();
     }
     
     @IBAction func OnScoldButtonPressed(_ sender: Any)
@@ -298,6 +313,7 @@ class MainViewController: UIViewController
         SetSinglePanelEnabledState(settingsPanel, state);
         SetSinglePanelEnabledState(feedPanel, state);
         SetSinglePanelEnabledState(statusPanel, state);
+        SetSinglePanelEnabledState(playPanel, state);
     }
     
     private func SetSingleButtonEnabledState(_ button: UIButton, _ newState: Bool)
@@ -411,21 +427,18 @@ class MainViewController: UIViewController
     
     private func PrepareKirby()
     {
-        kirbyAnimationsMain.center.x = leftTarget;
+        AnimationHandler.walkingAnimation.PlayAnimation(walkingKirby);
+        walkingKirby.center.x = leftTarget;
+        walkingKirby.startAnimating();
     }
     
     private func StopKirbyMovement()
     {
-        isKirbyMoving = false;
-        return;
-        kirbyAnimationsMain.layer.removeAnimation(forKey: "move")
+        staticKirby.layer.removeAnimation(forKey: "walk")
     }
-    
-    private var isKirbyMoving: Bool = false;
-    
+  
     private func ResumeKirbyMovement(_ timerToResumeAfter: Double)
     {
-        isKirbyMoving = true;
         return;
         let remainingDuration : Double = self.GetMovementTimerToEdge(true);
         
@@ -433,7 +446,7 @@ class MainViewController: UIViewController
         {
             UIView.animate(withDuration: remainingDuration)
             {
-                self.kirbyAnimationsMain.center.x = self.rightTarget;
+                self.staticKirby.center.x = self.rightTarget;
             }
         }
         
@@ -445,7 +458,7 @@ class MainViewController: UIViewController
     
     private func GetMovementTimerToEdge(_ goingRight: Bool) -> Double
     {
-        let currentPos = kirbyAnimationsMain.center.x;
+        let currentPos = staticKirby.center.x;
         let timePerUnit : Double = Double(targetDistance) / FullWalkTimer;
         let remainingDistance : Double = Double(goingRight ? rightTarget - currentPos : currentPos - leftTarget);
         return timePerUnit * remainingDistance;
@@ -453,26 +466,37 @@ class MainViewController: UIViewController
     
     private func StartMovingKirby()
     {
-        isKirbyMoving = true;
         UIView.animate(withDuration: self.FullWalkTimer, delay: 0, options: [.repeat], animations:
-            {
-                self.kirbyAnimationsMain.center.x = self.isKirbyMoving ? self.rightTarget : self.kirbyAnimationsMain.center.x;
+        {
+            self.walkingKirby.center.x =  self.rightTarget;
         }, completion: nil)
     }
+    
+    @IBAction func OnPlayLeftButtonPressed(_ sender: Any)
+    {
+        
+    }
+    
+    @IBAction func OnPlayRightButtonPressed(_ sender: Any)
+    {
+        
+    }
+    
     
     override public func viewWillAppear(_ animated: Bool)
     {
         InitializeKirby();
         SetDayNight(true);
         PrepareKirby();
+        SetStatusPanels();
     }
     
     override func viewDidLoad()
     {
         super.viewDidLoad();
         BackToMainMenu();
-        let center = kirbyAnimationsMain.center.x;
-        let width = kirbyAnimationsMain.bounds.size.width;
+        let center = walkingKirby.center.x;
+        let width = walkingKirby.bounds.size.width;
         leftTarget = center - ScreenWidth/2 - width;
         rightTarget = center + ScreenWidth/2 + width;
         targetDistance = rightTarget - leftTarget;
@@ -485,11 +509,11 @@ class MainViewController: UIViewController
     
     override func didReceiveMemoryWarning()
     {
-        super.didReceiveMemoryWarning()
+        super.didReceiveMemoryWarning();
     }
     
     override open var shouldAutorotate: Bool
     {
-        return false
+        return false;
     }
 }

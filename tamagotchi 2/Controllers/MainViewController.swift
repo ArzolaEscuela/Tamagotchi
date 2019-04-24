@@ -14,11 +14,19 @@ enum SubSections
     case Main;
 }
 
+enum EVisibleKirby
+{
+    case StaticKirby;
+    case WalkingKirby;
+    case ReverseWalkingKirby;
+}
+
 class MainViewController: UIViewController
 {
     
     @IBOutlet weak var progressLabel: UIOutlinedLabel!
     @IBOutlet weak var walkingKirby: UIImageView!
+    @IBOutlet weak var reverseWalkingKirby: UIImageView!
     
     // Top Bar Buttons
     @IBOutlet weak var homeButton: UIButton!
@@ -155,10 +163,13 @@ class MainViewController: UIViewController
     private var rightTarget: CGFloat!;
     private var targetDistance: CGFloat!;
     
+    private static var timedEventsHandler : ScheduledAnimationsHandler = ScheduledAnimationsHandler();
     var currentlyActive: SubSections = SubSections.Main;
+    var isWalking: Bool = true;
     
     private var ScreenWidth: CGFloat {get {return Information.phoneInformation.ScreenWidth;}}
-    private var FullWalkTimer: Double {get {return 2.6;}}
+    private var CurrentEvent: KirbyStatus.EKirbyEvent { get { return Information.TamagotchiStatus.CurrentEvent; } }
+    private var FullWalkTimer: Double {get { return 2.6; }}
     
     public func InitializeKirby()
     {
@@ -231,6 +242,7 @@ class MainViewController: UIViewController
         {
             SetDayNight(true);
             kirby.AttemptToPlayOneshotAnimation(EAnimation.WakeUp);
+            isWalking = true;
             delay(bySeconds: AnimationHandler.wakeUpAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
             {
                 self.kirby.ViewAnimation(EAnimation.Walking);
@@ -241,6 +253,7 @@ class MainViewController: UIViewController
         DisableAllButtonsExcept(lightsButton);
         
         SetDayNight(false);
+        isWalking = false;
         self.StopKirbyMovement();
         kirby.AttemptToPlayOneshotAnimation(EAnimation.SleepIntro);
         delay(bySeconds: AnimationHandler.sleepIntroAnimation.AwaitableAnimationDuration , dispatchLevel: .main)
@@ -430,29 +443,20 @@ class MainViewController: UIViewController
         AnimationHandler.walkingAnimation.PlayAnimation(walkingKirby);
         walkingKirby.center.x = leftTarget;
         walkingKirby.startAnimating();
+        reverseWalkingKirby.center.x = rightTarget;
+        reverseWalkingKirby.startAnimating();
     }
     
     private func StopKirbyMovement()
     {
-        staticKirby.layer.removeAnimation(forKey: "walk")
+        self.UpdateVisibleKirby();
     }
   
     private func ResumeKirbyMovement(_ timerToResumeAfter: Double)
     {
-        return;
-        let remainingDuration : Double = self.GetMovementTimerToEdge(true);
-        
         delay(bySeconds: timerToResumeAfter, dispatchLevel: .main)
         {
-            UIView.animate(withDuration: remainingDuration)
-            {
-                self.staticKirby.center.x = self.rightTarget;
-            }
-        }
-        
-        delay(bySeconds: timerToResumeAfter + remainingDuration, dispatchLevel: .main)
-        {
-            self.StartMovingKirby();
+            self.UpdateVisibleKirby();
         }
     }
     
@@ -470,6 +474,11 @@ class MainViewController: UIViewController
         {
             self.walkingKirby.center.x =  self.rightTarget;
         }, completion: nil)
+        
+        UIView.animate(withDuration: self.FullWalkTimer, delay: 0, options: [.repeat], animations:
+            {
+                self.reverseWalkingKirby.center.x =  self.leftTarget;
+        }, completion: nil)
     }
     
     @IBAction func OnPlayLeftButtonPressed(_ sender: Any)
@@ -482,6 +491,13 @@ class MainViewController: UIViewController
         
     }
     
+    private func UpdateVisibleKirby()
+    {
+        let currentEvent = CurrentEvent;
+        reverseWalkingKirby.isHidden = !isWalking || currentEvent != KirbyStatus.EKirbyEvent.Rebel;
+        walkingKirby.isHidden = !isWalking || currentEvent == KirbyStatus.EKirbyEvent.Rebel;
+        staticKirby.isHidden = isWalking;
+    }
     
     override public func viewWillAppear(_ animated: Bool)
     {
@@ -489,6 +505,7 @@ class MainViewController: UIViewController
         SetDayNight(true);
         PrepareKirby();
         SetStatusPanels();
+        UpdateVisibleKirby();
     }
     
     override func viewDidLoad()
@@ -500,6 +517,7 @@ class MainViewController: UIViewController
         leftTarget = center - ScreenWidth/2 - width;
         rightTarget = center + ScreenWidth/2 + width;
         targetDistance = rightTarget - leftTarget;
+        //MainViewController.timedEventsHandler = ScheduledAnimationsHandler();
     }
     
     override func viewDidAppear(_ animated: Bool)

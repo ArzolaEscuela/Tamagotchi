@@ -246,16 +246,14 @@
                                             </imageView>
                                         </subviews>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SCH-ml-pCT" userLabel="walking_kirby">
-                                        <rect key="frame" x="147" y="65" width="120" height="120"/>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="walking1.png" translatesAutoresizingMaskIntoConstraints="NO" id="okk-ZJ-gy8" userLabel="walking_kirby">
+                                        <rect key="frame" x="135" y="53" width="145" height="145"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="walking1.png" translatesAutoresizingMaskIntoConstraints="NO" id="okk-ZJ-gy8">
-                                                <rect key="frame" x="-12" y="-12" width="144" height="144"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            </imageView>
-                                        </subviews>
-                                    </view>
+                                    </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="reverse_walking1.png" translatesAutoresizingMaskIntoConstraints="NO" id="HmV-X5-HIv" userLabel="reverse_walking_kirby">
+                                        <rect key="frame" x="135" y="53" width="145" height="145"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <view alpha="0.29999999999999999" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="i7w-29-U1W" userLabel="night_overlay">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="276"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -582,6 +580,7 @@
                         <outlet property="playPanel" destination="Pyy-xf-RYi" id="bEx-cp-5X9"/>
                         <outlet property="playRightButton" destination="Epi-2j-Syx" id="w2m-v7-ATw"/>
                         <outlet property="progressLabel" destination="joe-Wu-JSr" id="PeP-uq-shG"/>
+                        <outlet property="reverseWalkingKirby" destination="HmV-X5-HIv" id="TDi-nN-QYn"/>
                         <outlet property="right" destination="vI4-1a-KPc" id="8oN-BW-bdA"/>
                         <outlet property="scoldButton" destination="BLi-XN-bdf" id="p6R-fK-8MT"/>
                         <outlet property="settingsButton" destination="0g3-r2-ECz" id="vte-YS-5ti"/>
@@ -794,6 +793,7 @@
         <image name="happy.png" width="120" height="120"/>
         <image name="middle_background.png" width="1078" height="366"/>
         <image name="night.png" width="1005" height="357"/>
+        <image name="reverse_walking1.png" width="120" height="120"/>
         <image name="submenu_background.png" width="610" height="300"/>
         <image name="title_screen_background.png" width="2000" height="2000"/>
         <image name="top.png" width="682" height="109"/>

@@ -14,6 +14,7 @@
 		F1762ED0223F23DE00DFB199 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1762ECE223F23DE00DFB199 /* LaunchScreen.storyboard */; };
 		FB13E260224F21880008420D /* UIImageViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB13E25F224F21880008420D /* UIImageViewExtension.swift */; };
 		FB192D142266B613000442A9 /* VisualsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB192D132266B613000442A9 /* VisualsHandler.swift */; };
+		FB52DBC2226FE5CD0025CEE1 /* ScheduledEventsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB52DBC1226FE5CD0025CEE1 /* ScheduledEventsHandler.swift */; };
 		FB56BF12226B80DE00C7B9BB /* happiness_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF0E226B80D600C7B9BB /* happiness_empty.png */; };
 		FB56BF13226B80DE00C7B9BB /* submenu_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF0F226B80D900C7B9BB /* submenu_background.png */; };
 		FB56BF14226B80DE00C7B9BB /* hunger_empty.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF10226B80DC00C7B9BB /* hunger_empty.png */; };
@@ -35,7 +36,6 @@
 		FB56BF35226B81A600C7B9BB /* reverse_walking8.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF2B226B81A600C7B9BB /* reverse_walking8.png */; };
 		FB56BF39226B8D6400C7B9BB /* UIOutlinedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56BF38226B8D6400C7B9BB /* UIOutlinedLabel.swift */; };
 		FB56BF3B226B92C800C7B9BB /* title_screen_background.png in Resources */ = {isa = PBXBuildFile; fileRef = FB56BF3A226B92C700C7B9BB /* title_screen_background.png */; };
-		FB56BF3D226BA00700C7B9BB /* ScheduledEventsHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB56BF3C226BA00700C7B9BB /* ScheduledEventsHandler.swift */; };
 		FBE793B52244955A0095A54C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBE793B42244955A0095A54C /* MainViewController.swift */; };
 		FBFEABB3224D996E008ECDE2 /* AnimationHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFEABB2224D996E008ECDE2 /* AnimationHandler.swift */; };
 		FBFEABB7224DA4D4008ECDE2 /* TitleScreenViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFEABB6224DA4D4008ECDE2 /* TitleScreenViewController.swift */; };
@@ -159,6 +159,7 @@
 		F1762ED1223F23DE00DFB199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FB13E25F224F21880008420D /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		FB192D132266B613000442A9 /* VisualsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualsHandler.swift; sourceTree = "<group>"; };
+		FB52DBC1226FE5CD0025CEE1 /* ScheduledEventsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduledEventsHandler.swift; sourceTree = "<group>"; };
 		FB56BF0E226B80D600C7B9BB /* happiness_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = happiness_empty.png; path = "Visuals/Main Menu/happiness_empty.png"; sourceTree = SOURCE_ROOT; };
 		FB56BF0F226B80D900C7B9BB /* submenu_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = submenu_background.png; path = "tamagotchi 2/visuals/menus/main/submenu_background.png"; sourceTree = SOURCE_ROOT; };
 		FB56BF10226B80DC00C7B9BB /* hunger_empty.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = hunger_empty.png; path = "Visuals/Main Menu/hunger_empty.png"; sourceTree = SOURCE_ROOT; };
@@ -180,7 +181,6 @@
 		FB56BF2B226B81A600C7B9BB /* reverse_walking8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = reverse_walking8.png; path = Visuals/animations/ReverseWalking/reverse_walking8.png; sourceTree = SOURCE_ROOT; };
 		FB56BF38226B8D6400C7B9BB /* UIOutlinedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIOutlinedLabel.swift; sourceTree = "<group>"; };
 		FB56BF3A226B92C700C7B9BB /* title_screen_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = title_screen_background.png; path = Visuals/title_screen_background.png; sourceTree = SOURCE_ROOT; };
-		FB56BF3C226BA00700C7B9BB /* ScheduledEventsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScheduledEventsHandler.swift; sourceTree = "<group>"; };
 		FBE793B42244955A0095A54C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		FBFEABB2224D996E008ECDE2 /* AnimationHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationHandler.swift; sourceTree = "<group>"; };
 		FBFEABB6224DA4D4008ECDE2 /* TitleScreenViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleScreenViewController.swift; sourceTree = "<group>"; };
@@ -351,10 +351,10 @@
 		FB192D162266B691000442A9 /* Handlers */ = {
 			isa = PBXGroup;
 			children = (
+				FB52DBC1226FE5CD0025CEE1 /* ScheduledEventsHandler.swift */,
 				FBFEABD1224DBF80008ECDE2 /* Information.swift */,
 				FB192D132266B613000442A9 /* VisualsHandler.swift */,
 				FBFEABB2224D996E008ECDE2 /* AnimationHandler.swift */,
-				FB56BF3C226BA00700C7B9BB /* ScheduledEventsHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -709,6 +709,7 @@
 				TargetAttributes = {
 					F1762EC1223F23DE00DFB199 = {
 						CreatedOnToolsVersion = 8.0;
+						LastSwiftMigration = 1010;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -881,7 +882,7 @@
 				FB13E260224F21880008420D /* UIImageViewExtension.swift in Sources */,
 				FBE793B52244955A0095A54C /* MainViewController.swift in Sources */,
 				F1762EC8223F23DE00DFB199 /* ViewController.swift in Sources */,
-				FB56BF3D226BA00700C7B9BB /* ScheduledEventsHandler.swift in Sources */,
+				FB52DBC2226FE5CD0025CEE1 /* ScheduledEventsHandler.swift in Sources */,
 				FB192D142266B613000442A9 /* VisualsHandler.swift in Sources */,
 				F1762EC6223F23DE00DFB199 /* AppDelegate.swift in Sources */,
 				FBFEABB7224DA4D4008ECDE2 /* TitleScreenViewController.swift in Sources */,
@@ -1012,7 +1013,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kaabi.gotchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Debug;
 		};
@@ -1024,7 +1026,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = kaabi.gotchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.2;
 			};
 			name = Release;
 		};

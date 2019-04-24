@@ -18,11 +18,22 @@ class UIOutlinedLabel: UILabel
     {
         
         let strokeTextAttributes = [
-            NSStrokeColorAttributeName : outlineColor,
-            NSStrokeWidthAttributeName : -1 * outlineWidth,
+            convertFromNSAttributedStringKey(NSAttributedString.Key.strokeColor) : outlineColor,
+            convertFromNSAttributedStringKey(NSAttributedString.Key.strokeWidth) : -1 * outlineWidth,
             ] as [String : Any]
         
-        self.attributedText = NSAttributedString(string: self.text ?? "", attributes: strokeTextAttributes)
+        self.attributedText = NSAttributedString(string: self.text ?? "", attributes: convertToOptionalNSAttributedStringKeyDictionary(strokeTextAttributes))
         super.drawText(in: rect)
     }
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertFromNSAttributedStringKey(_ input: NSAttributedString.Key) -> String {
+	return input.rawValue
+}
+
+// Helper function inserted by Swift 4.2 migrator.
+fileprivate func convertToOptionalNSAttributedStringKeyDictionary(_ input: [String: Any]?) -> [NSAttributedString.Key: Any]? {
+	guard let input = input else { return nil }
+	return Dictionary(uniqueKeysWithValues: input.map { key, value in (NSAttributedString.Key(rawValue: key), value)})
 }

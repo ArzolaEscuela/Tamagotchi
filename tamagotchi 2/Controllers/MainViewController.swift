@@ -1,4 +1,5 @@
 import UIKit
+import GameplayKit
 
 enum SubSections
 {
@@ -163,9 +164,9 @@ class MainViewController: UIViewController
     private var rightTarget: CGFloat!;
     private var targetDistance: CGFloat!;
     
-    private static var timedEventsHandler : ScheduledAnimationsHandler = ScheduledAnimationsHandler();
+    private static var timedEventsHandler : ScheduledEventsHandler = ScheduledEventsHandler();
     var currentlyActive: SubSections = SubSections.Main;
-    var isWalking: Bool = true;
+    var nonStaticKirbyNeeded: Bool = true;
     
     private var ScreenWidth: CGFloat {get {return Information.phoneInformation.ScreenWidth;}}
     private var CurrentEvent: KirbyStatus.EKirbyEvent { get { return Information.TamagotchiStatus.CurrentEvent; } }
@@ -242,19 +243,19 @@ class MainViewController: UIViewController
         {
             SetDayNight(true);
             kirby.AttemptToPlayOneshotAnimation(EAnimation.WakeUp);
-            isWalking = true;
+            nonStaticKirbyNeeded = true;
             delay(bySeconds: AnimationHandler.wakeUpAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
             {
                 self.kirby.ViewAnimation(EAnimation.Walking);
-                self.ResumeKirbyMovement(0);
+                self.AttemptToUpdateForEventAfterTimer(0);
             }
             return;
         }
         DisableAllButtonsExcept(lightsButton);
         
         SetDayNight(false);
-        isWalking = false;
-        self.StopKirbyMovement();
+        nonStaticKirbyNeeded = false;
+        self.AttemptToUpdateForEventAfterTimer(0);
         kirby.AttemptToPlayOneshotAnimation(EAnimation.SleepIntro);
         delay(bySeconds: AnimationHandler.sleepIntroAnimation.AwaitableAnimationDuration , dispatchLevel: .main)
         {
@@ -287,7 +288,7 @@ class MainViewController: UIViewController
     Information.TamagotchiStatus.SetStatusPanels(StatusHungerPanels, KirbyStatus.EStatusBar.Hunger);
     Information.TamagotchiStatus.SetStatusPanels(StatusHappinessPanels, KirbyStatus.EStatusBar.Happiness);
     Information.TamagotchiStatus.SetStatusPanels(StatusDisciplinePanels, KirbyStatus.EStatusBar.Discipline);
-        Information.TamagotchiStatus.SetStatus(statusName, statusAge, statusWeight);
+        Information.TamagotchiStatus.SetStatus(statusAge, statusWeight);
     }
     
     @IBAction func OnStatusButtonPressed(_ sender: Any)
@@ -447,16 +448,11 @@ class MainViewController: UIViewController
         reverseWalkingKirby.startAnimating();
     }
     
-    private func StopKirbyMovement()
-    {
-        self.UpdateVisibleKirby();
-    }
-  
-    private func ResumeKirbyMovement(_ timerToResumeAfter: Double)
+    private func AttemptToUpdateForEventAfterTimer(_ timerToResumeAfter: Double)
     {
         delay(bySeconds: timerToResumeAfter, dispatchLevel: .main)
         {
-            self.UpdateVisibleKirby();
+            self.AttemptToUpdateForEvent();
         }
     }
     
@@ -481,31 +477,92 @@ class MainViewController: UIViewController
         }, completion: nil)
     }
     
+    private func PlayedGame(_ choseLeft: Bool)
+    {
+        BackToMainMenu();
+        SetAllNonTopButtonsEnabledState(false);
+        
+        let wonGame = WonGame();
+        let shouldPlayRightAnimation = wonGame && !choseLeft || !wonGame && choseLeft;
+        SetStaticKirbyVisibility(true);
+        
+        if (shouldPlayRightAnimation) { self.kirby.AttemptToPlayOneshotAnimation(EAnimation.Right); }
+        else { self.kirby.AttemptToPlayOneshotAnimation(EAnimation.Left); }
+        
+        delay(bySeconds: AnimationHandler.leftAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
+        {
+            var timeToWait = AnimationHandler.angryAnimation.AwaitableAnimationDuration;
+            if (wonGame)
+            {
+                timeToWait = AnimationHandler.cheerAnimation.AwaitableAnimationDuration;
+                self.kirby.AttemptToPlayOneshotAnimation(EAnimation.Cheer);
+            }
+            else
+            {
+                self.kirby.ViewAnimation(EAnimation.Angry);
+            }
+            
+            delay(bySeconds: timeToWait, dispatchLevel: .main)
+            {
+                self.nonStaticKirbyNeeded = true;
+                self.AttemptToUpdateForEventAfterTimer(0);
+                self.BackToMainMenu();
+            }
+        }
+    }
+    
     @IBAction func OnPlayLeftButtonPressed(_ sender: Any)
     {
-        
+        PlayedGame(true);
     }
     
     @IBAction func OnPlayRightButtonPressed(_ sender: Any)
     {
-        
+        PlayedGame(false);
+    }
+    
+    private func WonGame() -> Bool
+    {
+        let wonGame = Int.random(min: 1, max: 100) > 50;
+        Information.TamagotchiStatus.PlayedGame(wonGame);
+        return wonGame;
+    }
+    
+    private func SetStaticKirbyVisibility(_ isVisible: Bool)
+    {
+        if (isVisible)
+        {
+            nonStaticKirbyNeeded = false;
+            reverseWalkingKirby.isHidden = true;
+            walkingKirby.isHidden = true;
+            staticKirby.isHidden = false;
+            return;
+        }
+        nonStaticKirbyNeeded = true;
+        AttemptToUpdateForEvent();
+    }
+    
+    private func AttemptToUpdateForEvent()
+    {
+        UpdateVisibleKirby();
     }
     
     private func UpdateVisibleKirby()
     {
         let currentEvent = CurrentEvent;
-        reverseWalkingKirby.isHidden = !isWalking || currentEvent != KirbyStatus.EKirbyEvent.Rebel;
-        walkingKirby.isHidden = !isWalking || currentEvent == KirbyStatus.EKirbyEvent.Rebel;
-        staticKirby.isHidden = isWalking;
+        reverseWalkingKirby.isHidden = !nonStaticKirbyNeeded || currentEvent != KirbyStatus.EKirbyEvent.Rebel;
+        walkingKirby.isHidden = !nonStaticKirbyNeeded || currentEvent == KirbyStatus.EKirbyEvent.Rebel;
+        staticKirby.isHidden = nonStaticKirbyNeeded;
     }
     
     override public func viewWillAppear(_ animated: Bool)
     {
+        Information.TamagotchiStatus.PrepareNamedTags(playName, feedName, statusName);
         InitializeKirby();
         SetDayNight(true);
         PrepareKirby();
         SetStatusPanels();
-        UpdateVisibleKirby();
+        AttemptToUpdateForEvent();
     }
     
     override func viewDidLoad()

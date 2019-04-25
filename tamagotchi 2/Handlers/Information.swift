@@ -64,9 +64,11 @@ public class KirbyStatus
     private var status: EStatus = EStatus.Normal;
     private var currentEvent: EKirbyEvent = EKirbyEvent.None;
     // These will range from 0 to 10
-    private var hunger: Int = 10;
-    private var happiness: Int = 0;
+    private var hunger: Int = 5;
+    private var happiness: Int = 1;
+    private var happinessStep: Int = 0;
     private var discipline: Int = 0;
+    private var disciplineStep: Int = 0;
     
     public var Progress: Int { get { return progress; } }
     public var Name: String { get { return name; } }
@@ -78,12 +80,54 @@ public class KirbyStatus
     public var Happiness: Int { get { return happiness; } }
     public var Discipline: Int { get { return discipline; } }
     
+    private var HappinessStep: Int
+    {
+        get { return happinessStep; }
+        set(newValue)
+        {
+            if (newValue >= 3)
+            {
+                happinessStep = 0;
+                if (happiness < 10){ happiness += 1; }
+                return;
+            }
+            happinessStep = newValue;
+        }
+    }
+    
+    private var DisciplineStep: Int
+    {
+        get { return disciplineStep; }
+        set(newValue)
+        {
+            if (newValue >= 3)
+            {
+                disciplineStep = 0;
+                if (discipline < 10){ discipline += 1; }
+                return;
+            }
+            disciplineStep = newValue;
+        }
+    }
+    
     public var IsMoving : Bool { get { return true; } }
     public var LapSpeed : Double { get { return 2; } }
     
-    public func SetStatus(_ nameLabel: UILabel, _ ageLabel: UILabel, _ weightLabel: UILabel)
+    public func PlayedGame(_ wonGame: Bool)
     {
-        nameLabel.text = Name;
+        if (!wonGame) { return; }
+        HappinessStep += 1;
+    }
+    
+    public func PrepareNamedTags(_ playNameLabel: UILabel, _ feedNameLabel: UILabel, _ stateNameLabel: UILabel)
+    {
+        playNameLabel.text = Name;
+        feedNameLabel.text = Name;
+        stateNameLabel.text = Name;
+    }
+    
+    public func SetStatus(_ ageLabel: UILabel, _ weightLabel: UILabel)
+    {
         ageLabel.text = String(Age);
         weightLabel.text = Weight;
     }
@@ -115,7 +159,6 @@ public class KirbyStatus
             halfGraphic = VisualsHandler.StatusHappinessHalf;
             fullGraphic = VisualsHandler.StatusHappinessFull;
             break;
-        default: break;
         }
         
         for i in 0...(panels.count-1)
@@ -127,11 +170,6 @@ public class KirbyStatus
             panels[i].image = graphic;
         }
     }
-    
-    /*public func SetKirbyState(_ mainView: MainViewController)
-    {
-        
-    }*/
 }
 
 public struct Information

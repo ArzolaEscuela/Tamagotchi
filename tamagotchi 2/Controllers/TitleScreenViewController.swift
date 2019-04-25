@@ -69,11 +69,9 @@ public class TitleScreenViewController : UIViewController
     
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?)
     {
-        return;
         if (segue.identifier == Information.segueNames.fromTitleToMain)
         {
-            let target = segue.destination as! MainViewController;
-            target.InitializeKirby();
+            // let target = segue.destination as! MainViewController;
         }
     }
     
@@ -117,6 +115,7 @@ public class TitleScreenViewController : UIViewController
     {
         super.viewDidLoad();
         transitioning = false;
+        ScheduledEventsHandler.AttemptToInitialize();
     }
     
     @IBAction func OnScreenTap(_ sender: Any)
@@ -124,7 +123,7 @@ public class TitleScreenViewController : UIViewController
         if (transitioning) { return; }
         transitioning = true;
         kirby.AttemptToPlayOneshotAnimation(EAnimation.Cheer);
-        delay(bySeconds: AnimationHandler.cheerAnimation.AwaitableAnimationDuration + 0.4, dispatchLevel: .main)
+        delay(bySeconds: AnimationHandler.cheerAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
         {
             self.performSegue(withIdentifier: Information.segueNames.fromTitleToMain, sender: nil);
             self.kirby.ViewAnimation(EAnimation.Walking);

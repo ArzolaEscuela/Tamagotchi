@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		49107D9522721A8300D55A7A /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107D9422721A8300D55A7A /* RepeatingTimer.swift */; };
+		49107D97227220D600D55A7A /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107D96227220D600D55A7A /* IntExtension.swift */; };
+		49107D9C22722AD500D55A7A /* cheer14.png in Resources */ = {isa = PBXBuildFile; fileRef = 49107D9822722AD400D55A7A /* cheer14.png */; };
+		49107D9D22722AD500D55A7A /* cheer12.png in Resources */ = {isa = PBXBuildFile; fileRef = 49107D9922722AD400D55A7A /* cheer12.png */; };
+		49107D9E22722AD500D55A7A /* cheer13.png in Resources */ = {isa = PBXBuildFile; fileRef = 49107D9A22722AD500D55A7A /* cheer13.png */; };
+		49107D9F22722AD500D55A7A /* cheer11.png in Resources */ = {isa = PBXBuildFile; fileRef = 49107D9B22722AD500D55A7A /* cheer11.png */; };
 		F1762EC6223F23DE00DFB199 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1762EC5223F23DE00DFB199 /* AppDelegate.swift */; };
 		F1762EC8223F23DE00DFB199 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1762EC7223F23DE00DFB199 /* ViewController.swift */; };
 		F1762ECB223F23DE00DFB199 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1762EC9223F23DE00DFB199 /* Main.storyboard */; };
@@ -55,11 +61,11 @@
 		FBFEABE0224DC494008ECDE2 /* cheer2.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABD6224DC494008ECDE2 /* cheer2.png */; };
 		FBFEABE1224DC494008ECDE2 /* cheer7.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABD7224DC494008ECDE2 /* cheer7.png */; };
 		FBFEABE2224DC494008ECDE2 /* cheer4.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABD8224DC494008ECDE2 /* cheer4.png */; };
-		FBFEABE3224DC494008ECDE2 /* cheer9.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABD9224DC494008ECDE2 /* cheer9.png */; };
+		FBFEABE3224DC494008ECDE2 /* cheer8.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABD9224DC494008ECDE2 /* cheer8.png */; };
 		FBFEABE4224DC494008ECDE2 /* cheer1.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABDA224DC494008ECDE2 /* cheer1.png */; };
 		FBFEABE5224DC494008ECDE2 /* cheer6.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABDB224DC494008ECDE2 /* cheer6.png */; };
-		FBFEABE6224DC494008ECDE2 /* cheer10.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABDC224DC494008ECDE2 /* cheer10.png */; };
-		FBFEABE7224DC494008ECDE2 /* cheer8.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABDD224DC494008ECDE2 /* cheer8.png */; };
+		FBFEABE6224DC494008ECDE2 /* cheer9.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABDC224DC494008ECDE2 /* cheer9.png */; };
+		FBFEABE7224DC494008ECDE2 /* cheer10.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABDD224DC494008ECDE2 /* cheer10.png */; };
 		FBFEABF5224DC90D008ECDE2 /* Status Button.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABED224DC90D008ECDE2 /* Status Button.png */; };
 		FBFEABF6224DC90D008ECDE2 /* Care Button.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABEE224DC90D008ECDE2 /* Care Button.png */; };
 		FBFEABF7224DC90D008ECDE2 /* Feed Button.png in Resources */ = {isa = PBXBuildFile; fileRef = FBFEABEF224DC90D008ECDE2 /* Feed Button.png */; };
@@ -150,6 +156,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		49107D9422721A8300D55A7A /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
+		49107D96227220D600D55A7A /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
+		49107D9822722AD400D55A7A /* cheer14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer14.png; path = Visuals/Animations/Cheer/cheer14.png; sourceTree = SOURCE_ROOT; };
+		49107D9922722AD400D55A7A /* cheer12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer12.png; path = Visuals/Animations/Cheer/cheer12.png; sourceTree = SOURCE_ROOT; };
+		49107D9A22722AD500D55A7A /* cheer13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer13.png; path = Visuals/Animations/Cheer/cheer13.png; sourceTree = SOURCE_ROOT; };
+		49107D9B22722AD500D55A7A /* cheer11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer11.png; path = Visuals/Animations/Cheer/cheer11.png; sourceTree = SOURCE_ROOT; };
 		F1762EC2223F23DE00DFB199 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1762EC5223F23DE00DFB199 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1762EC7223F23DE00DFB199 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -200,11 +212,11 @@
 		FBFEABD6224DC494008ECDE2 /* cheer2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer2.png; path = Visuals/animations/Cheer/cheer2.png; sourceTree = SOURCE_ROOT; };
 		FBFEABD7224DC494008ECDE2 /* cheer7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer7.png; path = Visuals/animations/Cheer/cheer7.png; sourceTree = SOURCE_ROOT; };
 		FBFEABD8224DC494008ECDE2 /* cheer4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer4.png; path = Visuals/animations/Cheer/cheer4.png; sourceTree = SOURCE_ROOT; };
-		FBFEABD9224DC494008ECDE2 /* cheer9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer9.png; path = Visuals/animations/Cheer/cheer9.png; sourceTree = SOURCE_ROOT; };
+		FBFEABD9224DC494008ECDE2 /* cheer8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer8.png; path = Visuals/animations/Cheer/cheer8.png; sourceTree = SOURCE_ROOT; };
 		FBFEABDA224DC494008ECDE2 /* cheer1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer1.png; path = Visuals/animations/Cheer/cheer1.png; sourceTree = SOURCE_ROOT; };
 		FBFEABDB224DC494008ECDE2 /* cheer6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer6.png; path = Visuals/animations/Cheer/cheer6.png; sourceTree = SOURCE_ROOT; };
-		FBFEABDC224DC494008ECDE2 /* cheer10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer10.png; path = Visuals/animations/Cheer/cheer10.png; sourceTree = SOURCE_ROOT; };
-		FBFEABDD224DC494008ECDE2 /* cheer8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer8.png; path = Visuals/animations/Cheer/cheer8.png; sourceTree = SOURCE_ROOT; };
+		FBFEABDC224DC494008ECDE2 /* cheer9.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer9.png; path = Visuals/animations/Cheer/cheer9.png; sourceTree = SOURCE_ROOT; };
+		FBFEABDD224DC494008ECDE2 /* cheer10.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer10.png; path = Visuals/animations/Cheer/cheer10.png; sourceTree = SOURCE_ROOT; };
 		FBFEABED224DC90D008ECDE2 /* Status Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Status Button.png"; path = "tamagotchi 2/visuals/menus/main/buttons/Status Button.png"; sourceTree = SOURCE_ROOT; };
 		FBFEABEE224DC90D008ECDE2 /* Care Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Care Button.png"; path = "tamagotchi 2/visuals/menus/main/buttons/Care Button.png"; sourceTree = SOURCE_ROOT; };
 		FBFEABEF224DC90D008ECDE2 /* Feed Button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Feed Button.png"; path = "tamagotchi 2/visuals/menus/main/buttons/Feed Button.png"; sourceTree = SOURCE_ROOT; };
@@ -363,6 +375,7 @@
 			isa = PBXGroup;
 			children = (
 				FB13E25F224F21880008420D /* UIImageViewExtension.swift */,
+				49107D96227220D600D55A7A /* IntExtension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -400,6 +413,7 @@
 			isa = PBXGroup;
 			children = (
 				FB56BF38226B8D6400C7B9BB /* UIOutlinedLabel.swift */,
+				49107D9422721A8300D55A7A /* RepeatingTimer.swift */,
 			);
 			path = Custom_Classes;
 			sourceTree = "<group>";
@@ -459,9 +473,13 @@
 				FBFEABD5224DC494008ECDE2 /* cheer5.png */,
 				FBFEABDB224DC494008ECDE2 /* cheer6.png */,
 				FBFEABD7224DC494008ECDE2 /* cheer7.png */,
-				FBFEABDD224DC494008ECDE2 /* cheer8.png */,
-				FBFEABD9224DC494008ECDE2 /* cheer9.png */,
-				FBFEABDC224DC494008ECDE2 /* cheer10.png */,
+				FBFEABD9224DC494008ECDE2 /* cheer8.png */,
+				FBFEABDC224DC494008ECDE2 /* cheer9.png */,
+				FBFEABDD224DC494008ECDE2 /* cheer10.png */,
+				49107D9B22722AD500D55A7A /* cheer11.png */,
+				49107D9922722AD400D55A7A /* cheer12.png */,
+				49107D9A22722AD500D55A7A /* cheer13.png */,
+				49107D9822722AD400D55A7A /* cheer14.png */,
 			);
 			path = cheer;
 			sourceTree = "<group>";
@@ -742,8 +760,10 @@
 				FBFEABFA224DC90D008ECDE2 /* Scold Button.png in Resources */,
 				FBFEAC5E224DCB3A008ECDE2 /* sleeping2.png in Resources */,
 				FBFEAC7E224DCB76008ECDE2 /* smears2.png in Resources */,
+				49107D9E22722AD500D55A7A /* cheer13.png in Resources */,
 				FBFEAC7D224DCB76008ECDE2 /* smears1.png in Resources */,
 				FB56BF32226B81A600C7B9BB /* reverse_walking7.png in Resources */,
+				49107D9C22722AD500D55A7A /* cheer14.png in Resources */,
 				FBFEAC43224DCB17008ECDE2 /* help7.png in Resources */,
 				FBFEABF5224DC90D008ECDE2 /* Status Button.png in Resources */,
 				FBFEAC6E224DCB50008ECDE2 /* paint3.png in Resources */,
@@ -784,6 +804,7 @@
 				FBFEAC49224DCB17008ECDE2 /* help8.png in Resources */,
 				FBFEABCC224DBD15008ECDE2 /* walking2.png in Resources */,
 				FBFEAC12224DC9C3008ECDE2 /* happiness.png in Resources */,
+				49107D9F22722AD500D55A7A /* cheer11.png in Resources */,
 				FB56BF2E226B81A600C7B9BB /* reverse_walking9.png in Resources */,
 				FBFEABE4224DC494008ECDE2 /* cheer1.png in Resources */,
 				F1762ED0223F23DE00DFB199 /* LaunchScreen.storyboard in Resources */,
@@ -794,7 +815,7 @@
 				FBFEABE1224DC494008ECDE2 /* cheer7.png in Resources */,
 				FB56BF2D226B81A600C7B9BB /* reverse_walking2.png in Resources */,
 				FBFEABF9224DC90D008ECDE2 /* Help Button.png in Resources */,
-				FBFEABE3224DC494008ECDE2 /* cheer9.png in Resources */,
+				FBFEABE3224DC494008ECDE2 /* cheer8.png in Resources */,
 				FBFEABCE224DBD15008ECDE2 /* walking5.png in Resources */,
 				FBFEAC95224DCBB6008ECDE2 /* inhale_eat12.png in Resources */,
 				FBFEAC65224DCB3A008ECDE2 /* sleeping4.png in Resources */,
@@ -812,10 +833,11 @@
 				FBFEAC01224DC97A008ECDE2 /* day.png in Resources */,
 				FBFEACAA224DCBD3008ECDE2 /* Peach.png in Resources */,
 				FBFEAC9A224DCBB6008ECDE2 /* inhale_eat4.png in Resources */,
-				FBFEABE7224DC494008ECDE2 /* cheer8.png in Resources */,
+				FBFEABE7224DC494008ECDE2 /* cheer10.png in Resources */,
 				FB56BF33226B81A600C7B9BB /* reverse_walking10.png in Resources */,
 				FBFEAC40224DCB17008ECDE2 /* help9.png in Resources */,
 				FBFEAC7F224DCB76008ECDE2 /* smears4.png in Resources */,
+				49107D9D22722AD500D55A7A /* cheer12.png in Resources */,
 				FBFEAC98224DCBB6008ECDE2 /* inhale_eat10.png in Resources */,
 				FBFEACAB224DCBD3008ECDE2 /* Hamburger.png in Resources */,
 				FBFEACA7224DCBD3008ECDE2 /* Cake.png in Resources */,
@@ -845,7 +867,7 @@
 				F1762ECB223F23DE00DFB199 /* Main.storyboard in Resources */,
 				FBFEABCF224DBD15008ECDE2 /* walking10.png in Resources */,
 				FBFEAC9C224DCBB6008ECDE2 /* inhale_eat13.png in Resources */,
-				FBFEABE6224DC494008ECDE2 /* cheer10.png in Resources */,
+				FBFEABE6224DC494008ECDE2 /* cheer9.png in Resources */,
 				FBFEAC71224DCB50008ECDE2 /* paint1.png in Resources */,
 				FBFEAC97224DCBB6008ECDE2 /* inhale_eat2.png in Resources */,
 				FBFEAC16224DC9C3008ECDE2 /* hunger_half.png in Resources */,
@@ -882,10 +904,12 @@
 				FB13E260224F21880008420D /* UIImageViewExtension.swift in Sources */,
 				FBE793B52244955A0095A54C /* MainViewController.swift in Sources */,
 				F1762EC8223F23DE00DFB199 /* ViewController.swift in Sources */,
+				49107D97227220D600D55A7A /* IntExtension.swift in Sources */,
 				FB52DBC2226FE5CD0025CEE1 /* ScheduledEventsHandler.swift in Sources */,
 				FB192D142266B613000442A9 /* VisualsHandler.swift in Sources */,
 				F1762EC6223F23DE00DFB199 /* AppDelegate.swift in Sources */,
 				FBFEABB7224DA4D4008ECDE2 /* TitleScreenViewController.swift in Sources */,
+				49107D9522721A8300D55A7A /* RepeatingTimer.swift in Sources */,
 				FBFEABB3224D996E008ECDE2 /* AnimationHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1014,7 +1038,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kaabi.gotchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -1027,7 +1051,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = kaabi.gotchi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_SWIFT3_OBJC_INFERENCE = On;
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};

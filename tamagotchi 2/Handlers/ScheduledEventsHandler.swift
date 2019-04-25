@@ -20,22 +20,29 @@ public class ScheduledEvent
     
 }
 
-public class ScheduledAnimationsHandler
+public class ScheduledEventsHandler
 {
     public static var events = [ScheduledEvent]();
     private static var scheduledEventTypes = Set<KirbyStatus.EKirbyEvent>();
-    private static var timer: Timer!;
+    private static var timer: RepeatingTimer!;
     private static var elapsedTime: Int = 0;
     
-    init()
+    public static func AttemptToInitialize()
     {
-        ScheduledAnimationsHandler.timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(ScheduledAnimationsHandler.OnTick), userInfo: nil, repeats: true);
-        NSLog("s");
+        if (timer == nil)
+        {
+            timer = RepeatingTimer(timeInterval: 1);
+            timer.actionToExecute =
+            {
+                OnTick();
+            }
+            timer.resume();
+        }
     }
     
-    @objc static func OnTick()
+    static func OnTick()
     {
         elapsedTime += 1;
-        NSLog(String(elapsedTime));
+        //NSLog(String(elapsedTime));
     }
 }

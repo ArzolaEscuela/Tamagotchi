@@ -92,11 +92,11 @@ public struct AnimationHandler
     public static var animationWaitOffset: Double = -0.25;
     
     public static var walkingAnimation = Animation(1, "walking", 1, 10, true);
-    public static var cheerAnimation = Animation(0.6, "cheer", 1, 10, false);
+    public static var cheerAnimation = Animation(1, "cheer", 1, 14, false);
     public static var paintAnimation = Animation(1, "paint", 1, 5, true);
-    public static var leftAnimation = Animation(2, "left", 1, 3, false);
-    public static var rightAnimation = Animation(2, "right", 1, 3, false);
-    public static var angryAnimation = Animation(3, "angry", 1, 1, true);
+    public static var leftAnimation = Animation(2.2, "left", 1, 3, false);
+    public static var rightAnimation = Animation(2.2, "right", 1, 3, false);
+    public static var angryAnimation = Animation(2, "angry", 1, 1, true);
     
     public static var sleepIntroAnimation = Animation(0.85, "sleeping", 1, 8, false);
     public static var sleepLoopAnimation = Animation(2, "sleeping", 5, 8, true);

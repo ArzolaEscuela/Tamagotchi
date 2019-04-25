@@ -181,6 +181,10 @@
                                         <rect key="frame" x="325" y="8" width="81" height="81"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <imageView opaque="NO" clearsContextBeforeDrawing="NO" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Cake.png" translatesAutoresizingMaskIntoConstraints="NO" id="y5m-en-Hgp" userLabel="food">
+                                        <rect key="frame" x="350" y="125" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="U17-5u-kq4" userLabel="kirby_animations">
                                         <rect key="frame" x="147" y="65" width="120" height="120"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -556,6 +560,7 @@
                         <outlet property="currentMood" destination="gWD-bK-gXQ" id="HYu-w5-kc6"/>
                         <outlet property="dayImage" destination="mhR-mO-3hj" id="WkT-ZF-h3M"/>
                         <outlet property="feedButton" destination="z0Y-9Y-6EO" id="Kzz-rT-T67"/>
+                        <outlet property="feedFoodToEat" destination="y5m-en-Hgp" id="OFA-yR-e6Z"/>
                         <outlet property="feedName" destination="LV5-Qw-XZ0" id="iHQ-ed-83o"/>
                         <outlet property="feedNormalFoodButton" destination="5EL-un-bHA" id="WUc-U1-rYt"/>
                         <outlet property="feedPanel" destination="SD6-Hh-LNT" id="7TJ-n7-9r2"/>
@@ -775,6 +780,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Cake.png" width="90" height="90"/>
         <image name="Care Button.png" width="64" height="64"/>
         <image name="Clean Button.png" width="64" height="64"/>
         <image name="Feed Button.png" width="64" height="64"/>

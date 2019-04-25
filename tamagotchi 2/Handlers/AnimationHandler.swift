@@ -89,7 +89,7 @@ public enum EAnimation
 
 public struct AnimationHandler
 {
-    public static var animationWaitOffset: Double = -0.25;
+    public static var animationWaitOffset: Double = -0.2;
     
     public static var walkingAnimation = Animation(1, "walking", 1, 10, true);
     public static var cheerAnimation = Animation(1, "cheer", 1, 14, false);
@@ -105,10 +105,10 @@ public struct AnimationHandler
     public static var helpLoopAnimation = Animation(1, "help", 1, 8, true);
     public static var helpEndAnimation = Animation(1, "help", 9, 12, false);
     
-    public static var inhaleIntroAnimation = Animation(1, "inhale_eat", 1, 5, false);
-    public static var inhaleLoopAnimation = Animation(1, "inhale_eat", 3, 5, true);
-    public static var inhaleEndAnimation = Animation(1, "inhale_eat", 6, 9, false);
-    public static var eatAnimation = Animation(1, "inhale_eat", 10, 13, false);
+    public static var inhaleIntroAnimation = Animation(0.6, "inhale_eat", 1, 5, false);
+    public static var inhaleLoopAnimation = Animation(0.5, "inhale_eat", 3, 5, true);
+    public static var inhaleEndAnimation = Animation(0.5, "inhale_eat", 6, 9, false);
+    public static var eatAnimation = Animation(0.55, "inhale_eat", 10, 13, false);
 }
 
 public class KirbyInstance

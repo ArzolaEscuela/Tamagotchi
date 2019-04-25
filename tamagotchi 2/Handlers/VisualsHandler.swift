@@ -54,4 +54,30 @@ public struct VisualsHandler
     public static var StatusNormal: UIImage { get { return statusNormal.Image; } }
     private static var statusSad = ImageReference("sad.png");
     public static var StatusSad: UIImage { get { return statusSad.Image; } }
+    
+    // Food Images
+    private static var meat = ImageReference("Meat.png");
+    private static var hamburger = ImageReference("Hamburger.png");
+    private static var sushi = ImageReference("Sushi.png");
+    public static var RandomFoodItem: UIImage
+    {
+        get
+        {   let random = Int.random(min: 0, max: 100);
+            if (random > 66) { return sushi.Image; }
+            if (random < 34) { return hamburger.Image; }
+            return meat.Image;
+        }
+    }
+    private static var flan = ImageReference("Flan.png");
+    private static var peach = ImageReference("Peach.png");
+    private static var cake = ImageReference("Cake.png");
+    public static var RandomSnackItem: UIImage
+    {
+        get
+        {   let random = Int.random(min: 0, max: 100);
+            if (random > 66) { return cake.Image; }
+            if (random < 34) { return peach.Image; }
+            return flan.Image;
+        }
+    }
 }

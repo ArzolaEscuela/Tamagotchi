@@ -76,20 +76,38 @@ public class KirbyStatus
     public var Weight: String { get { return weight; } }
     public var Status: EStatus { get { return status; } }
     public var CurrentEvent: EKirbyEvent { get { return currentEvent; } }
-    public var Hunger: Int { get { return hunger; } }
+    private(set) public var Hunger: Int
+    {
+        get { return hunger; }
+        set(newValue)
+        {
+            if (newValue < 0) { hunger = 0; return; }
+            if (hunger > MAX_VALUE_PER_STAT) { hunger = MAX_VALUE_PER_STAT; return; }
+            hunger = newValue;
+        }
+    }
     public var Happiness: Int { get { return happiness; } }
     public var Discipline: Int { get { return discipline; } }
+    
+    private let STEPS_PER_LEVEL: Int = 3;
+    private let MAX_VALUE_PER_STAT = 10;
+   
     
     private var HappinessStep: Int
     {
         get { return happinessStep; }
         set(newValue)
         {
-            if (newValue >= 3)
+            if (newValue >= STEPS_PER_LEVEL)
             {
                 happinessStep = 0;
-                if (happiness < 10){ happiness += 1; }
+                if (happiness < MAX_VALUE_PER_STAT){ happiness += 1; }
                 return;
+            }
+            if (newValue < 0)
+            {
+                if (happiness > 1) { happiness -= 1; happinessStep = STEPS_PER_LEVEL; return; }
+                happinessStep = 0; return;
             }
             happinessStep = newValue;
         }
@@ -100,18 +118,44 @@ public class KirbyStatus
         get { return disciplineStep; }
         set(newValue)
         {
-            if (newValue >= 3)
+            if (newValue >= STEPS_PER_LEVEL)
             {
                 disciplineStep = 0;
-                if (discipline < 10){ discipline += 1; }
+                if (discipline < MAX_VALUE_PER_STAT){ discipline += 1; }
                 return;
+            }
+            if (newValue < 0)
+            {
+                if (discipline > 1) { discipline -= 1; disciplineStep = STEPS_PER_LEVEL; return; }
+                disciplineStep = 0; return;
             }
             disciplineStep = newValue;
         }
     }
+   
+    public func ScoldedKirby()
+    {
+        DisciplineStep += 4;
+        HappinessStep -= 2;
+    }
     
-    public var IsMoving : Bool { get { return true; } }
-    public var LapSpeed : Double { get { return 2; } }
+    public func CaredForKirby()
+    {
+        HappinessStep += 5;
+    }
+    
+    public func FedKirby(_ fedSnack: Bool)
+    {
+        if (fedSnack)
+        {
+            DisciplineStep -= 1;
+            HappinessStep += 1;
+            Hunger += 1;
+            return;
+        }
+        
+        Hunger += 2;
+    }
     
     public func PlayedGame(_ wonGame: Bool)
     {

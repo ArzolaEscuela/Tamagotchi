@@ -127,6 +127,7 @@ class MainViewController: UIViewController
     @IBOutlet weak var FeedDisclaimerLabel: UILabel!
     @IBOutlet weak var feedNormalFoodButton: UIButton!
     @IBOutlet weak var feedSnackButton: UIButton!
+    @IBOutlet weak var feedFoodToEat: UIImageView!
     
     // Mood Icon
     @IBOutlet weak var currentMood: UIImageView!
@@ -160,6 +161,8 @@ class MainViewController: UIViewController
     @IBOutlet weak var nightOverlay: UIView!
     
     private var kirby: KirbyInstance!;
+    private var foodPos: CGFloat!;
+    private var centerTarget: CGFloat!;
     private var leftTarget: CGFloat!;
     private var rightTarget: CGFloat!;
     private var targetDistance: CGFloat!;
@@ -220,14 +223,74 @@ class MainViewController: UIViewController
         DisableAllPanelsExcept(feedPanel);
     }
     
+    private func FedKirby(_ fedSnack: Bool)
+    {
+        Information.TamagotchiStatus.FedKirby(fedSnack);
+        
+        BackToMainMenu();
+        SetAllNonTopButtonsEnabledState(false);
+        SetStaticKirbyVisibility(true);
+        
+        // Prepare Food To Eat
+        var foodImage = VisualsHandler.RandomFoodItem;
+        if (fedSnack) { foodImage = VisualsHandler.RandomSnackItem; }
+        
+        feedFoodToEat.center.x = foodPos;
+        feedFoodToEat.image = foodImage;
+        feedFoodToEat.isHidden = false;
+        
+        // Start Eating Animation
+        kirby.AttemptToPlayOneshotAnimation(EAnimation.InhaleIntro);
+        
+        delay(bySeconds: AnimationHandler.inhaleIntroAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
+        {
+            
+            // Start Inhale Animation
+            let inhaleDuration: Double = 0.6;
+            self.kirby.ViewAnimation(EAnimation.InhaleLoop);
+            
+            // Move food towards kirby
+            UIView.animate(withDuration: inhaleDuration, delay: 0, options: [.curveEaseInOut , .allowUserInteraction], animations:
+            {
+                self.feedFoodToEat.center.x =  self.centerTarget;
+            }, completion: nil)
+            
+            delay(bySeconds: inhaleDuration, dispatchLevel: .main)
+            {
+                // Finish Inhaling
+                self.kirby.AttemptToPlayOneshotAnimation(EAnimation.InhaleEnd);
+                self.feedFoodToEat.isHidden = true;
+                
+                delay(bySeconds: AnimationHandler.inhaleEndAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
+                {
+                    // Eat
+                    self.kirby.AttemptToPlayOneshotAnimation(EAnimation.Eat);
+                    
+                    delay(bySeconds: AnimationHandler.eatAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
+                    {
+                        // Cheer
+                        self.kirby.AttemptToPlayOneshotAnimation(EAnimation.Cheer);
+                        
+                        delay(bySeconds: AnimationHandler.cheerAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
+                        {
+                            self.nonStaticKirbyNeeded = true;
+                            self.AttemptToUpdateForEventAfterTimer(0);
+                            self.BackToMainMenu();
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
     @IBAction func OnFeedSnackButtonPressed(_ sender: Any)
     {
-        
+        FedKirby(true);
     }
     
     @IBAction func OnFeedNormalFoodButtonPressed(_ sender: Any)
     {
-        
+        FedKirby(false);
     }
     
     private func SetDayNight(_ isDay: Bool)
@@ -563,6 +626,7 @@ class MainViewController: UIViewController
         PrepareKirby();
         SetStatusPanels();
         AttemptToUpdateForEvent();
+        feedFoodToEat.isHidden = true;
     }
     
     override func viewDidLoad()
@@ -571,10 +635,12 @@ class MainViewController: UIViewController
         BackToMainMenu();
         let center = walkingKirby.center.x;
         let width = walkingKirby.bounds.size.width;
+        
+        foodPos = feedFoodToEat.center.x;
+        centerTarget = staticKirby.center.x;
         leftTarget = center - ScreenWidth/2 - width;
         rightTarget = center + ScreenWidth/2 + width;
         targetDistance = rightTarget - leftTarget;
-        //MainViewController.timedEventsHandler = ScheduledAnimationsHandler();
     }
     
     override func viewDidAppear(_ animated: Bool)

@@ -56,7 +56,7 @@ public enum EStatusBar: String, Codable
 
 public struct KirbyInfo : Codable
 {
-    var progress: Int = 0;
+    var progress: Float = 0;
     var name: String = "Kirby";
     var age: Int = 0;
     var weight: String = "2 oz";
@@ -74,12 +74,14 @@ public struct KirbyInfo : Codable
 public class KirbyStatus
 {
     private let STEPS_PER_LEVEL: Int = 3;
-    public let MAX_VALUE_PER_STAT = 10;
+    private let MAX_VALUE_PER_STAT = 10;
+    private let MAX_DISTANCE_POSSIBLE: Float = 999999;
     
     private var info: KirbyInfo!;
+    private var isRunning: Bool! = false;
     
     public var Info: KirbyInfo {get {return info;}}
-    public var Progress: Int { get { return info.progress; } }
+    public var Progress: Float { get { return info.progress; } }
     public var Name: String { get { return info.name; } }
     public var Age: Int { get { return info.age; } }
     public var Weight: String { get { return info.weight; } }
@@ -148,9 +150,43 @@ public class KirbyStatus
         }
     }
    
+    private var ProgressPerSecond: Float
+    {
+        get
+        {
+            let hungerFactor:Float = Float(Hunger+1 / MAX_VALUE_PER_STAT) * 0.1;
+            let disciplineFactor:Float = Float(Discipline+1) + Float(info.disciplineStep) / Float(STEPS_PER_LEVEL) * 0.6;
+            let happinessFactor:Float = Float(Happiness+1) + Float(info.happinessStep) / Float(STEPS_PER_LEVEL) * 0.3;
+            let baseSpeed:Float = Float(Age+1) * 0.5;
+            return baseSpeed * hungerFactor * disciplineFactor * happinessFactor;
+        }
+    }
+    private var CurrentEventHaltsKirby: Bool {get { return info.currentEvent == EKirbyEvent.Painting || info.currentEvent == EKirbyEvent.Stuck || info.currentEvent == EKirbyEvent.Tired; } }
+    
     init(_ info: KirbyInfo)
     {
         self.info = info;
+        isRunning = !CurrentEventHaltsKirby;
+    }
+    
+    public func UpdateProgressBar(_ progressCounter: UILabel)
+    {
+        let rounded = round(info.progress * 4.0)/4.0;
+        progressCounter.text = "Distance Run:" + String(rounded);
+    }
+    
+    public func UpdateRunning(_ isRunning: Bool)
+    {
+        self.isRunning = isRunning;
+    }
+    
+    public func OnTimeTick()
+    {
+        var factor: Float = 1;
+        if (info.currentEvent == EKirbyEvent.Rebel) { factor = -1; }
+        if (!isRunning || CurrentEventHaltsKirby) { factor = 0; }
+        info.progress += ProgressPerSecond * ScheduledEventsHandler.TICK_TIMER * factor;
+        if (info.progress > MAX_DISTANCE_POSSIBLE) { info.progress = MAX_DISTANCE_POSSIBLE; }
     }
     
     public func HelpedKirby()
@@ -257,6 +293,8 @@ public struct Information
     
     public static var phoneInformation = PhoneInformation();
     public static var segueNames = SegueNames();
+    public static var mainViewController: MainViewController!;
+    public static var titleScreenViewController: TitleScreenViewController!;
     private static var kirbyStatus: KirbyStatus!;
     
     private static var BrandNewInfo: KirbyInfo { get { return KirbyInfo(); } }
@@ -304,7 +342,7 @@ public struct Information
     {
         get
         {
-            // defaults.removeObject(forKey: USER_DEFAULTS_KEY); // This can delete all traces of saved data.
+             defaults.removeObject(forKey: USER_DEFAULTS_KEY); // This can delete all traces of saved data.
             // This is a placeholder that always returns a new status, intended to later plug a save file and return it through here once retrieved.
             if (kirbyStatus == nil) { kirbyStatus = LocalSave; SaveProgress(); }
             return kirbyStatus;

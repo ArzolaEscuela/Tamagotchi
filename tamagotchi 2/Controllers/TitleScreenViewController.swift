@@ -75,6 +75,11 @@ public class TitleScreenViewController : UIViewController
         }
     }
     
+    public func Update()
+    {
+        
+    }
+    
     override public func viewWillAppear(_ animated: Bool)
     {
         tapAnywhereText.center.y += ScreenHeight;
@@ -109,6 +114,7 @@ public class TitleScreenViewController : UIViewController
                 self.tapAnywhereText.center.y -= self.ScreenHeight;
             }
         }
+        Information.titleScreenViewController = self;
     }
     
     override public func viewDidLoad()

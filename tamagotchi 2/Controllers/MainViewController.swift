@@ -22,7 +22,7 @@ enum EVisibleKirby
     case ReverseWalkingKirby;
 }
 
-class MainViewController: UIViewController
+public class MainViewController: UIViewController
 {
     
     @IBOutlet weak var progressLabel: UIOutlinedLabel!
@@ -185,7 +185,12 @@ class MainViewController: UIViewController
         kirby.StartAnimations();
     }
     
-    private func BackToMainMenu()
+    private func SetAsRunning(_ setAsRunning: Bool)
+    {
+        Information.TamagotchiStatus.UpdateRunning(setAsRunning);
+    }
+    
+    private func BackToMainMenu(_ setAsRunning: Bool)
     {
         // Turn on buttons
         SetTopmostButtonsEnabledState(true);
@@ -193,6 +198,8 @@ class MainViewController: UIViewController
         // Turn off panels
         SetAllPanelsEnabledState(false);
         currentlyActive = SubSections.Main;
+        
+        if (setAsRunning){SetAsRunning(true);}
     }
     
     /** Checks if the provided section should be turned on or not. If it should be, the application status is now that it will be within that section (so proper changes need to be made). If it isnt supposed to be active anymore, it will automatically go back to the main menu.*/
@@ -204,7 +211,7 @@ class MainViewController: UIViewController
             return true;
         }
         
-        BackToMainMenu();
+        BackToMainMenu(false);
         return false;
     }
     
@@ -227,9 +234,10 @@ class MainViewController: UIViewController
     {
         Information.TamagotchiStatus.FedKirby(fedSnack);
         
-        BackToMainMenu();
+        BackToMainMenu(false);
         SetAllNonTopButtonsEnabledState(false);
         SetStaticKirbyVisibility(true);
+        SetAsRunning(false);
         
         // Prepare Food To Eat
         var foodImage = VisualsHandler.RandomFoodItem;
@@ -275,7 +283,7 @@ class MainViewController: UIViewController
                         {
                             self.nonStaticKirbyNeeded = true;
                             self.AttemptToUpdateForEventAfterTimer(0);
-                            self.BackToMainMenu();
+                            self.BackToMainMenu(true);
                         }
                     }
                 }
@@ -311,10 +319,12 @@ class MainViewController: UIViewController
             {
                 self.kirby.ViewAnimation(EAnimation.Walking);
                 self.AttemptToUpdateForEventAfterTimer(0);
+                self.SetAsRunning(true);
             }
             return;
         }
         DisableAllButtonsExcept(lightsButton);
+        SetAsRunning(false);
         
         SetDayNight(false);
         nonStaticKirbyNeeded = false;
@@ -347,10 +357,10 @@ class MainViewController: UIViewController
     }
     
     private func SetStatusPanels()
-{
-    Information.TamagotchiStatus.SetStatusPanels(StatusHungerPanels, EStatusBar.Hunger);
-    Information.TamagotchiStatus.SetStatusPanels(StatusHappinessPanels, EStatusBar.Happiness);
-    Information.TamagotchiStatus.SetStatusPanels(StatusDisciplinePanels, EStatusBar.Discipline);
+    {
+        Information.TamagotchiStatus.SetStatusPanels(StatusHungerPanels, EStatusBar.Hunger);
+        Information.TamagotchiStatus.SetStatusPanels(StatusHappinessPanels, EStatusBar.Happiness);
+        Information.TamagotchiStatus.SetStatusPanels(StatusDisciplinePanels, EStatusBar.Discipline);
         Information.TamagotchiStatus.SetStatus(statusAge, statusWeight);
     }
     
@@ -543,8 +553,9 @@ class MainViewController: UIViewController
     
     private func PlayedGame(_ choseLeft: Bool)
     {
-        BackToMainMenu();
+        BackToMainMenu(false);
         SetAllNonTopButtonsEnabledState(false);
+        SetAsRunning(false);
         
         let wonGame = WonGame();
         let shouldPlayRightAnimation = wonGame && !choseLeft || !wonGame && choseLeft;
@@ -570,7 +581,7 @@ class MainViewController: UIViewController
             {
                 self.nonStaticKirbyNeeded = true;
                 self.AttemptToUpdateForEventAfterTimer(0);
-                self.BackToMainMenu();
+                self.BackToMainMenu(true);
             }
         }
     }
@@ -628,12 +639,18 @@ class MainViewController: UIViewController
         SetStatusPanels();
         AttemptToUpdateForEvent();
         feedFoodToEat.isHidden = true;
+        progressLabel.text = "";
     }
     
-    override func viewDidLoad()
+    public func Update()
+    {
+        Information.TamagotchiStatus.UpdateProgressBar(progressLabel);
+    }
+    
+    override public func viewDidLoad()
     {
         super.viewDidLoad();
-        BackToMainMenu();
+        BackToMainMenu(false);
         let center = walkingKirby.center.x;
         let width = walkingKirby.bounds.size.width;
         
@@ -644,12 +661,13 @@ class MainViewController: UIViewController
         targetDistance = rightTarget - leftTarget;
     }
     
-    override func viewDidAppear(_ animated: Bool)
+    public override func viewDidAppear(_ animated: Bool)
     {
         StartMovingKirby();
+        Information.mainViewController = self;
     }
     
-    override func didReceiveMemoryWarning()
+    public override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning();
     }

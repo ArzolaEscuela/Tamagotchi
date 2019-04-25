@@ -22,27 +22,31 @@ public class ScheduledEvent
 
 public class ScheduledEventsHandler
 {
+    public static let TICK_TIMER: Float = 0.1;
+    private static let AUTO_SAVE_TIMER: Float = 60;
+    
     public static var events = [ScheduledEvent]();
     private static var scheduledEventTypes = Set<EKirbyEvent>();
     private static var timer: RepeatingTimer!;
-    private static var elapsedTime: Int = 0;
-    
+    private static var elapsedTime: Float = 0;
+        
     public static func AttemptToInitialize()
     {
-        if (timer == nil)
-        {
-            timer = RepeatingTimer(timeInterval: 5);
-            timer.actionToExecute =
-            {
-                OnTick();
-            }
-            timer.resume();
-        }
+        if (timer != nil) { return; }
+        timer = RepeatingTimer(timeInterval: Double(TICK_TIMER));
+        timer.actionToExecute = { OnTick(); }
+        timer.resume();
     }
     
     static func OnTick()
     {
-        elapsedTime += 1;
-        Information.SaveProgress();
+        elapsedTime += TICK_TIMER;
+        if (elapsedTime > AUTO_SAVE_TIMER) { elapsedTime = 0; Information.SaveProgress(); }
+        DispatchQueue.main.async
+        {
+            Information.TamagotchiStatus.OnTimeTick();
+            if (Information.mainViewController != nil) { Information.mainViewController.Update(); }
+            if (Information.titleScreenViewController != nil) { Information.titleScreenViewController.Update(); }
+        }
     }
 }

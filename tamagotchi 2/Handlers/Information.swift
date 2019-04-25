@@ -29,110 +29,142 @@ public class SegueNames
     public final var fromMainToTitle: String = "fromMainToTitle";
 }
 
+public enum EKirbyEvent: String, Codable
+{
+    case None; // Nothing unusual will happen.
+    case Hungry; // Kirby will stop moving until fed
+    case Tired; // Kirby will stop moving until slept at least 1 hour.
+    case Stuck; // Kirby will remain stuck
+    case CareAble; // Similar to normal, nothing unusual will happen, but can be cared for.
+    case Painting; // Kirby will stop running, and will instead start painting.
+    case Rebel; // While rebel, kirby will go backwards, can be scolded.
+}
+
+public enum EStatus: String, Codable
+{
+    case Happy;
+    case Normal;
+    case Sad;
+}
+
+public enum EStatusBar: String, Codable
+{
+    case Hunger;
+    case Happiness;
+    case Discipline;
+}
+
+public struct KirbyInfo : Codable
+{
+    var progress: Int = 0;
+    var name: String = "Kirby";
+    var age: Int = 0;
+    var weight: String = "2 oz";
+    var status: EStatus = EStatus.Normal;
+    var currentEvent: EKirbyEvent = EKirbyEvent.None;
+    // These will range from 0 to 10
+    var hunger: Int = 5;
+    var hungerStep: Int = 0;
+    var happiness: Int = 1;
+    var happinessStep: Int = 0;
+    var discipline: Int = 0;
+    var disciplineStep: Int = 0;
+}
+
 public class KirbyStatus
 {
-    public enum EKirbyEvent
-    {
-        case None; // Nothing unusual will happen.
-        case Hungry; // Kirby will stop moving until fed
-        case Tired; // Kirby will stop moving until slept at least 1 hour.
-        case Stuck; // Kirby will remain stuck
-        case CareAble; // Similar to normal, nothing unusual will happen, but can be cared for.
-        case Painting; // Kirby will stop running, and will instead start painting.
-        case Rebel; // While rebel, kirby will go backwards, can be scolded.
-    }
+    private let STEPS_PER_LEVEL: Int = 3;
+    public let MAX_VALUE_PER_STAT = 10;
     
-    public enum EStatus
-    {
-        case Happy;
-        case Normal;
-        case Sad;
-    }
+    private var info: KirbyInfo!;
     
-    public enum EStatusBar
-    {
-        case Hunger;
-        case Happiness;
-        case Discipline;
-    }
-    
-    private var progress: Int = 0;
-    
-    private var name: String = "Kirby";
-    private var age: Int = 0;
-    private var weight: String = "2 oz";
-    private var status: EStatus = EStatus.Normal;
-    private var currentEvent: EKirbyEvent = EKirbyEvent.None;
-    // These will range from 0 to 10
-    private var hunger: Int = 5;
-    private var happiness: Int = 1;
-    private var happinessStep: Int = 0;
-    private var discipline: Int = 0;
-    private var disciplineStep: Int = 0;
-    
-    public var Progress: Int { get { return progress; } }
-    public var Name: String { get { return name; } }
-    public var Age: Int { get { return age; } }
-    public var Weight: String { get { return weight; } }
-    public var Status: EStatus { get { return status; } }
-    public var CurrentEvent: EKirbyEvent { get { return currentEvent; } }
+    public var Info: KirbyInfo {get {return info;}}
+    public var Progress: Int { get { return info.progress; } }
+    public var Name: String { get { return info.name; } }
+    public var Age: Int { get { return info.age; } }
+    public var Weight: String { get { return info.weight; } }
+    public var Status: EStatus { get { return info.status; } }
+    public var CurrentEvent: EKirbyEvent { get { return info.currentEvent; } }
+    public var CanFeed: Bool {get {return info.hunger < MAX_VALUE_PER_STAT; }}
     private(set) public var Hunger: Int
     {
-        get { return hunger; }
-        set(newValue)
-        {
-            if (newValue < 0) { hunger = 0; return; }
-            if (hunger > MAX_VALUE_PER_STAT) { hunger = MAX_VALUE_PER_STAT; return; }
-            hunger = newValue;
-        }
-    }
-    public var Happiness: Int { get { return happiness; } }
-    public var Discipline: Int { get { return discipline; } }
-    
-    private let STEPS_PER_LEVEL: Int = 3;
-    private let MAX_VALUE_PER_STAT = 10;
-   
-    
-    private var HappinessStep: Int
-    {
-        get { return happinessStep; }
+        get { return info.hunger; }
         set(newValue)
         {
             if (newValue >= STEPS_PER_LEVEL)
             {
-                happinessStep = 0;
-                if (happiness < MAX_VALUE_PER_STAT){ happiness += 1; }
+                info.hungerStep = 0;
+                if (info.hunger < MAX_VALUE_PER_STAT){ info.hunger += 1; }
                 return;
             }
             if (newValue < 0)
             {
-                if (happiness > 1) { happiness -= 1; happinessStep = STEPS_PER_LEVEL; return; }
-                happinessStep = 0; return;
+                if (info.hunger > 1) { info.hunger -= 1; info.hungerStep = STEPS_PER_LEVEL; return; }
+                info.hungerStep = 0; return;
             }
-            happinessStep = newValue;
+            info.hungerStep = newValue;
+        }
+    }
+    public var Happiness: Int { get { return info.happiness; } }
+    public var Discipline: Int { get { return info.discipline; } }
+    
+    private var HappinessStep: Int
+    {
+        get { return info.happinessStep; }
+        set(newValue)
+        {
+            if (newValue >= STEPS_PER_LEVEL)
+            {
+                info.happinessStep = 0;
+                if (info.happiness < MAX_VALUE_PER_STAT){ info.happiness += 1; }
+                return;
+            }
+            if (newValue < 0)
+            {
+                if (info.happiness > 1) { info.happiness -= 1; info.happinessStep = STEPS_PER_LEVEL; return; }
+                info.happinessStep = 0; return;
+            }
+            info.happinessStep = newValue;
         }
     }
     
     private var DisciplineStep: Int
     {
-        get { return disciplineStep; }
+        get { return info.disciplineStep; }
         set(newValue)
         {
             if (newValue >= STEPS_PER_LEVEL)
             {
-                disciplineStep = 0;
-                if (discipline < MAX_VALUE_PER_STAT){ discipline += 1; }
+                info.disciplineStep = 0;
+                if (info.discipline < MAX_VALUE_PER_STAT){ info.discipline += 1; }
                 return;
             }
             if (newValue < 0)
             {
-                if (discipline > 1) { discipline -= 1; disciplineStep = STEPS_PER_LEVEL; return; }
-                disciplineStep = 0; return;
+                if (info.discipline > 1) { info.discipline -= 1; info.disciplineStep = STEPS_PER_LEVEL; return; }
+                info.disciplineStep = 0; return;
             }
-            disciplineStep = newValue;
+            info.disciplineStep = newValue;
         }
     }
    
+    init(_ info: KirbyInfo)
+    {
+        self.info = info;
+    }
+    
+    public func HelpedKirby()
+    {
+        HappinessStep += 4;
+        DisciplineStep += 1;
+    }
+    
+    public func CleanedKirby()
+    {
+        DisciplineStep += 4;
+        HappinessStep -= 1;
+    }
+    
     public func ScoldedKirby()
     {
         DisciplineStep += 4;
@@ -148,9 +180,9 @@ public class KirbyStatus
     {
         if (fedSnack)
         {
-            DisciplineStep -= 1;
-            HappinessStep += 1;
-            Hunger += 1;
+            self.DisciplineStep -= 1;
+            self.HappinessStep += 1;
+            self.Hunger += 1;
             return;
         }
         
@@ -218,16 +250,63 @@ public class KirbyStatus
 
 public struct Information
 {
+    private static let USER_DEFAULTS_KEY: String = "KirbyGotchiJSON";
+    private static let defaults = UserDefaults.standard;
+    private static let jsonEncoder = JSONEncoder()
+    private static let jsonDecoder = JSONDecoder();
+    
     public static var phoneInformation = PhoneInformation();
     public static var segueNames = SegueNames();
+    private static var kirbyStatus: KirbyStatus!;
     
-    private static var kirbyStatus = KirbyStatus();  
+    private static var BrandNewInfo: KirbyInfo { get { return KirbyInfo(); } }
+    
+    public static func Debug_ResetSaveData()
+    {
+        kirbyStatus = KirbyStatus(BrandNewInfo);
+        SaveProgress();
+    }
+    
+    public static func SaveProgress()
+    {
+        do
+        {
+            let jsonData = try jsonEncoder.encode(kirbyStatus.Info);
+            let jsonString = String(data: jsonData, encoding: .utf8);
+            defaults.set(jsonString, forKey: USER_DEFAULTS_KEY);
+        }
+        catch { }
+    }
+    
+    private static var SaveExists: Bool { return defaults.object(forKey: USER_DEFAULTS_KEY) != nil; }
+    
+    private static func LoadJSONAsData(_ json: String) -> KirbyInfo
+    {
+        do
+        {
+            // Decode data to object
+            let status = try jsonDecoder.decode(KirbyInfo.self, from: json.data(using: .utf8)!)
+            return status;
+        } catch { }
+        
+        NSLog("ERROR: There was an issue while converting \"" + json + "\"")
+        return BrandNewInfo;
+    }
+    
+    private static var LocalSave : KirbyStatus
+    {
+        if (!SaveExists)  { return KirbyStatus(BrandNewInfo); } // If there is no existent file, return a new one.
+        let savedJson = defaults.string(forKey: USER_DEFAULTS_KEY);
+        return KirbyStatus(LoadJSONAsData(savedJson!));
+    }
     
     public static var TamagotchiStatus : KirbyStatus
     {
         get
         {
+            // defaults.removeObject(forKey: USER_DEFAULTS_KEY); // This can delete all traces of saved data.
             // This is a placeholder that always returns a new status, intended to later plug a save file and return it through here once retrieved.
+            if (kirbyStatus == nil) { kirbyStatus = LocalSave; SaveProgress(); }
             return kirbyStatus;
         }
     }

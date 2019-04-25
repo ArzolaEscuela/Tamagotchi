@@ -172,7 +172,7 @@ class MainViewController: UIViewController
     var nonStaticKirbyNeeded: Bool = true;
     
     private var ScreenWidth: CGFloat {get {return Information.phoneInformation.ScreenWidth;}}
-    private var CurrentEvent: KirbyStatus.EKirbyEvent { get { return Information.TamagotchiStatus.CurrentEvent; } }
+    private var CurrentEvent: EKirbyEvent { get { return Information.TamagotchiStatus.CurrentEvent; } }
     private var FullWalkTimer: Double {get { return 2.6; }}
     
     public func InitializeKirby()
@@ -348,9 +348,9 @@ class MainViewController: UIViewController
     
     private func SetStatusPanels()
 {
-    Information.TamagotchiStatus.SetStatusPanels(StatusHungerPanels, KirbyStatus.EStatusBar.Hunger);
-    Information.TamagotchiStatus.SetStatusPanels(StatusHappinessPanels, KirbyStatus.EStatusBar.Happiness);
-    Information.TamagotchiStatus.SetStatusPanels(StatusDisciplinePanels, KirbyStatus.EStatusBar.Discipline);
+    Information.TamagotchiStatus.SetStatusPanels(StatusHungerPanels, EStatusBar.Hunger);
+    Information.TamagotchiStatus.SetStatusPanels(StatusHappinessPanels, EStatusBar.Happiness);
+    Information.TamagotchiStatus.SetStatusPanels(StatusDisciplinePanels, EStatusBar.Discipline);
         Information.TamagotchiStatus.SetStatus(statusAge, statusWeight);
     }
     
@@ -421,19 +421,19 @@ class MainViewController: UIViewController
         
         switch(Information.TamagotchiStatus.CurrentEvent)
         {
-            case KirbyStatus.EKirbyEvent.Hungry:
+            case EKirbyEvent.Hungry:
                 SetButtonStates_Hungry(state);
                 break;
-            case KirbyStatus.EKirbyEvent.Tired:
+            case EKirbyEvent.Tired:
                 SetButtonStates_Tired(state);
                 break;
-            case KirbyStatus.EKirbyEvent.Painting:
+            case EKirbyEvent.Painting:
                 SetButtonStates_Painting(state);
                 break;
-            case KirbyStatus.EKirbyEvent.Rebel:
+            case EKirbyEvent.Rebel:
                 SetButtonStates_Rebel(state);
                 break;
-            case KirbyStatus.EKirbyEvent.Stuck:
+            case EKirbyEvent.Stuck:
                 SetButtonStates_Stuck(state);
                 break;
             default:
@@ -487,17 +487,18 @@ class MainViewController: UIViewController
     
     private func SetButtonStates_Eventless(_ state: Bool)
     {
-        SetSingleButtonEnabledState(feedButton, state);
+        let canFeed = Information.TamagotchiStatus.CanFeed;
+        SetSingleButtonEnabledState(feedButton, canFeed && state);
         SetSingleButtonEnabledState(lightsButton, state);
         SetSingleButtonEnabledState(playButton, state);
-        HandleSpecialStateButton(state, helpButton, KirbyStatus.EKirbyEvent.Stuck);
+        HandleSpecialStateButton(state, helpButton, EKirbyEvent.Stuck);
     
-        HandleSpecialStateButton(state, cleanButton, KirbyStatus.EKirbyEvent.Painting);        SetSingleButtonEnabledState(statusButton, state);
-        HandleSpecialStateButton(state, scoldButton, KirbyStatus.EKirbyEvent.Rebel);
-        HandleSpecialStateButton(state, careButton, KirbyStatus.EKirbyEvent.CareAble);
+        HandleSpecialStateButton(state, cleanButton, EKirbyEvent.Painting);        SetSingleButtonEnabledState(statusButton, state);
+        HandleSpecialStateButton(state, scoldButton, EKirbyEvent.Rebel);
+        HandleSpecialStateButton(state, careButton, EKirbyEvent.CareAble);
     }
     
-    private func HandleSpecialStateButton(_ requestedState: Bool, _ button: UIButton, _ requiredEvent : KirbyStatus.EKirbyEvent)
+    private func HandleSpecialStateButton(_ requestedState: Bool, _ button: UIButton, _ requiredEvent : EKirbyEvent)
     {
         SetSingleButtonEnabledState(button, Information.TamagotchiStatus.CurrentEvent == requiredEvent);
     }
@@ -613,8 +614,8 @@ class MainViewController: UIViewController
     private func UpdateVisibleKirby()
     {
         let currentEvent = CurrentEvent;
-        reverseWalkingKirby.isHidden = !nonStaticKirbyNeeded || currentEvent != KirbyStatus.EKirbyEvent.Rebel;
-        walkingKirby.isHidden = !nonStaticKirbyNeeded || currentEvent == KirbyStatus.EKirbyEvent.Rebel;
+        reverseWalkingKirby.isHidden = !nonStaticKirbyNeeded || currentEvent != EKirbyEvent.Rebel;
+        walkingKirby.isHidden = !nonStaticKirbyNeeded || currentEvent == EKirbyEvent.Rebel;
         staticKirby.isHidden = nonStaticKirbyNeeded;
     }
     

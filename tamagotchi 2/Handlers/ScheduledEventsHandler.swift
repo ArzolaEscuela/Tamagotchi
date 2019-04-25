@@ -10,10 +10,10 @@ import Foundation
 
 public class ScheduledEvent
 {
-    private var eventType: KirbyStatus.EKirbyEvent = KirbyStatus.EKirbyEvent.None;
-    private var EventType: KirbyStatus.EKirbyEvent { get { return eventType; } }
+    private var eventType: EKirbyEvent = EKirbyEvent.None;
+    private var EventType: EKirbyEvent { get { return eventType; } }
     
-    init(_ eventType: KirbyStatus.EKirbyEvent, _ targetTime: NSDate)
+    init(_ eventType: EKirbyEvent, _ targetTime: NSDate)
     {
         self.eventType = eventType;
     }
@@ -23,7 +23,7 @@ public class ScheduledEvent
 public class ScheduledEventsHandler
 {
     public static var events = [ScheduledEvent]();
-    private static var scheduledEventTypes = Set<KirbyStatus.EKirbyEvent>();
+    private static var scheduledEventTypes = Set<EKirbyEvent>();
     private static var timer: RepeatingTimer!;
     private static var elapsedTime: Int = 0;
     
@@ -31,7 +31,7 @@ public class ScheduledEventsHandler
     {
         if (timer == nil)
         {
-            timer = RepeatingTimer(timeInterval: 1);
+            timer = RepeatingTimer(timeInterval: 5);
             timer.actionToExecute =
             {
                 OnTick();
@@ -43,6 +43,6 @@ public class ScheduledEventsHandler
     static func OnTick()
     {
         elapsedTime += 1;
-        //NSLog(String(elapsedTime));
+        Information.SaveProgress();
     }
 }

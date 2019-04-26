@@ -106,7 +106,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="Help Button.png"/>
                                         <connections>
-                                            <action selector="OnHealButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="929-zf-1bb"/>
+                                            <action selector="OnHelpButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="929-zf-1bb"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nDS-94-Qzb">
@@ -274,60 +274,14 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TG7-k2-4AL" userLabel="Settings">
-                                <rect key="frame" x="8" y="248" width="400" height="240"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OW-Vy-B8e" userLabel="End Button">
+                                <rect key="frame" x="0.0" y="230" width="61" height="61"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="submenu_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="RoN-Vl-FaQ" userLabel="Background">
-                                        <rect key="frame" x="0.0" y="0.0" width="400" height="240"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1l-M8-gtG">
-                                        <rect key="frame" x="364" y="18" width="28" height="38"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="RoundedEleganceNew-Regular" family="Rounded Elegance" pointSize="30"/>
-                                        <state key="normal" title="X"/>
-                                        <connections>
-                                            <action selector="OnCloseSettingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Axe-2G-9Ft"/>
-                                        </connections>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Settings" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bid-zQ-7r5">
-                                        <rect key="frame" x="8" y="18" width="348" height="33"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="KirbyClassic" family="Kirby Classic" pointSize="30"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                    </label>
-                                    <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="fWL-PJ-RcH">
-                                        <rect key="frame" x="35" y="99" width="331" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                    </slider>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilt-rY-op9">
-                                        <rect key="frame" x="269" y="192" width="113" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                        <state key="normal" title="Pick New User">
-                                            <color key="titleColor" red="0.26677144713856688" green="0.33830020951759882" blue="0.8635191941624365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                    </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Logged As: USERNAME" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vfZ-hA-F4S">
-                                        <rect key="frame" x="24" y="201" width="239" height="23"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="RoundedEleganceNew-Regular" family="Rounded Elegance" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Audio" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TJ5-2H-6yF">
-                                        <rect key="frame" x="81" y="136" width="239" height="32"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" name="RoundedEleganceNew-Regular" family="Rounded Elegance" pointSize="20"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                                <state key="normal" image="walking5.png"/>
+                                <connections>
+                                    <action selector="OnEndButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gch-OG-rF4"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="SD6-Hh-LNT" userLabel="Feed">
                                 <rect key="frame" x="8" y="248" width="400" height="240"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -547,6 +501,165 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TG7-k2-4AL" userLabel="Settings">
+                                <rect key="frame" x="8" y="248" width="400" height="240"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="submenu_background.png" translatesAutoresizingMaskIntoConstraints="NO" id="RoN-Vl-FaQ" userLabel="Background">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="240"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B1l-M8-gtG">
+                                        <rect key="frame" x="364" y="18" width="28" height="38"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="RoundedEleganceNew-Regular" family="Rounded Elegance" pointSize="30"/>
+                                        <state key="normal" title="X"/>
+                                        <connections>
+                                            <action selector="OnCloseSettingsButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Axe-2G-9Ft"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Debug Panel" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bid-zQ-7r5">
+                                        <rect key="frame" x="8" y="18" width="348" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="KirbyClassic" family="Kirby Classic" pointSize="30"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Force Event" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AlZ-qg-svs">
+                                        <rect key="frame" x="16" y="64" width="141" height="33"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="RoundedEleganceNew-Regular" family="Rounded Elegance" pointSize="20"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ilt-rY-op9" userLabel="Force Help">
+                                        <rect key="frame" x="165" y="65" width="45" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Help">
+                                            <color key="titleColor" red="0.26677144713856688" green="0.33830020951759882" blue="0.8635191941624365" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="OnForceHelp:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Nfi-Ax-H0n"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bbs-7I-Dmn" userLabel="Reset All Progress">
+                                        <rect key="frame" x="0.0" y="192" width="400" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Reset All Progress">
+                                            <color key="titleColor" red="0.2667714471" green="0.3383002095" blue="0.86351919420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="OnResetAllProgress:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GqW-65-wd1"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GrY-Pd-Up4" userLabel="Force Clean">
+                                        <rect key="frame" x="218" y="65" width="45" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Clean">
+                                            <color key="titleColor" red="0.2667714471" green="0.3383002095" blue="0.86351919420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="OnForceClean:" destination="BYZ-38-t0r" eventType="touchUpInside" id="69S-03-hwh"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CNJ-SM-UqW" userLabel="Force Scold">
+                                        <rect key="frame" x="271" y="65" width="45" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Scold">
+                                            <color key="titleColor" red="0.2667714471" green="0.3383002095" blue="0.86351919420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="OnForceScold:" destination="BYZ-38-t0r" eventType="touchUpInside" id="vUm-Ie-0Kv"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="48a-Lm-aB6" userLabel="Force Care">
+                                        <rect key="frame" x="324" y="65" width="45" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.10000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Care">
+                                            <color key="titleColor" red="0.2667714471" green="0.3383002095" blue="0.86351919420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="OnForceCare:" destination="BYZ-38-t0r" eventType="touchUpInside" id="CBt-0i-JHN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Fs3-F6-MGZ">
+                                        <rect key="frame" x="0.0" y="146" width="400" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Advance To Near End">
+                                            <color key="titleColor" red="0.2667714471" green="0.3383002095" blue="0.86351919420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="OnAdvanceToNearEnd:" destination="BYZ-38-t0r" eventType="touchUpInside" id="sqO-Rn-y2c"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z6Z-hG-Ca6">
+                                        <rect key="frame" x="0.0" y="118" width="400" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                                        <state key="normal" title="Max Stats">
+                                            <color key="titleColor" red="0.2667714471" green="0.3383002095" blue="0.86351919420000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="OnMaxStats:" destination="BYZ-38-t0r" eventType="touchUpInside" id="nlS-ye-CFc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <view opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QId-E1-md4" userLabel="Paint View" customClass="PassThroughView" customModule="Tamagotchi" customModuleProvider="target">
+                                <rect key="frame" x="-26" y="-23" width="469" height="779"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smears2.png" translatesAutoresizingMaskIntoConstraints="NO" id="E2q-om-2fQ">
+                                        <rect key="frame" x="8" y="21" width="157" height="148"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smears4.png" translatesAutoresizingMaskIntoConstraints="NO" id="rmO-A2-4my">
+                                        <rect key="frame" x="167" y="449" width="157" height="148"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smears4.png" translatesAutoresizingMaskIntoConstraints="NO" id="xaD-ny-vXW">
+                                        <rect key="frame" x="294" y="133" width="157" height="148"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smears6.png" translatesAutoresizingMaskIntoConstraints="NO" id="SSa-Zr-kPF">
+                                        <rect key="frame" x="17" y="529" width="297" height="303"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smears6.png" translatesAutoresizingMaskIntoConstraints="NO" id="dzh-k3-Ajm">
+                                        <rect key="frame" x="158" y="-71" width="387" height="203"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smears1.png" translatesAutoresizingMaskIntoConstraints="NO" id="whi-mm-h9V">
+                                        <rect key="frame" x="318" y="324" width="124" height="117"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smears5.png" translatesAutoresizingMaskIntoConstraints="NO" id="PL8-eU-HgC">
+                                        <rect key="frame" x="31" y="140" width="255" height="223"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="smears3.png" translatesAutoresizingMaskIntoConstraints="NO" id="ta3-WI-8kB">
+                                        <rect key="frame" x="248" y="486" width="235" height="230"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -559,12 +672,17 @@
                         <outlet property="closeSettingsPanelButton" destination="B1l-M8-gtG" id="mud-X5-34t"/>
                         <outlet property="currentMood" destination="gWD-bK-gXQ" id="HYu-w5-kc6"/>
                         <outlet property="dayImage" destination="mhR-mO-3hj" id="WkT-ZF-h3M"/>
+                        <outlet property="endButton" destination="0OW-Vy-B8e" id="0QD-MF-dn5"/>
                         <outlet property="feedButton" destination="z0Y-9Y-6EO" id="Kzz-rT-T67"/>
                         <outlet property="feedFoodToEat" destination="y5m-en-Hgp" id="OFA-yR-e6Z"/>
                         <outlet property="feedName" destination="LV5-Qw-XZ0" id="iHQ-ed-83o"/>
                         <outlet property="feedNormalFoodButton" destination="5EL-un-bHA" id="WUc-U1-rYt"/>
                         <outlet property="feedPanel" destination="SD6-Hh-LNT" id="7TJ-n7-9r2"/>
                         <outlet property="feedSnackButton" destination="zXo-nT-McW" id="ehI-ff-lOJ"/>
+                        <outlet property="forceCare" destination="48a-Lm-aB6" id="bWN-se-Acf"/>
+                        <outlet property="forceClean" destination="GrY-Pd-Up4" id="d6z-xa-hJ1"/>
+                        <outlet property="forceHelp" destination="ilt-rY-op9" id="fJI-0R-hjL"/>
+                        <outlet property="forceScold" destination="CNJ-SM-UqW" id="bh3-GQ-lE5"/>
                         <outlet property="help" destination="EAe-zM-yZ2" id="3qO-cm-rDD"/>
                         <outlet property="helpButton" destination="rno-T4-qXc" id="5sa-Il-tmd"/>
                         <outlet property="helpDone" destination="ZWO-Ms-SdP" id="mWL-Ot-hJN"/>
@@ -575,11 +693,10 @@
                         <outlet property="inhaleLoop" destination="Na7-58-gjp" id="zIV-yi-sWj"/>
                         <outlet property="left" destination="aEF-9a-K98" id="PGb-HX-oiy"/>
                         <outlet property="lightsButton" destination="nDS-94-Qzb" id="dyG-bW-gvP"/>
-                        <outlet property="loggedAsUsernameLabel" destination="vfZ-hA-F4S" id="Sim-Ec-mBZ"/>
                         <outlet property="nightImage" destination="avW-vG-Brh" id="mXc-W7-eGh"/>
                         <outlet property="nightOverlay" destination="i7w-29-U1W" id="hYT-ZR-UYw"/>
                         <outlet property="paint" destination="ofl-Z1-Olx" id="LvA-1V-wPn"/>
-                        <outlet property="pickNewUserButton" destination="ilt-rY-op9" id="X8l-du-QIz"/>
+                        <outlet property="paintPanel" destination="QId-E1-md4" id="48Q-Ov-rLr"/>
                         <outlet property="playButton" destination="Jw7-je-1kb" id="IuK-uJ-8la"/>
                         <outlet property="playLeftButton" destination="mPc-fx-mco" id="96M-mg-t5v"/>
                         <outlet property="playName" destination="gLC-gw-hQ7" id="DQf-Dv-8nG"/>
@@ -615,7 +732,6 @@
                         <outlet property="statusName" destination="7zt-jS-kLL" id="W97-N8-gFT"/>
                         <outlet property="statusPanel" destination="zKz-qe-357" id="SdH-9S-UDN"/>
                         <outlet property="statusWeight" destination="gGZ-jW-6kv" id="EV0-bh-GZe"/>
-                        <outlet property="volumeSlider" destination="fWL-PJ-RcH" id="fSg-Rw-k5O"/>
                         <outlet property="walking" destination="p9Q-tf-MT4" id="UC9-tb-Jz6"/>
                         <outlet property="walkingKirby" destination="okk-ZJ-gy8" id="Lgy-rM-vAP"/>
                     </connections>
@@ -801,10 +917,17 @@
         <image name="middle_background.png" width="1078" height="366"/>
         <image name="night.png" width="1005" height="357"/>
         <image name="reverse_walking1.png" width="120" height="120"/>
+        <image name="smears1.png" width="120" height="120"/>
+        <image name="smears2.png" width="120" height="120"/>
+        <image name="smears3.png" width="120" height="120"/>
+        <image name="smears4.png" width="120" height="120"/>
+        <image name="smears5.png" width="120" height="120"/>
+        <image name="smears6.png" width="120" height="120"/>
         <image name="submenu_background.png" width="610" height="300"/>
         <image name="title_screen_background.png" width="2000" height="2000"/>
         <image name="top.png" width="682" height="109"/>
         <image name="walking1.png" width="120" height="120"/>
+        <image name="walking5.png" width="120" height="120"/>
     </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

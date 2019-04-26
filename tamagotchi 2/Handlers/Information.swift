@@ -88,6 +88,7 @@ public class KirbyStatus
     public var Status: EStatus { get { return info.status; } }
     public var CurrentEvent: EKirbyEvent { get { return info.currentEvent; } }
     public var CanFeed: Bool {get {return info.hunger < MAX_VALUE_PER_STAT; }}
+    public var ClearedGame: Bool {get { return info.progress > (MAX_DISTANCE_POSSIBLE-1); } }
     private(set) public var Hunger: Int
     {
         get { return info.hunger; }
@@ -169,6 +170,26 @@ public class KirbyStatus
         isRunning = !CurrentEventHaltsKirby;
     }
     
+    public func Debug_SetCurrentEvent(_ newCurrentEvent: EKirbyEvent)
+    {
+        info.currentEvent = newCurrentEvent;
+    }
+    
+    public func Debug_MaxStats()
+    {
+        info.hunger = 10;
+        info.hungerStep = 0;
+        info.discipline = 10;
+        info.disciplineStep = 0;
+        info.happiness = 10;
+        info.happinessStep = 0;
+    }
+    
+    public func Debug_GoNearEnd()
+    {
+        info.progress = MAX_DISTANCE_POSSIBLE - 10;
+    }
+    
     public func UpdateProgressBar(_ progressCounter: UILabel)
     {
         let rounded = round(info.progress * 4.0)/4.0;
@@ -183,33 +204,44 @@ public class KirbyStatus
     public func OnTimeTick()
     {
         var factor: Float = 1;
-        if (info.currentEvent == EKirbyEvent.Rebel) { factor = -1; }
+        if (info.currentEvent == EKirbyEvent.Rebel) { factor = -2.2; }
         if (!isRunning || CurrentEventHaltsKirby) { factor = 0; }
         info.progress += ProgressPerSecond * ScheduledEventsHandler.TICK_TIMER * factor;
         if (info.progress > MAX_DISTANCE_POSSIBLE) { info.progress = MAX_DISTANCE_POSSIBLE; }
+        else if (info.progress < 0) {info.progress = 0;}
     }
     
     public func HelpedKirby()
     {
         HappinessStep += 4;
         DisciplineStep += 1;
+        FinishedEvent();
     }
     
     public func CleanedKirby()
     {
         DisciplineStep += 4;
         HappinessStep -= 1;
+        FinishedEvent();
     }
     
     public func ScoldedKirby()
     {
         DisciplineStep += 4;
         HappinessStep -= 2;
+        FinishedEvent();
     }
     
     public func CaredForKirby()
     {
         HappinessStep += 5;
+        FinishedEvent();
+    }
+    
+    private func FinishedEvent()
+    {
+        info.currentEvent = EKirbyEvent.None;
+        Information.SaveProgress();
     }
     
     public func FedKirby(_ fedSnack: Bool)
@@ -342,7 +374,7 @@ public struct Information
     {
         get
         {
-             defaults.removeObject(forKey: USER_DEFAULTS_KEY); // This can delete all traces of saved data.
+             // defaults.removeObject(forKey: USER_DEFAULTS_KEY); // This can delete all traces of saved data.
             // This is a placeholder that always returns a new status, intended to later plug a save file and return it through here once retrieved.
             if (kirbyStatus == nil) { kirbyStatus = LocalSave; SaveProgress(); }
             return kirbyStatus;

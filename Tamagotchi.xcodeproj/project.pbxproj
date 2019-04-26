@@ -13,6 +13,7 @@
 		49107D9D22722AD500D55A7A /* cheer12.png in Resources */ = {isa = PBXBuildFile; fileRef = 49107D9922722AD400D55A7A /* cheer12.png */; };
 		49107D9E22722AD500D55A7A /* cheer13.png in Resources */ = {isa = PBXBuildFile; fileRef = 49107D9A22722AD500D55A7A /* cheer13.png */; };
 		49107D9F22722AD500D55A7A /* cheer11.png in Resources */ = {isa = PBXBuildFile; fileRef = 49107D9B22722AD500D55A7A /* cheer11.png */; };
+		49107DA3227283A800D55A7A /* PassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107DA2227283A800D55A7A /* PassThroughView.swift */; };
 		F1762EC6223F23DE00DFB199 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1762EC5223F23DE00DFB199 /* AppDelegate.swift */; };
 		F1762EC8223F23DE00DFB199 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1762EC7223F23DE00DFB199 /* ViewController.swift */; };
 		F1762ECB223F23DE00DFB199 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1762EC9223F23DE00DFB199 /* Main.storyboard */; };
@@ -162,6 +163,7 @@
 		49107D9922722AD400D55A7A /* cheer12.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer12.png; path = Visuals/Animations/Cheer/cheer12.png; sourceTree = SOURCE_ROOT; };
 		49107D9A22722AD500D55A7A /* cheer13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer13.png; path = Visuals/Animations/Cheer/cheer13.png; sourceTree = SOURCE_ROOT; };
 		49107D9B22722AD500D55A7A /* cheer11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer11.png; path = Visuals/Animations/Cheer/cheer11.png; sourceTree = SOURCE_ROOT; };
+		49107DA2227283A800D55A7A /* PassThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassThroughView.swift; sourceTree = "<group>"; };
 		F1762EC2223F23DE00DFB199 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1762EC5223F23DE00DFB199 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1762EC7223F23DE00DFB199 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -414,6 +416,7 @@
 			children = (
 				FB56BF38226B8D6400C7B9BB /* UIOutlinedLabel.swift */,
 				49107D9422721A8300D55A7A /* RepeatingTimer.swift */,
+				49107DA2227283A800D55A7A /* PassThroughView.swift */,
 			);
 			path = Custom_Classes;
 			sourceTree = "<group>";
@@ -904,6 +907,7 @@
 				FB13E260224F21880008420D /* UIImageViewExtension.swift in Sources */,
 				FBE793B52244955A0095A54C /* MainViewController.swift in Sources */,
 				F1762EC8223F23DE00DFB199 /* ViewController.swift in Sources */,
+				49107DA3227283A800D55A7A /* PassThroughView.swift in Sources */,
 				49107D97227220D600D55A7A /* IntExtension.swift in Sources */,
 				FB52DBC2226FE5CD0025CEE1 /* ScheduledEventsHandler.swift in Sources */,
 				FB192D142266B613000442A9 /* VisualsHandler.swift in Sources */,

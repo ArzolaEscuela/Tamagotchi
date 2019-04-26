@@ -24,7 +24,14 @@ enum EVisibleKirby
 
 public class MainViewController: UIViewController
 {
+    // Debug
+    @IBOutlet weak var forceHelp: UIButton!
+    @IBOutlet weak var forceClean: UIButton!
+    @IBOutlet weak var forceScold: UIButton!
+    @IBOutlet weak var forceCare: UIButton!
     
+    // Walking Kirbies + Progress
+    @IBOutlet weak var endButton: UIButton!
     @IBOutlet weak var progressLabel: UIOutlinedLabel!
     @IBOutlet weak var walkingKirby: UIImageView!
     @IBOutlet weak var reverseWalkingKirby: UIImageView!
@@ -44,6 +51,9 @@ public class MainViewController: UIViewController
     @IBOutlet weak var playName: UIOutlinedLabel!
     @IBOutlet weak var playLeftButton: UIButton!
     @IBOutlet weak var playRightButton: UIButton!
+    
+    // Paint Panel
+    @IBOutlet weak var paintPanel: UIView!
     
     // Bottom Buttons
     @IBOutlet weak var cleanButton: UIButton!
@@ -116,10 +126,7 @@ public class MainViewController: UIViewController
     
     // Settings Panel
     @IBOutlet weak var settingsPanel: UIView!
-    @IBOutlet weak var volumeSlider: UISlider!
     @IBOutlet weak var closeSettingsPanelButton: UIButton!
-    @IBOutlet weak var loggedAsUsernameLabel: UILabel!
-    @IBOutlet weak var pickNewUserButton: UIButton!
     
     // Feed Button
     @IBOutlet weak var feedPanel: UIView!
@@ -166,6 +173,8 @@ public class MainViewController: UIViewController
     private var leftTarget: CGFloat!;
     private var rightTarget: CGFloat!;
     private var targetDistance: CGFloat!;
+    private var targetPaintPanelOut: CGFloat!;
+    private var targetPaintPanelInitial: CGFloat!;
     
     private static var timedEventsHandler : ScheduledEventsHandler = ScheduledEventsHandler();
     var currentlyActive: SubSections = SubSections.Main;
@@ -200,6 +209,7 @@ public class MainViewController: UIViewController
         currentlyActive = SubSections.Main;
         
         if (setAsRunning){SetAsRunning(true);}
+        PrepareKirbyInCaseOfEvent();
     }
     
     /** Checks if the provided section should be turned on or not. If it should be, the application status is now that it will be within that section (so proper changes need to be made). If it isnt supposed to be active anymore, it will automatically go back to the main menu.*/
@@ -213,6 +223,12 @@ public class MainViewController: UIViewController
         
         BackToMainMenu(false);
         return false;
+    }
+    
+    @IBAction func OnEndButtonPressed(_ sender: Any)
+    {
+        let url = NSURL(string: "https://www.youtube.com/watch?v=ynfY6FcBWD8")!;
+        UIApplication.shared.openURL(url as URL);
     }
     
     @IBAction func OnSettingButtonPressed(_ sender: Any)
@@ -334,8 +350,7 @@ public class MainViewController: UIViewController
         {
             self.kirby.ViewAnimation(EAnimation.SleepLoop);
         }
-    }
-    
+    }    
     
     @IBAction func OnPlayButtonPressed(_ sender: Any)
     {
@@ -344,16 +359,51 @@ public class MainViewController: UIViewController
         DisableAllPanelsExcept(playPanel);
     }
     
-    @IBAction func OnHealButtonPressed(_ sender: Any)
+    @IBAction func OnHelpButtonPressed(_ sender: Any)
     {
-        if (!ShouldEnableSection(SubSections.Heal)) { return; }
-        DisableAllButtonsExcept(helpButton);
+        BackToMainMenu(false);
+        SetAllNonTopButtonsEnabledState(false);
+        SetAsRunning(false);
+        
+        self.kirby.AttemptToPlayOneshotAnimation(EAnimation.HelpEnd);
+        
+        delay(bySeconds: AnimationHandler.helpEndAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
+        {
+            
+            self.kirby.AttemptToPlayOneshotAnimation(EAnimation.Cheer);
+
+            delay(bySeconds: AnimationHandler.cheerAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
+            {
+                Information.TamagotchiStatus.HelpedKirby();
+                self.nonStaticKirbyNeeded = true;
+                self.AttemptToUpdateForEventAfterTimer(0);
+                self.BackToMainMenu(true);
+            }
+        }
     }
     
     @IBAction func OnCleanButtonPressed(_ sender: Any)
     {
-        if (!ShouldEnableSection(SubSections.Clean)) { return; }
-        DisableAllButtonsExcept(cleanButton);
+        BackToMainMenu(false);
+        SetAllNonTopButtonsEnabledState(false);
+        SetAsRunning(false);
+        
+        let totalMoveDuration = AnimationHandler.cheerAnimation.AwaitableAnimationDuration;
+        
+        UIView.animate(withDuration: totalMoveDuration, delay: 0, options: [.curveEaseInOut , .allowUserInteraction], animations:
+        {
+                self.paintPanel.center.x =  self.targetPaintPanelOut;
+        }, completion: nil)
+        
+        self.kirby.AttemptToPlayOneshotAnimation(EAnimation.Cheer);
+        
+        delay(bySeconds: AnimationHandler.cheerAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
+        {
+            Information.TamagotchiStatus.CleanedKirby();
+            self.nonStaticKirbyNeeded = true;
+            self.AttemptToUpdateForEventAfterTimer(0);
+            self.BackToMainMenu(true);
+        }
     }
     
     private func SetStatusPanels()
@@ -374,14 +424,38 @@ public class MainViewController: UIViewController
     
     @IBAction func OnScoldButtonPressed(_ sender: Any)
     {
-        if (!ShouldEnableSection(SubSections.Scold)) { return; }
-        DisableAllButtonsExcept(scoldButton);
+        BackToMainMenu(false);
+        SetAllNonTopButtonsEnabledState(false);
+        SetAsRunning(false);
+        SetStaticKirbyVisibility(true);
+        
+        self.kirby.ViewAnimation(EAnimation.Angry);
+        
+        delay(bySeconds: AnimationHandler.angryAnimation.AwaitableAnimationDuration, dispatchLevel: .main)
+        {
+            Information.TamagotchiStatus.ScoldedKirby();
+            self.nonStaticKirbyNeeded = true;
+            self.AttemptToUpdateForEventAfterTimer(0);
+            self.BackToMainMenu(true);
+        }
     }
     
     @IBAction func OnCareButtonPressed(_ sender: Any)
     {
-        if (!ShouldEnableSection(SubSections.Care)) { return; }
-        DisableAllButtonsExcept(careButton);
+        BackToMainMenu(false);
+        SetAllNonTopButtonsEnabledState(false);
+        SetAsRunning(false);
+        SetStaticKirbyVisibility(true);
+        
+        self.kirby.AttemptToPlayOneshotAnimation(EAnimation.Cheer);
+        
+        delay(bySeconds: AnimationHandler.cheerAnimation.AwaitableAnimationDuration - 0.2, dispatchLevel: .main)
+        {
+            Information.TamagotchiStatus.CaredForKirby();
+            self.nonStaticKirbyNeeded = true;
+            self.AttemptToUpdateForEventAfterTimer(0);
+            self.BackToMainMenu(true);
+        }
     }
     
     private func DisableAllPanelsExcept(_ panel: UIView)
@@ -401,6 +475,7 @@ public class MainViewController: UIViewController
         SetSinglePanelEnabledState(feedPanel, state);
         SetSinglePanelEnabledState(statusPanel, state);
         SetSinglePanelEnabledState(playPanel, state);
+        SetSinglePanelEnabledState(paintPanel, state);
     }
     
     private func SetSingleButtonEnabledState(_ button: UIButton, _ newState: Bool)
@@ -503,7 +578,8 @@ public class MainViewController: UIViewController
         SetSingleButtonEnabledState(playButton, state);
         HandleSpecialStateButton(state, helpButton, EKirbyEvent.Stuck);
     
-        HandleSpecialStateButton(state, cleanButton, EKirbyEvent.Painting);        SetSingleButtonEnabledState(statusButton, state);
+        HandleSpecialStateButton(state, cleanButton, EKirbyEvent.Painting);
+        SetSingleButtonEnabledState(statusButton, state);
         HandleSpecialStateButton(state, scoldButton, EKirbyEvent.Rebel);
         HandleSpecialStateButton(state, careButton, EKirbyEvent.CareAble);
     }
@@ -518,6 +594,7 @@ public class MainViewController: UIViewController
         AnimationHandler.walkingAnimation.PlayAnimation(walkingKirby);
         walkingKirby.center.x = leftTarget;
         walkingKirby.startAnimating();
+        AnimationHandler.reverseWalkingAnimation.PlayAnimation(reverseWalkingKirby);
         reverseWalkingKirby.center.x = rightTarget;
         reverseWalkingKirby.startAnimating();
     }
@@ -640,11 +717,20 @@ public class MainViewController: UIViewController
         AttemptToUpdateForEvent();
         feedFoodToEat.isHidden = true;
         progressLabel.text = "";
+        SetClearedGameState();
     }
     
     public func Update()
     {
         Information.TamagotchiStatus.UpdateProgressBar(progressLabel);
+        SetClearedGameState();
+    }
+    
+    private func SetClearedGameState()
+    {
+        let clearedGame = Information.TamagotchiStatus.ClearedGame;
+        endButton.isHidden = !clearedGame;
+        progressLabel.isHidden = clearedGame;
     }
     
     override public func viewDidLoad()
@@ -659,12 +745,17 @@ public class MainViewController: UIViewController
         leftTarget = center - ScreenWidth/2 - width;
         rightTarget = center + ScreenWidth/2 + width;
         targetDistance = rightTarget - leftTarget;
+        let paintPanelWidth = paintPanel.bounds.size.width;
+        targetPaintPanelInitial = paintPanel.center.x;
+        targetPaintPanelOut = targetPaintPanelInitial + ScreenWidth/2 + paintPanelWidth;
     }
-    
+    private var afterAppear: Bool = false;
     public override func viewDidAppear(_ animated: Bool)
     {
         StartMovingKirby();
         Information.mainViewController = self;
+        afterAppear = true;
+        PrepareKirbyInCaseOfEvent();
     }
     
     public override func didReceiveMemoryWarning()
@@ -675,5 +766,70 @@ public class MainViewController: UIViewController
     override open var shouldAutorotate: Bool
     {
         return false;
+    }
+    
+    public func PrepareKirbyInCaseOfEvent()
+    {
+        if (!afterAppear){return;}
+        let currentEvent = Information.TamagotchiStatus.CurrentEvent;
+        switch currentEvent
+        {
+        case EKirbyEvent.Painting:
+            SetAllPanelsEnabledState(false);
+            paintPanel.center.x = targetPaintPanelInitial;
+            SetSinglePanelEnabledState(paintPanel, true);
+            SetStaticKirbyVisibility(true);
+            kirby.ViewAnimation(EAnimation.Paint);
+            return;
+        case EKirbyEvent.Stuck:
+            SetStaticKirbyVisibility(true);
+            kirby.ViewAnimation(EAnimation.HelpLoop);
+            return;
+        case EKirbyEvent.Rebel:
+            SetStaticKirbyVisibility(false);
+        default: return;
+        }
+    }
+    
+    // Debug
+    @IBAction func OnForceHelp(_ sender: Any)
+    {
+        Information.TamagotchiStatus.Debug_SetCurrentEvent(EKirbyEvent.Stuck);
+        OnSettingButtonPressed(self);
+        PrepareKirbyInCaseOfEvent();
+    }
+    @IBAction func OnForceClean(_ sender: Any)
+    {
+        Information.TamagotchiStatus.Debug_SetCurrentEvent(EKirbyEvent.Painting);
+        OnSettingButtonPressed(self);
+        PrepareKirbyInCaseOfEvent();
+    }
+    @IBAction func OnForceScold(_ sender: Any)
+    {
+        Information.TamagotchiStatus.Debug_SetCurrentEvent(EKirbyEvent.Rebel);
+        OnSettingButtonPressed(self);
+        PrepareKirbyInCaseOfEvent();
+    }
+    @IBAction func OnForceCare(_ sender: Any)
+    {
+        Information.TamagotchiStatus.Debug_SetCurrentEvent(EKirbyEvent.CareAble);
+        OnSettingButtonPressed(self);
+        PrepareKirbyInCaseOfEvent();
+    }
+    @IBAction func OnMaxStats(_ sender: Any)
+    {
+        Information.TamagotchiStatus.Debug_MaxStats();
+        OnSettingButtonPressed(self);
+    }
+    @IBAction func OnAdvanceToNearEnd(_ sender: Any)
+    {
+        Information.TamagotchiStatus.Debug_GoNearEnd();
+        OnSettingButtonPressed(self);
+    }
+    @IBAction func OnResetAllProgress(_ sender: Any)
+    {
+        Information.Debug_ResetSaveData();
+        SetClearedGameState();
+        BackToMainMenu(false);
     }
 }

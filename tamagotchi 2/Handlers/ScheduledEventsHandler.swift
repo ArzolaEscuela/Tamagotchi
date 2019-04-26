@@ -22,7 +22,7 @@ public class ScheduledEvent
 
 public class ScheduledEventsHandler
 {
-    public static let TICK_TIMER: Float = 0.1;
+    public static let TICK_TIMER: Float = 1;
     private static let AUTO_SAVE_TIMER: Float = 60;
     
     public static var events = [ScheduledEvent]();

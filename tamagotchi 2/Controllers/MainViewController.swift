@@ -771,6 +771,7 @@ public class MainViewController: UIViewController
     public func PrepareKirbyInCaseOfEvent()
     {
         if (!afterAppear){return;}
+        Information.TamagotchiStatus.UpdateKirbyStatusCircle(currentMood);
         let currentEvent = Information.TamagotchiStatus.CurrentEvent;
         switch currentEvent
         {

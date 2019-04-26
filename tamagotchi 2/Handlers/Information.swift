@@ -201,6 +201,32 @@ public class KirbyStatus
         self.isRunning = isRunning;
     }
     
+    public func UpdateKirbyStatusCircle(_ statusCircle: UIImageView)
+    {
+        switch CurrentEvent
+        {
+        case EKirbyEvent.Rebel:
+            statusCircle.image = VisualsHandler.StatusSad;
+            return;
+        case EKirbyEvent.Stuck:
+            statusCircle.image = VisualsHandler.StatusSad;
+            return;
+        case EKirbyEvent.Tired:
+            statusCircle.image = VisualsHandler.StatusSad;
+            return;
+        case EKirbyEvent.Hungry:
+            statusCircle.image = VisualsHandler.StatusSad;
+            return;
+        default: break;
+        }
+        if (Happiness > 8)
+        {
+            statusCircle.image = VisualsHandler.StatusHappy;
+            return;
+        }
+        statusCircle.image = VisualsHandler.StatusNormal;
+    }
+    
     public func OnTimeTick()
     {
         var factor: Float = 1;

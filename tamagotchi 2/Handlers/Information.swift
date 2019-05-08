@@ -377,12 +377,37 @@ public struct Information
             let jsonString = String(data: jsonData, encoding: .utf8);
             defaults.set(jsonString, forKey: USER_DEFAULTS_KEY);
             
-            let onlineBackup = PFObject(className: SAVE_FILE_CLASS_NAME);
-            onlineBackup[SAVE_FILE_DATA_COLUMN_NAME] = jsonString;
-            onlineBackup[SAVE_FILE_DEVICE_ID_COLUMN_NAME] = HardwareID;
-            onlineBackup.saveInBackground { (success, error) in
-                NSLog(error.debugDescription)
+            let query = PFQuery(className: SAVE_FILE_CLASS_NAME);
+            query.whereKey(SAVE_FILE_DEVICE_ID_COLUMN_NAME, equalTo: HardwareID);
+            query.findObjectsInBackground { (objects, error) in
+                if (error == nil)
+                {
+                    if (objects?.count == 0)
+                    {
+                        let onlineBackup = PFObject(className: SAVE_FILE_CLASS_NAME);
+                        onlineBackup[SAVE_FILE_DATA_COLUMN_NAME] = jsonString;
+                        onlineBackup[SAVE_FILE_DEVICE_ID_COLUMN_NAME] = HardwareID;
+                        onlineBackup.saveInBackground();
+                        return;
+                    }
+                    if let returnedObjects = objects
+                    {
+                        for obj in returnedObjects
+                        {
+                            obj[SAVE_FILE_DATA_COLUMN_NAME] = jsonString;
+                            obj[SAVE_FILE_DEVICE_ID_COLUMN_NAME] = HardwareID;
+                            obj.saveInBackground();
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    NSLog("SaveProgress: " + error.debugDescription);
+                }
             }
+            
+            
         }
         catch { }
     }
@@ -429,6 +454,10 @@ public struct Information
                         break;
                     }
                 }
+            }
+            else
+            {
+                NSLog("AttemptToLoadCloudSave: " + error.debugDescription);
             }
         }
         

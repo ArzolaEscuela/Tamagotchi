@@ -1,11 +1,19 @@
 import UIKit
+import Parse
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool
+    {
+        let configuration = ParseClientConfiguration { (config) in
+            config.applicationId = "d4VsxXegOqQaWOtFs3H06S8bhf4Me13PkGlFdTuI";
+            config.clientKey = "WID8M6y89h0hhFO3n3mrDfjzZluBAyR80u6usbpK";
+            config.server = "https://parseapi.back4app.com";
+        }
+        Parse.initialize(with: configuration);
         return true
     }
     /*func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

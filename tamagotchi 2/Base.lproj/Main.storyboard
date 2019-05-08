@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HWu-WS-rtG">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="HWu-WS-rtG">
     <device id="retina5_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
@@ -275,9 +274,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0OW-Vy-B8e" userLabel="End Button">
-                                <rect key="frame" x="0.0" y="230" width="61" height="61"/>
+                                <rect key="frame" x="5" y="235" width="56" height="56"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="walking5.png"/>
+                                <state key="normal" image="trophy.png"/>
                                 <connections>
                                     <action selector="OnEndButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="gch-OG-rF4"/>
                                 </connections>
@@ -464,7 +463,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mPc-fx-mco" userLabel="Left">
                                         <rect key="frame" x="58" y="99" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="Peach.png"/>
+                                        <state key="normal" image="left.png"/>
                                         <connections>
                                             <action selector="OnPlayLeftButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="IVD-46-Sxb"/>
                                         </connections>
@@ -472,7 +471,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Epi-2j-Syx" userLabel="Right">
                                         <rect key="frame" x="215" y="99" width="128" height="128"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" image="Sushi.png"/>
+                                        <state key="normal" image="right.png"/>
                                         <connections>
                                             <action selector="OnPlayRightButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="S2k-Jp-88u"/>
                                         </connections>
@@ -905,18 +904,18 @@
         <image name="Home.png" width="185" height="200"/>
         <image name="Lights Button.png" width="64" height="64"/>
         <image name="Meat.png" width="96" height="96"/>
-        <image name="Peach.png" width="84" height="72"/>
         <image name="Play Button.png" width="64" height="64"/>
         <image name="Scold Button.png" width="64" height="64"/>
         <image name="Settings.png" width="43" height="40"/>
         <image name="Status Button.png" width="64" height="64"/>
-        <image name="Sushi.png" width="78" height="75"/>
         <image name="button_area_background.png" width="305" height="150"/>
         <image name="day.png" width="859" height="431"/>
         <image name="happy.png" width="120" height="120"/>
+        <image name="left.png" width="530" height="270"/>
         <image name="middle_background.png" width="1078" height="366"/>
         <image name="night.png" width="1005" height="357"/>
         <image name="reverse_walking1.png" width="120" height="120"/>
+        <image name="right.png" width="530" height="270"/>
         <image name="smears1.png" width="120" height="120"/>
         <image name="smears2.png" width="120" height="120"/>
         <image name="smears3.png" width="120" height="120"/>
@@ -926,8 +925,8 @@
         <image name="submenu_background.png" width="610" height="300"/>
         <image name="title_screen_background.png" width="2000" height="2000"/>
         <image name="top.png" width="682" height="109"/>
+        <image name="trophy.png" width="135" height="134.25"/>
         <image name="walking1.png" width="120" height="120"/>
-        <image name="walking5.png" width="120" height="120"/>
     </resources>
     <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
 </document>

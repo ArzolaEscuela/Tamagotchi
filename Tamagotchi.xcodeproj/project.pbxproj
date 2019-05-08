@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		490E9C4722826D0500B0C2FC /* right.png in Resources */ = {isa = PBXBuildFile; fileRef = 490E9C4422826D0500B0C2FC /* right.png */; };
+		490E9C4822826D0500B0C2FC /* left.png in Resources */ = {isa = PBXBuildFile; fileRef = 490E9C4522826D0500B0C2FC /* left.png */; };
+		490E9C4922826D0500B0C2FC /* trophy.png in Resources */ = {isa = PBXBuildFile; fileRef = 490E9C4622826D0500B0C2FC /* trophy.png */; };
+		490E9C4B228276A700B0C2FC /* ParseConnectionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 490E9C4A228276A700B0C2FC /* ParseConnectionHandler.swift */; };
 		49107D9522721A8300D55A7A /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107D9422721A8300D55A7A /* RepeatingTimer.swift */; };
 		49107D97227220D600D55A7A /* IntExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107D96227220D600D55A7A /* IntExtension.swift */; };
 		49107D9C22722AD500D55A7A /* cheer14.png in Resources */ = {isa = PBXBuildFile; fileRef = 49107D9822722AD400D55A7A /* cheer14.png */; };
@@ -14,6 +18,7 @@
 		49107D9E22722AD500D55A7A /* cheer13.png in Resources */ = {isa = PBXBuildFile; fileRef = 49107D9A22722AD500D55A7A /* cheer13.png */; };
 		49107D9F22722AD500D55A7A /* cheer11.png in Resources */ = {isa = PBXBuildFile; fileRef = 49107D9B22722AD500D55A7A /* cheer11.png */; };
 		49107DA3227283A800D55A7A /* PassThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49107DA2227283A800D55A7A /* PassThroughView.swift */; };
+		820E2984085FA5D3ADB702E0 /* Pods_Tamagotchi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 96555719F546E6474A9495BC /* Pods_Tamagotchi.framework */; };
 		F1762EC6223F23DE00DFB199 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1762EC5223F23DE00DFB199 /* AppDelegate.swift */; };
 		F1762EC8223F23DE00DFB199 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1762EC7223F23DE00DFB199 /* ViewController.swift */; };
 		F1762ECB223F23DE00DFB199 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F1762EC9223F23DE00DFB199 /* Main.storyboard */; };
@@ -157,6 +162,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		204B3C24B71D2A3C30F56355 /* Pods-Tamagotchi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tamagotchi.debug.xcconfig"; path = "Target Support Files/Pods-Tamagotchi/Pods-Tamagotchi.debug.xcconfig"; sourceTree = "<group>"; };
+		490E9C4422826D0500B0C2FC /* right.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = right.png; path = Visuals/main_menu/right.png; sourceTree = SOURCE_ROOT; };
+		490E9C4522826D0500B0C2FC /* left.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = left.png; path = Visuals/main_menu/left.png; sourceTree = SOURCE_ROOT; };
+		490E9C4622826D0500B0C2FC /* trophy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = trophy.png; path = Visuals/main_menu/trophy.png; sourceTree = SOURCE_ROOT; };
+		490E9C4A228276A700B0C2FC /* ParseConnectionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParseConnectionHandler.swift; sourceTree = "<group>"; };
 		49107D9422721A8300D55A7A /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
 		49107D96227220D600D55A7A /* IntExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntExtension.swift; sourceTree = "<group>"; };
 		49107D9822722AD400D55A7A /* cheer14.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer14.png; path = Visuals/Animations/Cheer/cheer14.png; sourceTree = SOURCE_ROOT; };
@@ -164,6 +174,7 @@
 		49107D9A22722AD500D55A7A /* cheer13.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer13.png; path = Visuals/Animations/Cheer/cheer13.png; sourceTree = SOURCE_ROOT; };
 		49107D9B22722AD500D55A7A /* cheer11.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cheer11.png; path = Visuals/Animations/Cheer/cheer11.png; sourceTree = SOURCE_ROOT; };
 		49107DA2227283A800D55A7A /* PassThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PassThroughView.swift; sourceTree = "<group>"; };
+		96555719F546E6474A9495BC /* Pods_Tamagotchi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tamagotchi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1762EC2223F23DE00DFB199 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F1762EC5223F23DE00DFB199 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F1762EC7223F23DE00DFB199 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -171,6 +182,7 @@
 		F1762ECC223F23DE00DFB199 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F1762ECF223F23DE00DFB199 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F1762ED1223F23DE00DFB199 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F49EDAB216DC8567E2A302E4 /* Pods-Tamagotchi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tamagotchi.release.xcconfig"; path = "Target Support Files/Pods-Tamagotchi/Pods-Tamagotchi.release.xcconfig"; sourceTree = "<group>"; };
 		FB13E25F224F21880008420D /* UIImageViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageViewExtension.swift; sourceTree = "<group>"; };
 		FB192D132266B613000442A9 /* VisualsHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VisualsHandler.swift; sourceTree = "<group>"; };
 		FB52DBC1226FE5CD0025CEE1 /* ScheduledEventsHandler.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScheduledEventsHandler.swift; sourceTree = "<group>"; };
@@ -313,17 +325,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				820E2984085FA5D3ADB702E0 /* Pods_Tamagotchi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7FB44517D3B36B9D2400CE0B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				204B3C24B71D2A3C30F56355 /* Pods-Tamagotchi.debug.xcconfig */,
+				F49EDAB216DC8567E2A302E4 /* Pods-Tamagotchi.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		D86B654001BA9AE535F195D3 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				96555719F546E6474A9495BC /* Pods_Tamagotchi.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		F1762EB9223F23DE00DFB199 = {
 			isa = PBXGroup;
 			children = (
 				F1762EC4223F23DE00DFB199 /* tamagotchi 2 */,
 				F1762EC3223F23DE00DFB199 /* Products */,
+				7FB44517D3B36B9D2400CE0B /* Pods */,
+				D86B654001BA9AE535F195D3 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -369,6 +401,7 @@
 				FBFEABD1224DBF80008ECDE2 /* Information.swift */,
 				FB192D132266B613000442A9 /* VisualsHandler.swift */,
 				FBFEABB2224D996E008ECDE2 /* AnimationHandler.swift */,
+				490E9C4A228276A700B0C2FC /* ParseConnectionHandler.swift */,
 			);
 			path = Handlers;
 			sourceTree = "<group>";
@@ -507,6 +540,9 @@
 		FBFEABEC224DC8F1008ECDE2 /* main */ = {
 			isa = PBXGroup;
 			children = (
+				490E9C4522826D0500B0C2FC /* left.png */,
+				490E9C4422826D0500B0C2FC /* right.png */,
+				490E9C4622826D0500B0C2FC /* trophy.png */,
 				FB56BF0F226B80D900C7B9BB /* submenu_background.png */,
 				FBFEAC21224DCA9E008ECDE2 /* top.png */,
 				FBFEAC1F224DCA95008ECDE2 /* bottom.png */,
@@ -705,9 +741,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F1762ED4223F23DE00DFB199 /* Build configuration list for PBXNativeTarget "Tamagotchi" */;
 			buildPhases = (
+				955D7AA21D46F72500B29EE6 /* [CP] Check Pods Manifest.lock */,
 				F1762EBE223F23DE00DFB199 /* Sources */,
 				F1762EBF223F23DE00DFB199 /* Frameworks */,
 				F1762EC0223F23DE00DFB199 /* Resources */,
+				2726EDBFC849DCC6509EB2DC /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -740,6 +778,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 				Base,
 			);
@@ -763,6 +802,7 @@
 				FBFEABFA224DC90D008ECDE2 /* Scold Button.png in Resources */,
 				FBFEAC5E224DCB3A008ECDE2 /* sleeping2.png in Resources */,
 				FBFEAC7E224DCB76008ECDE2 /* smears2.png in Resources */,
+				490E9C4922826D0500B0C2FC /* trophy.png in Resources */,
 				49107D9E22722AD500D55A7A /* cheer13.png in Resources */,
 				FBFEAC7D224DCB76008ECDE2 /* smears1.png in Resources */,
 				FB56BF32226B81A600C7B9BB /* reverse_walking7.png in Resources */,
@@ -788,6 +828,7 @@
 				FBFEABF6224DC90D008ECDE2 /* Care Button.png in Resources */,
 				FBFEABCA224DBD15008ECDE2 /* walking9.png in Resources */,
 				FBFEAC02224DC97A008ECDE2 /* night.png in Resources */,
+				490E9C4722826D0500B0C2FC /* right.png in Resources */,
 				FBFEAC4B224DCB17008ECDE2 /* help2.png in Resources */,
 				FB56BF35226B81A600C7B9BB /* reverse_walking8.png in Resources */,
 				FBFEABC8224DBD15008ECDE2 /* walking8.png in Resources */,
@@ -859,6 +900,7 @@
 				FBFEAC31224DCAF6008ECDE2 /* right2.png in Resources */,
 				FBFEAC47224DCB17008ECDE2 /* help4.png in Resources */,
 				FBFEAC45224DCB17008ECDE2 /* help5.png in Resources */,
+				490E9C4822826D0500B0C2FC /* left.png in Resources */,
 				FBFEAC94224DCBB6008ECDE2 /* inhale_eat6.png in Resources */,
 				FBFEAC93224DCBB6008ECDE2 /* inhale_eat5.png in Resources */,
 				FBFEAC5C224DCB3A008ECDE2 /* sleeping10.png in Resources */,
@@ -897,6 +939,55 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		2726EDBFC849DCC6509EB2DC /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Tamagotchi/Pods-Tamagotchi-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Bolts/Bolts.framework",
+				"${BUILT_PRODUCTS_DIR}/Parse/Parse.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Bolts.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Parse.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Tamagotchi/Pods-Tamagotchi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		955D7AA21D46F72500B29EE6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Tamagotchi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		F1762EBE223F23DE00DFB199 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -914,6 +1005,7 @@
 				F1762EC6223F23DE00DFB199 /* AppDelegate.swift in Sources */,
 				FBFEABB7224DA4D4008ECDE2 /* TitleScreenViewController.swift in Sources */,
 				49107D9522721A8300D55A7A /* RepeatingTimer.swift in Sources */,
+				490E9C4B228276A700B0C2FC /* ParseConnectionHandler.swift in Sources */,
 				FBFEABB3224D996E008ECDE2 /* AnimationHandler.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1035,6 +1127,7 @@
 		};
 		F1762ED5223F23DE00DFB199 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 204B3C24B71D2A3C30F56355 /* Pods-Tamagotchi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "tamagotchi 2/Info.plist";
@@ -1048,6 +1141,7 @@
 		};
 		F1762ED6223F23DE00DFB199 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F49EDAB216DC8567E2A302E4 /* Pods-Tamagotchi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "tamagotchi 2/Info.plist";

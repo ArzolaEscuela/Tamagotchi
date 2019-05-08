@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Parse
 
 public class PhoneInformation
 {
@@ -345,6 +346,10 @@ public class KirbyStatus
 public struct Information
 {
     private static let USER_DEFAULTS_KEY: String = "KirbyGotchiJSON";
+    private static let SAVE_FILE_CLASS_NAME = "savefile";
+    private static let SAVE_FILE_DATA_COLUMN_NAME = "data";
+    private static let SAVE_FILE_DEVICE_ID_COLUMN_NAME = "device";
+    
     private static let defaults = UserDefaults.standard;
     private static let jsonEncoder = JSONEncoder()
     private static let jsonDecoder = JSONDecoder();
@@ -354,6 +359,7 @@ public struct Information
     public static var mainViewController: MainViewController!;
     public static var titleScreenViewController: TitleScreenViewController!;
     private static var kirbyStatus: KirbyStatus!;
+    private static var loadedCloudSave: Bool = false;
     
     private static var BrandNewInfo: KirbyInfo { get { return KirbyInfo(); } }
     
@@ -370,11 +376,19 @@ public struct Information
             let jsonData = try jsonEncoder.encode(kirbyStatus.Info);
             let jsonString = String(data: jsonData, encoding: .utf8);
             defaults.set(jsonString, forKey: USER_DEFAULTS_KEY);
+            
+            let onlineBackup = PFObject(className: SAVE_FILE_CLASS_NAME);
+            onlineBackup[SAVE_FILE_DATA_COLUMN_NAME] = jsonString;
+            onlineBackup[SAVE_FILE_DEVICE_ID_COLUMN_NAME] = HardwareID;
+            onlineBackup.saveInBackground { (success, error) in
+                NSLog(error.debugDescription)
+            }
         }
         catch { }
     }
     
     private static var SaveExists: Bool { return defaults.object(forKey: USER_DEFAULTS_KEY) != nil; }
+    private static var HardwareID: String { return UIDevice.current.identifierForVendor!.uuidString; }
     
     private static func LoadJSONAsData(_ json: String) -> KirbyInfo
     {
@@ -396,12 +410,37 @@ public struct Information
         return KirbyStatus(LoadJSONAsData(savedJson!));
     }
     
+    public static func AttemptToLoadCloudSave()
+    {
+        if (loadedCloudSave) {return;}
+        // We attempt to look for an online save file before anything else.
+        let query = PFQuery(className: SAVE_FILE_CLASS_NAME);
+        query.whereKey(SAVE_FILE_DEVICE_ID_COLUMN_NAME, equalTo: HardwareID);
+        query.findObjectsInBackground { (objects, error) in
+            if (error == nil)
+            {
+                if let returnedObjects = objects
+                {
+                    for obj in returnedObjects
+                    {
+                        loadedCloudSave = true;
+                        let json = obj[SAVE_FILE_DATA_COLUMN_NAME];
+                        kirbyStatus = KirbyStatus(LoadJSONAsData(json! as! String));
+                        break;
+                    }
+                }
+            }
+        }
+        
+    }
+    
     public static var TamagotchiStatus : KirbyStatus
     {
         get
         {
              // defaults.removeObject(forKey: USER_DEFAULTS_KEY); // This can delete all traces of saved data.
             // This is a placeholder that always returns a new status, intended to later plug a save file and return it through here once retrieved.
+            AttemptToLoadCloudSave();
             if (kirbyStatus == nil) { kirbyStatus = LocalSave; SaveProgress(); }
             return kirbyStatus;
         }
